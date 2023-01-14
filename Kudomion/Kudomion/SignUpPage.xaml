@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Kudomion.SignUpPage"
+             BackgroundImageSource="lgBg"
+             >
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Sign Up"
+                   FontAttributes="Bold"
+                   FontSize="25"
+                   TextColor="White"
+                   Margin="15"
+                HorizontalOptions="CenterAndExpand" />
+            
+            <Frame HorizontalOptions="Center" WidthRequest="330"  CornerRadius="30" Padding="3" BorderColor="RoyalBlue" BackgroundColor="Transparent">
+            <Entry x:Name="userName" HorizontalOptions="CenterAndExpand" WidthRequest="270" Placeholder="Enter Username.." ReturnType="Next" PlaceholderColor="gray" />
+            </Frame>
+            
+            <Frame HorizontalOptions="Center" WidthRequest="330"  CornerRadius="30" Padding="3" BackgroundColor="Transparent" BorderColor="RoyalBlue">
+                <Entry x:Name="password" HorizontalOptions="CenterAndExpand" WidthRequest="270" ReturnType="Next" MaxLength="17" IsPassword="True" Placeholder="Enter Password.." PlaceholderColor="Gray" />
+            </Frame>
+
+            <Frame HorizontalOptions="Center" WidthRequest="330"  CornerRadius="30" Padding="3" BackgroundColor="Transparent" BorderColor="RoyalBlue">
+                <Entry x:Name="confirmPassword" HorizontalOptions="CenterAndExpand" WidthRequest="270" ReturnType="Next" IsPassword="True" Placeholder="Confirm Password.." PlaceholderColor="Gray" />
+            </Frame>
+
+
+            <Button
+                x:Name="SignUpButton"
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
+                WidthRequest="200"
+                Text="Sign Up"
+                Padding="5"
+                TextColor="White"
+                Clicked="SignUpButton_Clicked"
+                BackgroundColor="RoyalBlue" 
+                CornerRadius="50"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

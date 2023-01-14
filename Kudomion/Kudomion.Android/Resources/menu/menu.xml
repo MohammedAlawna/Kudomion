@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+  <item android:id="@+id/nav_main" android:title="Welcome"></item>
+  <item android:id="@+id/deck_lists" android:title="Deck Lists"></item>
+  <item android:id="@+id/ygo_guide" android:title="YGO Guide"></item>
+  <item android:id="@+id/settings" android:title="Settings"></item>
+  <item android:id="@+id/log_out" android:title="logout"></item>
+
+</menu>
