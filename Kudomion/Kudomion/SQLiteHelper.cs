@@ -15,7 +15,19 @@ namespace Kudomion
             db.CreateTable<User>();
             db.CreateTable<Post>();
             db.CreateTable<Room>();
+            db.CreateTable<DeckItem>();
         }
+
+        public int CreateDeck(DeckItem itemToAdd)
+        {
+            return db.Insert(itemToAdd);
+        }
+
+        public List<DeckItem> ReadDecks()
+        {
+            return db.Table<DeckItem>().ToList();
+        }
+
 
         public int CreateRoom(Room room)
         {
@@ -27,7 +39,11 @@ namespace Kudomion
             return db.Table<Room>().ToList();
         }
 
-        
+        public int DeleteRoom(DeckItem itemToAdd)
+        {
+            return db.Delete(itemToAdd);
+        }
+
 
 
 
@@ -48,8 +64,6 @@ namespace Kudomion
             room.winner = winner.name;
             IncreasePoints(winner, 3);
             return db.Update(room);
-            
-
         }
 
         int IncreasePoints(User winner, int amount)
