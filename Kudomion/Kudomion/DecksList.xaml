@@ -4,5 +4,44 @@
              x:Class="Kudomion.DecksList"
              BackgroundColor="#202024"
              >
-   
+    <StackLayout>
+        <StackLayout>
+            <StackLayout>
+                <Frame Margin="15" BackgroundColor="#2c2c2c" HeightRequest="245">
+                    <Grid>
+                        <Label FontSize="25" HorizontalTextAlignment="Center" TextColor="White" FontAttributes="Bold" Text="Add Your Deck!"/>
+                        
+                    </Grid>
+                </Frame>
+            </StackLayout>
+            <StackLayout x:Name="allDecksToLoad">
+                <Frame Margin="15" BackgroundColor="#2c2c2c" x:Name="deckCard">
+                    <StackLayout>
+                        <CollectionView x:Name="decksToLoad">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <Frame BorderColor="Black" BackgroundColor="RoyalBlue">
+                                        <StackLayout HorizontalOptions="Center">
+                                            <Grid Padding="3">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition/>
+                                                    <RowDefinition/>
+                                                    <RowDefinition/>
+                                                </Grid.RowDefinitions>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition/>
+                                                </Grid.ColumnDefinitions>
+                                            </Grid>
+                                        </StackLayout> 
+                                    </Frame>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+        </StackLayout>
+    </StackLayout>
 </ContentPage>

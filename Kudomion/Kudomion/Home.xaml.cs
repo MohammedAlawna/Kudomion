@@ -57,7 +57,7 @@ namespace Kudomion
 
         private async void onClickDecks(object sender, EventArgs e)
         {
-            Console.WriteLine("Decks! Clicked!");
+            await Navigation.PushAsync(new DecksList());
         }
 
         private async void onClickYGOGuide(object sender, EventArgs e)
