@@ -13,6 +13,7 @@ namespace Kudomion
         public string title { get; set; }
         public string thumbSrc { get; set; }
         public string ydkeCode { get; set; }
+        public string ydkSrc { get; set; }
         
     }
 }

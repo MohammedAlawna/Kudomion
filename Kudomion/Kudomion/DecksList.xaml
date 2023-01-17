@@ -9,8 +9,8 @@
             <StackLayout>
                 <Frame Margin="15" BackgroundColor="#2c2c2c" HeightRequest="245">
                     <Grid>
-                        <Label FontSize="25" HorizontalTextAlignment="Center" TextColor="White" FontAttributes="Bold" Text="Add Your Deck!"/>
-                    </Grid>
+                        <Label FontSize="25" HorizontalTextAlignment="Center" TextColor="White" FontAttributes="Bold" Text="Add Your Deck!        \n  (Currently Unavailable)"/>
+                        </Grid>
                 </Frame>
             </StackLayout>
             <StackLayout x:Name="allDecksToLoad">
@@ -23,15 +23,19 @@
                                         <StackLayout HorizontalOptions="Center">
                                             <Grid Padding="3">
                                                 <Grid.RowDefinitions>
-                                                    <RowDefinition/>
-                                                    <RowDefinition/>
+                                                    <RowDefinition Height="30"/>
+                                                    <RowDefinition Height="90"/>
                                                     <RowDefinition/>
                                                 </Grid.RowDefinitions>
                                                 <Grid.ColumnDefinitions>
                                                     <ColumnDefinition/>
-                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition />
                                                     <ColumnDefinition/>
                                                 </Grid.ColumnDefinitions>
+                                                <Label x:Name="dckTitle" TextColor="White" FontSize="25" HorizontalTextAlignment="Center" Text="{Binding title}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" />
+                                                <Image Source="{Binding thumbSrc}" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3" />
+                                                <Button Grid.Column="2" Grid.Row="2" BackgroundColor="#2c2c2c" TextColor="White" Text="YDKe"/>
+                                                <Button Grid.Column="1" Grid.Row="2" Text="GetDeck" BackgroundColor="DarkOrange" TextColor="White"/>
                                             </Grid>
                                         </StackLayout> 
                                     </Frame>
