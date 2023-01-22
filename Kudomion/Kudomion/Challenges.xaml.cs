@@ -48,6 +48,7 @@ namespace Kudomion
                 await DisplayAlert("Missing Player!", "Please Enter Your Opponent Name", "OK!");
                 return;
             }
+            checkIfUserExistInLobby();
 
             Room roomToCreate = new Room();
             roomToCreate.p1 = p1.Text;
@@ -58,6 +59,21 @@ namespace Kudomion
             App.MyDatabase.CreateRoom(roomToCreate);
             //TODO Update Number of Duels for both players by 1.
             await DisplayAlert("Success!", "Room Added! Waiting for your opponent..", "OK!");
+        }
+        
+        bool checkIfUserExistInLobby()
+        {
+
+            var getAllRooms = App.MyDatabase.ReadAllRoomsToString();
+            if(getAllRooms.Contains(p1.Text) || getAllRooms.Contains(p2.SelectedItem))
+            {
+                DisplayAlert("User Already Exists!", "Finish Your Current Duel. You can't have more than one room inside Lobby!", "OK!");
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
