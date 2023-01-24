@@ -17,7 +17,8 @@ namespace Kudomion
             InitializeComponent();
             p1.Text = Home.getLoggedInUser().name;
             p1.IsEnabled = false;
-            
+            checkIfUserExistInLobby();
+           //Console.WriteLine(checkIfUserExistInLobby());
             p2.ItemsSource = App.MyDatabase.ReadUsers();
             roomsCollectionView.ItemsSource = App.MyDatabase.GetActiveRoom(Home.getLoggedInUser().name);
             
@@ -38,7 +39,28 @@ namespace Kudomion
             
             var getSelectedUser = App.MyDatabase.getSpecificUser(getSelectedRoom[0].p1);
             Console.WriteLine("Second Player To Add Points To IS:" + getSelectedRoom[0].p1);
+            //Work at the following 'status' update with the refresh method! o3o
+            //getSelectedRoom[0].status = true;
             App.MyDatabase.DecideWinner(getSelectedRoom[0], getSelectedUser);  
+        
+        }
+
+       
+
+        bool checkIfUserExistInLobby()
+        {
+
+            var getAllRooms = App.MyDatabase.ReadAllActiveRoomsToString();
+            Console.WriteLine(getAllRooms[0]);
+
+            if (getAllRooms.Contains(p1.Text) || getAllRooms.Contains(p2.SelectedItem))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         private async void CreateRoom_Clicked(object sender, EventArgs e)
@@ -48,7 +70,19 @@ namespace Kudomion
                 await DisplayAlert("Missing Player!", "Please Enter Your Opponent Name", "OK!");
                 return;
             }
-            checkIfUserExistInLobby();
+            
+            if(checkIfUserExistInLobby() == true)
+            {
+                await DisplayAlert("User Exist!", "You can't have more than one room at once. Please, complete your first match..", "OK!");
+              
+                return;
+            }
+
+            if(p1.Text == p2.Items[p2.SelectedIndex])
+            {
+                await DisplayAlert("Same User!", "You can't duel yourself! C'mon! Please Specify Another Opponent..", "OK!");
+                return;
+            }
 
             Room roomToCreate = new Room();
             roomToCreate.p1 = p1.Text;
@@ -61,19 +95,6 @@ namespace Kudomion
             await DisplayAlert("Success!", "Room Added! Waiting for your opponent..", "OK!");
         }
         
-        bool checkIfUserExistInLobby()
-        {
-
-            var getAllRooms = App.MyDatabase.ReadAllRoomsToString();
-            if(getAllRooms.Contains(p1.Text) || getAllRooms.Contains(p2.SelectedItem))
-            {
-                DisplayAlert("User Already Exists!", "Finish Your Current Duel. You can't have more than one room inside Lobby!", "OK!");
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
+       
     }
 }

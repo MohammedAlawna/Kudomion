@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "GuBOO0ykqU2oAKkr3qsKEJcVHn/LbYZ2C6nqKrIdb892fVrdrmTIHTFvCoiq/cNfEkQNwd+mJMTLv681MfvDJQ==",
+  "dgSpecHash": "8F19LsznQXFNE1Y/y2PL+DQMSDvykkgS6mQFAursMe5VbfxVsfRaRdH9tOQTIvOzVDKVkmJXM9gOk0H74GdkJg==",
   "success": true,
   "projectFilePath": "D:\\OGRE Tech CO\\Kudomion\\Kudomion\\Kudomion\\Kudomion.Android\\Kudomion.Android.csproj",
   "expectedPackageFiles": [
@@ -96,5 +96,16 @@
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.google.android.material\\1.2.1.1\\xamarin.google.android.material.1.2.1.1.nupkg.sha512",
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.google.guava.listenablefuture\\1.0.0.2\\xamarin.google.guava.listenablefuture.1.0.0.2.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1605",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Detected package downgrade: Xamarin.Forms from 5.0.0.2545 to 5.0.0.2012. Reference the package directly from the project to select a different version. \r\n Kudomion.Android -> Kudomion -> Xamarin.Forms (>= 5.0.0.2545) \r\n Kudomion.Android -> Xamarin.Forms (>= 5.0.0.2012)",
+      "libraryId": "Xamarin.Forms",
+      "targetGraphs": [
+        "MonoAndroid,Version=v11.0"
+      ]
+    }
+  ]
 }

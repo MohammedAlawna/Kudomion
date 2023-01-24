@@ -18,10 +18,12 @@ namespace Kudomion
             db.CreateTable<DeckItem>();
         }
 
+
         public int CreateDeck(DeckItem itemToAdd)
         {
             return db.Insert(itemToAdd);
         }
+
 
         public List<DeckItem> ReadDecks()
         {
@@ -34,18 +36,17 @@ namespace Kudomion
             return db.Insert(room);
         }
 
+
         public List<Room> ReadRooms()
         {
             return db.Table<Room>().ToList();
         }
 
+
         public int DeleteRoom(DeckItem itemToAdd)
         {
             return db.Delete(itemToAdd);
         }
-
-
-
 
 
         //Show The Room Not Finishied and for the second player.
@@ -78,7 +79,21 @@ namespace Kudomion
         //    return db.Update(userToUpdate);
         //}
 
+        public List<string> ReadAllActiveRoomsToString()
+        {
+            var getAllRooms = db.Table<Room>().Where(x => x.status == false).ToList();
+            List<string> stringsList = new List<string>();
 
+            foreach(Room r in getAllRooms)
+            {
+                stringsList.Add(r.p2);
+            }
+            for (int i = 0; i < stringsList.Count; i++)
+            {
+                Console.WriteLine("List of Active Rooms Are: " + stringsList[i]);
+            }
+            return stringsList;
+        }
         public List<string> ReadAllRoomsToString()
        {
             //Get all rooms in a list and add the name of the players into a list.
@@ -90,10 +105,10 @@ namespace Kudomion
                 stringsList.Add(r.p2);
             }
 
-            for(int i = 0; i < stringsList.Count; i++)
-            {
-                Console.WriteLine("List of Rooms Are: " + stringsList[i]);
-            }
+            //for(int i = 0; i < stringsList.Count; i++)
+            //{
+            //    Console.WriteLine("List of Rooms Are: " + stringsList[i]);
+            //}
            
             return stringsList;
            
@@ -108,7 +123,6 @@ namespace Kudomion
         {
             return db.Table<User>().ToList();
         }
-
 
 
         public int UpdateUser(User userToUpdate)
@@ -142,8 +156,6 @@ namespace Kudomion
         }
 
         
-
-
         //Functions For Posting System.
         public int CreatePost(Post postToCreate)
         {

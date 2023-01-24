@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "tGcNkBEpb/bnJ2fkCWbp3ol/1L7vd6qURMCtsS2cZrbp8HrUwA4oVgYon3ztay5G+98vE2xb+JkUYo52uPu//Q==",
+  "dgSpecHash": "jmFvk3+qoUaDRd5b4PO7wYa86kMqwfmsdl22S36i8OM+TV4Aaiv2xRLwmzxj9P2V0Z0ZahZlZjQSo7T8V5nDcA==",
   "success": true,
   "projectFilePath": "D:\\OGRE Tech CO\\Kudomion\\Kudomion\\Kudomion\\Kudomion\\Kudomion.csproj",
   "expectedPackageFiles": [
@@ -16,7 +16,7 @@
     "C:\\Users\\User\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.5.2\\system.runtime.compilerservices.unsafe.4.5.2.nupkg.sha512",
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.essentials\\1.6.1\\xamarin.essentials.1.6.1.nupkg.sha512",
-    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.forms\\5.0.0.2012\\xamarin.forms.5.0.0.2012.nupkg.sha512"
+    "C:\\Users\\User\\.nuget\\packages\\xamarin.forms\\5.0.0.2545\\xamarin.forms.5.0.0.2545.nupkg.sha512"
   ],
   "logs": []
 }
