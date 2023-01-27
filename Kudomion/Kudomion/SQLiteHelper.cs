@@ -176,5 +176,12 @@ namespace Kudomion
         }
 
 
+        //Function to Auto-Update.
+        public void UpdateAllData()
+        {
+            //Update..
+        }
+
+
     }
 }
