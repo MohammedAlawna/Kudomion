@@ -14,15 +14,15 @@
                 HorizontalOptions="CenterAndExpand" />
             
             <Frame HorizontalOptions="Center" WidthRequest="330"  CornerRadius="30" Padding="3" BorderColor="RoyalBlue" BackgroundColor="Transparent">
-            <Entry x:Name="userName" HorizontalOptions="CenterAndExpand" WidthRequest="270" Placeholder="Enter Username.." ReturnType="Next" PlaceholderColor="gray" />
+            <Entry x:Name="userName" HorizontalOptions="CenterAndExpand" WidthRequest="270" Placeholder="Enter Username.." ReturnType="Next" PlaceholderColor="gray" TextColor="White" />
             </Frame>
             
             <Frame HorizontalOptions="Center" WidthRequest="330"  CornerRadius="30" Padding="3" BackgroundColor="Transparent" BorderColor="RoyalBlue">
-                <Entry x:Name="password" HorizontalOptions="CenterAndExpand" WidthRequest="270" ReturnType="Next" MaxLength="17" IsPassword="True" Placeholder="Enter Password.." PlaceholderColor="Gray" />
+                <Entry x:Name="password" HorizontalOptions="CenterAndExpand" WidthRequest="270" ReturnType="Next" MaxLength="17" IsPassword="True" TextColor="White" Placeholder="Enter Password.." PlaceholderColor="Gray" />
             </Frame>
 
             <Frame HorizontalOptions="Center" WidthRequest="330"  CornerRadius="30" Padding="3" BackgroundColor="Transparent" BorderColor="RoyalBlue">
-                <Entry x:Name="confirmPassword" HorizontalOptions="CenterAndExpand" WidthRequest="270" ReturnType="Next" IsPassword="True" Placeholder="Confirm Password.." PlaceholderColor="Gray" />
+                <Entry x:Name="confirmPassword" HorizontalOptions="CenterAndExpand" WidthRequest="270" ReturnType="Next" IsPassword="True" TextColor="White" Placeholder="Confirm Password.." PlaceholderColor="Gray" />
             </Frame>
 
 

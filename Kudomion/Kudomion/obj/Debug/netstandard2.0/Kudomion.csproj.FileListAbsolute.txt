@@ -1,7 +1,3 @@
-D:\OGRE Tech CO\Kudomion\Kudomion\Kudomion\Kudomion\bin\Debug\netstandard2.0\Kudomion.deps.json
-D:\OGRE Tech CO\Kudomion\Kudomion\Kudomion\Kudomion\bin\Debug\netstandard2.0\Kudomion.dll
-D:\OGRE Tech CO\Kudomion\Kudomion\Kudomion\Kudomion\bin\Debug\netstandard2.0\ref\Kudomion.dll
-D:\OGRE Tech CO\Kudomion\Kudomion\Kudomion\Kudomion\bin\Debug\netstandard2.0\Kudomion.pdb
 D:\OGRE Tech CO\Kudomion\Kudomion\Kudomion\Kudomion\obj\Debug\netstandard2.0\Kudomion.GeneratedMSBuildEditorConfig.editorconfig
 D:\OGRE Tech CO\Kudomion\Kudomion\Kudomion\Kudomion\obj\Debug\netstandard2.0\App.xaml.g.cs
 D:\OGRE Tech CO\Kudomion\Kudomion\Kudomion\Kudomion\obj\Debug\netstandard2.0\Challenges.xaml.g.cs
@@ -17,8 +13,12 @@ D:\OGRE Tech CO\Kudomion\Kudomion\Kudomion\Kudomion\obj\Debug\netstandard2.0\Use
 D:\OGRE Tech CO\Kudomion\Kudomion\Kudomion\Kudomion\obj\Debug\netstandard2.0\Kudomion.AssemblyInfoInputs.cache
 D:\OGRE Tech CO\Kudomion\Kudomion\Kudomion\Kudomion\obj\Debug\netstandard2.0\Kudomion.AssemblyInfo.cs
 D:\OGRE Tech CO\Kudomion\Kudomion\Kudomion\Kudomion\obj\Debug\netstandard2.0\Kudomion.csproj.CoreCompileInputs.cache
+D:\OGRE Tech CO\Kudomion\Kudomion\Kudomion\Kudomion\bin\Debug\netstandard2.0\Kudomion.deps.json
+D:\OGRE Tech CO\Kudomion\Kudomion\Kudomion\Kudomion\bin\Debug\netstandard2.0\Kudomion.dll
+D:\OGRE Tech CO\Kudomion\Kudomion\Kudomion\Kudomion\bin\Debug\netstandard2.0\ref\Kudomion.dll
+D:\OGRE Tech CO\Kudomion\Kudomion\Kudomion\Kudomion\bin\Debug\netstandard2.0\Kudomion.pdb
+D:\OGRE Tech CO\Kudomion\Kudomion\Kudomion\Kudomion\obj\Debug\netstandard2.0\Kudomion.csproj.AssemblyReference.cache
 D:\OGRE Tech CO\Kudomion\Kudomion\Kudomion\Kudomion\obj\Debug\netstandard2.0\XamlC.stamp
 D:\OGRE Tech CO\Kudomion\Kudomion\Kudomion\Kudomion\obj\Debug\netstandard2.0\Kudomion.dll
 D:\OGRE Tech CO\Kudomion\Kudomion\Kudomion\Kudomion\obj\Debug\netstandard2.0\ref\Kudomion.dll
 D:\OGRE Tech CO\Kudomion\Kudomion\Kudomion\Kudomion\obj\Debug\netstandard2.0\Kudomion.pdb
-D:\OGRE Tech CO\Kudomion\Kudomion\Kudomion\Kudomion\obj\Debug\netstandard2.0\Kudomion.csproj.AssemblyReference.cache

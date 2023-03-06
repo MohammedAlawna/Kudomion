@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Kudomion.Home"
-            BackgroundColor="#202024"
+             BackgroundImageSource="bgkd"
+           
              >
     
     <ContentPage.Content>
@@ -23,7 +24,7 @@
                 <Label BackgroundColor="RoyalBlue" Text="Posts" Grid.Row="0" HorizontalTextAlignment="Center" Grid.Column="0" TextColor="White" FontSize="18" FontAttributes="Bold"/>
                 <Label BackgroundColor="RoyalBlue" Text="Points" Grid.Row="0" Grid.Column="1" HorizontalTextAlignment="Center" TextColor="White" FontSize="18" FontAttributes="Bold"/>
                 <Label BackgroundColor="RoyalBlue" Text="Ranking" Grid.Row="0" Grid.Column="2" HorizontalTextAlignment="Center" TextColor="White" FontSize="18" FontAttributes="Bold"/>
-            
+
                 <Label x:Name="noPosts" BackgroundColor="#2c2c2c" Text="0" Grid.Row="1" Grid.Column="0" HorizontalTextAlignment="Center" TextColor="White" FontSize="18" FontAttributes="Bold"/>
                 <Label x:Name="noPoints" Background="#2c2c2c" Text="0" Grid.Row="1" Grid.Column="1" HorizontalTextAlignment="Center" TextColor="White" FontSize="18" FontAttributes="Bold"/>
 

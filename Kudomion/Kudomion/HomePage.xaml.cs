@@ -15,6 +15,7 @@ namespace Kudomion
         public HomePage()
         {
             InitializeComponent();
+            
         }
     }
 }

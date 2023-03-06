@@ -18,5 +18,13 @@ namespace Kudomion
         [MaxLength(17)]
         public string password { get; set; }
        
+        public string NumberOfPosts
+        {
+            get
+            {
+                return posts.ToString();
+            }
+           
+        }
     }
 }

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -17,7 +16,7 @@ namespace Kudomion
             InitializeComponent();
             p1.Text = Home.getLoggedInUser().name;
             p1.IsEnabled = false;
-            checkIfUserExistInLobby();
+          //  checkIfUserExistInLobby();
            //Console.WriteLine(checkIfUserExistInLobby());
             p2.ItemsSource = App.MyDatabase.ReadUsers();
             roomsCollectionView.ItemsSource = App.MyDatabase.GetActiveRoom(Home.getLoggedInUser().name);
@@ -49,10 +48,15 @@ namespace Kudomion
 
         bool checkIfUserExistInLobby()
         {
-
+            
             var getAllRooms = App.MyDatabase.ReadAllActiveRoomsToString();
-            Console.WriteLine(getAllRooms[0]);
+            //   Console.WriteLine(getAllRooms[0]);
 
+            if (getAllRooms.Count == 0)
+            {
+                return false;
+            }
+           
             if (getAllRooms.Contains(p1.Text) || getAllRooms.Contains(p2.SelectedItem))
             {
                 return true;
@@ -77,23 +81,33 @@ namespace Kudomion
               
                 return;
             }
-
-            if(p1.Text == p2.Items[p2.SelectedIndex])
+            try
             {
-                await DisplayAlert("Same User!", "You can't duel yourself! C'mon! Please Specify Another Opponent..", "OK!");
-                return;
+                if (p1.Text == p2.Items[p2.SelectedIndex])
+                {
+                    await DisplayAlert("Same User!", "You can't duel yourself! C'mon! Please Specify Another Opponent..", "OK!");
+                    return;
+                }
+
+                Room roomToCreate = new Room();
+                roomToCreate.p1 = p1.Text;
+               // roomToCreate.p2 = "opp";
+                roomToCreate.p2 = p2.Items[p2.SelectedIndex];
+                roomToCreate.status = false;
+                //roomToCreate.winner = "";
+
+                App.MyDatabase.CreateRoom(roomToCreate);
+                //TODO Update Number of Duels for both players by 1.
+                await DisplayAlert("Success!", "Room Added! Waiting for your opponent..", "OK!");
+
             }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+           
 
-            Room roomToCreate = new Room();
-            roomToCreate.p1 = p1.Text;
-            roomToCreate.p2 = p2.Items[p2.SelectedIndex];
-            roomToCreate.status = false;
-            //roomToCreate.winner = "";
-
-            App.MyDatabase.CreateRoom(roomToCreate);
-            //TODO Update Number of Duels for both players by 1.
-            await DisplayAlert("Success!", "Room Added! Waiting for your opponent..", "OK!");
-        }
+             }
         
        
     }

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -36,41 +35,51 @@ namespace Kudomion
 
         void UpdateSingleRecord(string userNameToGet)
         {
+           Home instance = new Home();
            List<User> listOfUsers =  App.MyDatabase.ReadUsers();
            User selectedUser = listOfUsers.Find(u => u.name == userNameToGet);
            selectedUser.posts++;
+            Home.updateUser();
         }
 
         private void createPost_Clicked(object sender, EventArgs e)
         {
-            if(content.Text == null)
+            try
             {
-                DisplayAlert("Post Empty!", "Please Write Something To Post!", "OK!");
-                return;
+                if (content.Text == null)
+                {
+                    DisplayAlert("Post Empty!", "Please Write Something To Post!", "OK!");
+                    return;
+                }
+                Post postToCreate = new Post();
+
+                //Get Current Logged In User as the autohr.
+                postToCreate.author = LoginPage.currentLoggedInUser;
+
+
+                //TODO Comments system will be implemented later on.
+                // postToCreate.comments = null;
+
+
+                postToCreate.content = content.Text;
+
+                //TODO Goods System will be implemented later on.
+                //postToCreate.goods = null;
+                Console.WriteLine(Home.getLoggedInUser());
+                App.MyDatabase.UpdateUser(Home.getLoggedInUser());
+                App.MyDatabase.CreatePost(postToCreate);
+
+                //  Console.WriteLine(Home.getLoggedInUser().posts);
+                Home.updateUser();
+
+                DisplayAlert("Success!", "Post Added Successfully!", "OK!");
             }
-            Post postToCreate = new Post();
+            catch 
+            {
 
-            //Get Current Logged In User as the autohr.
-            postToCreate.author = LoginPage.currentLoggedInUser;
-       
-
-            //TODO Comments system will be implemented later on.
-            // postToCreate.comments = null;
+            }
            
-
-            postToCreate.content = content.Text;
-
-            //TODO Goods System will be implemented later on.
-            //postToCreate.goods = null;
-            Console.WriteLine(Home.getLoggedInUser());
-            App.MyDatabase.UpdateUser(Home.getLoggedInUser());
-            App.MyDatabase.CreatePost(postToCreate);
-        
-  
-            Console.WriteLine(Home.getLoggedInUser().posts);
-            DisplayAlert("Success!", "Post Added Successfully!", "OK!");
-
         }
-        
+
     }
 }

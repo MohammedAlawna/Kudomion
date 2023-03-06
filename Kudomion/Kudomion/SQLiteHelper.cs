@@ -128,7 +128,11 @@ namespace Kudomion
         public int UpdateUser(User userToUpdate)
         {
             userToUpdate.posts = userToUpdate.posts + 1;
+           // Home.noPosts.Text = userToUpdate.posts.ToString();
+            Home.updateUser();
+         //   instance.UpdatePostProfile();
             return db.Update(userToUpdate);
+            
         }
 
 
@@ -180,6 +184,7 @@ namespace Kudomion
         public void UpdateAllData()
         {
             //Update..
+
         }
 
 
