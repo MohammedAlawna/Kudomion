@@ -18,6 +18,8 @@ namespace Kudomion
 
         public bool status { get; set; }
 
+        public bool disabled { get; set; }
+
         public string winner { get; set; }
 
     }

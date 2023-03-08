@@ -33,6 +33,7 @@ namespace Kudomion
 
         public int CreateRoom(Room room)
         {
+           
             return db.Insert(room);
         }
 
@@ -54,8 +55,10 @@ namespace Kudomion
          {
             //Get Room From DB where nameOfUser == p2 && status == false;
             var tableQuery = db.Table<Room>();
-            List<Room> activeRoom = tableQuery.Where(x => x.p2 == nameOfUser && x.status == false).ToList();
-            
+            // List<Room> activeRoom = tableQuery.Where(x => x.p2 == nameOfUser && x.status == false).ToList();
+           
+            List<Room> activeRoom = tableQuery.Where(x=> x.disabled != true && x.status == false).ToList();
+
             return activeRoom;
         }
 
@@ -70,14 +73,12 @@ namespace Kudomion
         int IncreasePoints(User winner, int amount)
         {
             winner.points += amount;
+           
             return db.Update(winner);
+            
         }
 
-        //public int UpdateUser(User userToUpdate)
-        //{
-        //    userToUpdate.posts = userToUpdate.posts + 1;
-        //    return db.Update(userToUpdate);
-        //}
+     
 
         public List<string> ReadAllActiveRoomsToString()
         {
@@ -128,7 +129,7 @@ namespace Kudomion
         public int UpdateUser(User userToUpdate)
         {
             userToUpdate.posts = userToUpdate.posts + 1;
-           // Home.noPosts.Text = userToUpdate.posts.ToString();
+            // Home.noPosts.Text = userToUpdate.posts.ToString();
             Home.updateUser();
          //   instance.UpdatePostProfile();
             return db.Update(userToUpdate);
@@ -163,7 +164,9 @@ namespace Kudomion
         //Functions For Posting System.
         public int CreatePost(Post postToCreate)
         {
+           Home.updateUser();
            return db.Insert(postToCreate);
+           
         }
 
 
@@ -180,13 +183,6 @@ namespace Kudomion
         }
 
 
-        //Function to Auto-Update.
-        public void UpdateAllData()
-        {
-            //Update..
-
-        }
-
-
+       
     }
 }

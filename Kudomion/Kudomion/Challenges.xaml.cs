@@ -19,13 +19,39 @@ namespace Kudomion
           //  checkIfUserExistInLobby();
            //Console.WriteLine(checkIfUserExistInLobby());
             p2.ItemsSource = App.MyDatabase.ReadUsers();
+            CheckRooms();
             roomsCollectionView.ItemsSource = App.MyDatabase.GetActiveRoom(Home.getLoggedInUser().name);
             
+        }
+
+        public void CheckRooms()
+        {
+            var allRoomsVisual = roomsCollectionView.ItemsSource;
+            var allRoomsLogic = App.MyDatabase.ReadRooms();
+            var getLoggedInUser = Home.getLoggedInUser().name;
+            foreach(var r in allRoomsLogic)
+            {
+                if(r.p1 != Home.getLoggedInUser().name || r.p2 != Home.getLoggedInUser().name)
+                {
+                    
+                    r.disabled = true;
+                 
+
+                }
+             
+            }
+        }
+
+        public void UpdateRoomsList()
+        {
+            roomsCollectionView.ItemsSource = App.MyDatabase.GetActiveRoom(Home.getLoggedInUser().name);
+
         }
 
         private async void Reset_Clicked(object sender, EventArgs e)
         {
             p2.SelectedItem = null;
+            CheckRooms();
             
         }
 
@@ -40,6 +66,7 @@ namespace Kudomion
             Console.WriteLine("Second Player To Add Points To IS:" + getSelectedRoom[0].p1);
             //Work at the following 'status' update with the refresh method! o3o
             //getSelectedRoom[0].status = true;
+            CheckRooms();
             App.MyDatabase.DecideWinner(getSelectedRoom[0], getSelectedUser);  
         
         }
@@ -81,31 +108,27 @@ namespace Kudomion
               
                 return;
             }
-            try
+
+            if (p1.Text == p2.Items[p2.SelectedIndex])
             {
-                if (p1.Text == p2.Items[p2.SelectedIndex])
-                {
-                    await DisplayAlert("Same User!", "You can't duel yourself! C'mon! Please Specify Another Opponent..", "OK!");
-                    return;
-                }
-
-                Room roomToCreate = new Room();
-                roomToCreate.p1 = p1.Text;
-               // roomToCreate.p2 = "opp";
-                roomToCreate.p2 = p2.Items[p2.SelectedIndex];
-                roomToCreate.status = false;
-                //roomToCreate.winner = "";
-
-                App.MyDatabase.CreateRoom(roomToCreate);
-                //TODO Update Number of Duels for both players by 1.
-                await DisplayAlert("Success!", "Room Added! Waiting for your opponent..", "OK!");
-
+                await DisplayAlert("Same User!", "You can't duel yourself! C'mon! Please Specify Another Opponent..", "OK!");
+                return;
             }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-           
+
+            Room roomToCreate = new Room();
+            roomToCreate.p1 = p1.Text;
+            // roomToCreate.p2 = "opp";
+            roomToCreate.p2 = p2.Items[p2.SelectedIndex];
+            roomToCreate.status = false;
+            //roomToCreate.winner = "";
+
+            App.MyDatabase.CreateRoom(roomToCreate);
+            //TODO Update Number of Duels for both players by 1.
+            UpdateRoomsList();
+            CheckRooms();
+            await DisplayAlert("Success!", "Room Added! Waiting for your opponent..", "OK!");
+
+         
 
              }
         

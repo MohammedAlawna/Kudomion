@@ -18,9 +18,7 @@ namespace Kudomion
             InitializeComponent();
             var rankedUsers = App.MyDatabase.ReadUsers().OrderByDescending(x => x.points);
             userRankingsToLoad.ItemsSource =  rankedUsers;
-            thisUsr.Text = Home.getLoggedInUser().name;
-            thisPts.Text = Home.getLoggedInUser().points.ToString();
-            thisRnk.Text = "?";
+           
             //var listToGetCount = rankedUsers.ToList();
           
             var getCount = Enumerable.Count(rankedUsers);

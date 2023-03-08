@@ -8,7 +8,7 @@
     
     <ContentPage.Content>
         <StackLayout HorizontalOptions="Center">
-            <Image Source="Profile" Margin="10" HeightRequest="85"/>
+            <Image Source="prfle" Margin="10" HeightRequest="85"/>
             <Label FontAttributes="Bold" HorizontalOptions="CenterAndExpand" TextColor="White" Text="Kudo Shinichi" x:Name="loggedInUsername" FontSize="20"/>
             <Grid>
                 <Grid.RowDefinitions>
@@ -24,6 +24,7 @@
                 <Label BackgroundColor="RoyalBlue" Text="Posts" Grid.Row="0" HorizontalTextAlignment="Center" Grid.Column="0" TextColor="White" FontSize="18" FontAttributes="Bold"/>
                 <Label BackgroundColor="RoyalBlue" Text="Points" Grid.Row="0" Grid.Column="1" HorizontalTextAlignment="Center" TextColor="White" FontSize="18" FontAttributes="Bold"/>
                 <Label BackgroundColor="RoyalBlue" Text="Ranking" Grid.Row="0" Grid.Column="2" HorizontalTextAlignment="Center" TextColor="White" FontSize="18" FontAttributes="Bold"/>
+
 
                 <Label x:Name="noPosts" BackgroundColor="#2c2c2c" Text="0" Grid.Row="1" Grid.Column="0" HorizontalTextAlignment="Center" TextColor="White" FontSize="18" FontAttributes="Bold"/>
                 <Label x:Name="noPoints" Background="#2c2c2c" Text="0" Grid.Row="1" Grid.Column="1" HorizontalTextAlignment="Center" TextColor="White" FontSize="18" FontAttributes="Bold"/>

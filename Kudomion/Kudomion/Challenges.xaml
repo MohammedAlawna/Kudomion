@@ -58,8 +58,8 @@
                                                 <Label Text="{Binding p1}" FontAttributes="Bold" FontSize="20" HorizontalTextAlignment="Center" TextColor="White" Grid.Column="0" Grid.Row="0"/>
                                                 <Label Text="V.S" TextColor="Gold" FontAttributes="Bold" FontSize="25" HorizontalTextAlignment="Center" Grid.Column="1" Grid.Row="0"/>
                                                 <Label x:Name="pLobby" Text="{Binding p2}" FontAttributes="Bold" FontSize="20" HorizontalTextAlignment="Center" TextColor="White" Grid.Column="2" Grid.Row="0"/>
-                                               
-                                                <Button Text="Admit Defeat" Clicked="AdmitDefeat_Clicked" FontAttributes="Bold" TextColor="White" FontSize="18" BackgroundColor="#CA6F1E" HeightRequest="50" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3"/>
+
+                                                <Button Text="Admit Defeat" x:Name="{Binding Id}" Clicked="AdmitDefeat_Clicked" FontAttributes="Bold" TextColor="White" FontSize="18" BackgroundColor="#CA6F1E" HeightRequest="50" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3"/>
 
                                             </Grid>
                                         </StackLayout>

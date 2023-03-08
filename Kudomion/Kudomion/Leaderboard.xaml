@@ -6,27 +6,13 @@
     <StackLayout>
         <StackLayout>
             <StackLayout>
-                <Frame Margin="15" BackgroundColor="#2c2c2c" HeightRequest="125">
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition />
-                            <RowDefinition />
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition />
-                            <ColumnDefinition />
-                            <ColumnDefinition />
-                        </Grid.ColumnDefinitions>
-                        <Image Source="Profile" HorizontalOptions="Start" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" />
-                        <Label x:Name="thisUsr" Text="ThisUser" HorizontalTextAlignment="Start" TextColor="White" FontSize="18" FontAttributes="Bold" Grid.Column="1" Grid.Row="0"/>
-                        <Label x:Name="thisRnk" Text="120 PTs" HorizontalTextAlignment="Start" VerticalTextAlignment="End" TextColor="RoyalBlue" FontSize="16" FontAttributes="Bold" Grid.Column="1" Grid.Row="1"/>
-                        <Label x:Name="thisPts" Text="No. 1" TextColor="Gold" FontSize="24" FontAttributes="Bold" Grid.Column="2" Grid.Row="0" Grid.RowSpan="2" Margin="20" HorizontalTextAlignment="End"/>
-                    </Grid>
+                <Frame BackgroundColor="#2c2c2c" Margin="10">
+                <Image Source="ranking"/>
                 </Frame>
             </StackLayout>
 
             <StackLayout x:Name="allUsersRank">
-                <Frame Margin="15" BackgroundColor="#2c2c2c" x:Name="leaderboardCard">
+                <Frame Margin="10" BackgroundColor="#2c2c2c" x:Name="leaderboardCard">
                     <StackLayout>
                         <CollectionView x:Name="userRankingsToLoad">
                             <CollectionView.ItemTemplate>

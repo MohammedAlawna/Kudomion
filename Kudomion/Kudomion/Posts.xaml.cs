@@ -17,7 +17,7 @@ namespace Kudomion
            // author.Text = LoginPage.currentLoggedInUser;
             author.Text = Home.getLoggedInUser().name;
             App.MyDatabase.ReadAllRoomsToString();
-
+            
         }
 
         protected override void OnAppearing()
@@ -39,7 +39,14 @@ namespace Kudomion
            List<User> listOfUsers =  App.MyDatabase.ReadUsers();
            User selectedUser = listOfUsers.Find(u => u.name == userNameToGet);
            selectedUser.posts++;
+
             Home.updateUser();
+            
+        }
+        
+        public void GetNumberOfPosts()
+        {
+            
         }
 
         private void createPost_Clicked(object sender, EventArgs e)

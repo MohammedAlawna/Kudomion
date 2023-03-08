@@ -1,3 +1,4 @@
+D:\OGRE Tech CO\Kudomion\Kudomion\Kudomion\Kudomion\obj\Debug\netstandard2.0\Kudomion.csproj.AssemblyReference.cache
 D:\OGRE Tech CO\Kudomion\Kudomion\Kudomion\Kudomion\obj\Debug\netstandard2.0\Kudomion.GeneratedMSBuildEditorConfig.editorconfig
 D:\OGRE Tech CO\Kudomion\Kudomion\Kudomion\Kudomion\obj\Debug\netstandard2.0\App.xaml.g.cs
 D:\OGRE Tech CO\Kudomion\Kudomion\Kudomion\Kudomion\obj\Debug\netstandard2.0\Challenges.xaml.g.cs
@@ -17,7 +18,6 @@ D:\OGRE Tech CO\Kudomion\Kudomion\Kudomion\Kudomion\bin\Debug\netstandard2.0\Kud
 D:\OGRE Tech CO\Kudomion\Kudomion\Kudomion\Kudomion\bin\Debug\netstandard2.0\Kudomion.dll
 D:\OGRE Tech CO\Kudomion\Kudomion\Kudomion\Kudomion\bin\Debug\netstandard2.0\ref\Kudomion.dll
 D:\OGRE Tech CO\Kudomion\Kudomion\Kudomion\Kudomion\bin\Debug\netstandard2.0\Kudomion.pdb
-D:\OGRE Tech CO\Kudomion\Kudomion\Kudomion\Kudomion\obj\Debug\netstandard2.0\Kudomion.csproj.AssemblyReference.cache
 D:\OGRE Tech CO\Kudomion\Kudomion\Kudomion\Kudomion\obj\Debug\netstandard2.0\XamlC.stamp
 D:\OGRE Tech CO\Kudomion\Kudomion\Kudomion\Kudomion\obj\Debug\netstandard2.0\Kudomion.dll
 D:\OGRE Tech CO\Kudomion\Kudomion\Kudomion\Kudomion\obj\Debug\netstandard2.0\ref\Kudomion.dll

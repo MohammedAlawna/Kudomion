@@ -18,7 +18,9 @@ namespace Kudomion
             InitializeComponent();
           
             getLoggedInUser();
-
+            updateUser();
+            updateUserPoints();
+            updateUserRanking();
             //numberOfPoints = noPoints.Text;
             //numberOfPosts = noPosts.Text;
 
@@ -33,9 +35,23 @@ namespace Kudomion
             //prof.Source = "https://i.imgur.com/hFEz0Fv.png";
         }
 
+      
+
         public static void updateUser()
         {
-            noPosts.Text = getLoggedInUser().posts.ToString();
+             noPosts.Text = getLoggedInUser().posts.ToString();
+            
+            
+        }
+
+        public static void updateUserRanking()
+        {
+            noRanking.Text = getLoggedInUser().ranking.ToString();
+        }
+
+        public static void updateUserPoints()
+        {
+            noPoints.Text = getLoggedInUser().ranking.ToString();
         }
 
 
