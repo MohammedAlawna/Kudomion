@@ -55,9 +55,9 @@ namespace Kudomion
          {
             //Get Room From DB where nameOfUser == p2 && status == false;
             var tableQuery = db.Table<Room>();
-            // List<Room> activeRoom = tableQuery.Where(x => x.p2 == nameOfUser && x.status == false).ToList();
+            List<Room> activeRoom = tableQuery.Where(x => x.p2 == nameOfUser && x.status == false).ToList();
            
-            List<Room> activeRoom = tableQuery.Where(x => x.p1 == nameOfUser || x.p2 == nameOfUser && x.disabled != true && x.status == false).ToList();
+            //List<Room> activeRoom = tableQuery.Where(x => (x.p1 == nameOfUser || x.p2 == nameOfUser) && x.disabled != true && x.status == false).ToList();
 
             return activeRoom;
         }
