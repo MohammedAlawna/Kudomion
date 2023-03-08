@@ -33,7 +33,6 @@ namespace Kudomion
 
         public int CreateRoom(Room room)
         {
-           
             return db.Insert(room);
         }
 
@@ -73,7 +72,7 @@ namespace Kudomion
         int IncreasePoints(User winner, int amount)
         {
             winner.points += amount;
-           
+            Home.updateUser();
             return db.Update(winner);
             
         }

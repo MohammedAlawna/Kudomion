@@ -40,8 +40,8 @@ namespace Kudomion
         public static void updateUser()
         {
              noPosts.Text = getLoggedInUser().posts.ToString();
-            
-            
+             noPoints.Text = getLoggedInUser().points.ToString();
+             
         }
 
         public static void updateUserRanking()
