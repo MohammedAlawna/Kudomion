@@ -28,12 +28,12 @@ namespace Kudomion
 
             for (int i = 0; i < getCount; i++)
             {
-                int f = 1;
+             //   int f = 1;
 
                 var newArr =  rankedUsers.ToArray();
-                f = newArr[i].ranking;
+             //   f = newArr[i].ranking;
 
-                f++;
+             //   f++;
                 
             }
         }

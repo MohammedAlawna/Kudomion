@@ -66,7 +66,7 @@ namespace Kudomion
             Console.WriteLine("Second Player To Add Points To IS:" + getSelectedRoom[0].p1);
             //Work at the following 'status' update with the refresh method! o3o
             //getSelectedRoom[0].status = true;
-            CheckRooms();
+            //CheckRooms();
             App.MyDatabase.DecideWinner(getSelectedRoom[0], getSelectedUser);  
         
         }

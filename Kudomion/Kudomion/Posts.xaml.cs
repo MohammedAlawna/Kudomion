@@ -44,13 +44,11 @@ namespace Kudomion
             
         }
         
-        public void GetNumberOfPosts()
-        {
-            
-        }
-
+      
         private void createPost_Clicked(object sender, EventArgs e)
         {
+            DisplayAlert("NOT AUTHORIZED!", "Posting system is only allowed for admins and supervisors", "OK!");
+            return;
             try
             {
                 if (content.Text == null)

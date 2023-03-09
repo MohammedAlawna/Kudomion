@@ -33,6 +33,11 @@ namespace Kudomion
 
         public int CreateRoom(Room room)
         {
+            /*  p1.duels++;
+              p2.duels++;
+            Function Parameters: 
+            , CreateRoom(User p1, User p2)
+             */
             return db.Insert(room);
         }
 
@@ -65,6 +70,7 @@ namespace Kudomion
         public int DecideWinner(Room room, User winner){
             room.status = true;
             room.winner = winner.name;
+            
             IncreasePoints(winner, 3);
             return db.Update(room);
         }

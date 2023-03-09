@@ -11839,7 +11839,10 @@ namespace Kudomion.Droid
 			public const int tournies = 2131165344;
 			
 			// aapt resource value: 0x7F0700A1
-			public const int ygo_guide = 2131165345;
+			public const int yg = 2131165345;
+			
+			// aapt resource value: 0x7F0700A2
+			public const int ygo_guide = 2131165346;
 			
 			static Drawable()
 			{
