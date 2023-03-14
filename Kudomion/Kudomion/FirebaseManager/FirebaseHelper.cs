@@ -9,6 +9,8 @@ namespace Kudomion.FirebaseManager
 {
     public class FirebaseHelper
     {
+        //Follow this Article: https://www.c-sharpcorner.com/article/xamarin-forms-working-with-firebase-realtime-database-crud-operations/
+
         FirebaseClient firebaseClient = new Firebase.Database.FirebaseClient("https://kudomion-5c8e7-default-rtdb.firebaseio.com/");
 
         public async Task<List<DeckItem>> GetAllDecks()
