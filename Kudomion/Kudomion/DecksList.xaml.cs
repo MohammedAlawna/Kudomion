@@ -8,18 +8,24 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Firebase.Database.Query;
+using Kudomion.FirebaseManager;
 
 namespace Kudomion
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class DecksList : ContentPage
     {
-        FirebaseClient firebaseClient = new Firebase.Database.FirebaseClient("https://kudomion-5c8e7-default-rtdb.firebaseio.com/");
-
+        FirebaseHelper firebaseHelper = new FirebaseHelper(); 
+       
         public DecksList()
         {
 
             InitializeComponent();
+           
+            //Initalize DeckList from Firebase!
+            LoadDecks();
+
+
             //Create Dummy Deck:
           
           /*DeckItem dummyDeck = new DeckItem();
@@ -31,19 +37,23 @@ namespace Kudomion
             App.MyDatabase.CreateDeck(dummyDeck); */
 
             //Initialize The CollectionList:
-            decksToLoad.ItemsSource = App.MyDatabase.ReadDecks();
+          //  decksToLoad.ItemsSource = App.MyDatabase.ReadDecks();
 
         }
 
-        public ObservableCollection<DeckItem> DeckItems { get; set; } = new ObservableCollection<DeckItem>();
-
-        FirebaseClient firebaseClient2= new FirebaseClient("https://kudomion-5c8e7-default-rtdb.firebaseio.com/");
-       
         //Function to test firebase!
-        void ButtonClickedWrapper()
+        private async void LoadDecks()
         {
-
+            //Load and assign to db retrived from Firebase.
             
+             decksToLoad.ItemsSource = await firebaseHelper.GetAllDecks();
+            
+        }
+
+        //Testing Purposes
+        private async void Button_Clicked(object sender, EventArgs e)
+        {
+            await firebaseHelper.AddPerson("Jehad", "ig.jpg");
         }
     }
 }

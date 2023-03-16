@@ -16,6 +16,8 @@
             <StackLayout x:Name="allDecksToLoad">
                 <Frame Margin="15" BackgroundColor="#2c2c2c" x:Name="deckCard">
                     <StackLayout>
+
+                        <Button Text="Add!!" Clicked="Button_Clicked"/>
                         <CollectionView x:Name="decksToLoad">
                             <CollectionView.ItemTemplate>
                                 <DataTemplate>
