@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Kudomion.FirebaseManager;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,11 +12,12 @@ namespace Kudomion
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Posts : ContentPage
     {
+        FirebaseHelper firebase = new FirebaseHelper();
         public Posts()
         {
             InitializeComponent();
            // author.Text = LoginPage.currentLoggedInUser;
-            author.Text = Home.getLoggedInUser().name;
+            author.Text = Home.getLoggedInUser().Result.name;
             App.MyDatabase.ReadAllRoomsToString();
             
         }
@@ -71,7 +73,8 @@ namespace Kudomion
                 //TODO Goods System will be implemented later on.
                 //postToCreate.goods = null;
                 Console.WriteLine(Home.getLoggedInUser());
-                App.MyDatabase.UpdateUser(Home.getLoggedInUser());
+                //  App.MyDatabase.UpdateUser(Home.getLoggedInUser());
+              //  firebase.UpdateUser();
                 App.MyDatabase.CreatePost(postToCreate);
 
                 //  Console.WriteLine(Home.getLoggedInUser().posts);

@@ -1,4 +1,5 @@
-﻿using SQLite;
+﻿using Kudomion.FirebaseManager;
+using SQLite;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -14,7 +15,7 @@ namespace Kudomion
     public partial class LoginPage : ContentPage
     {
         public static string currentLoggedInUser;
-
+        FirebaseHelper firebase = new FirebaseHelper();
 
         public LoginPage()
         {
@@ -39,8 +40,11 @@ namespace Kudomion
 
         private void LoginButton_Clicked(object sender, EventArgs e)
         {
+            var checkCredentials = firebase.ValidateUserLogin(userNameText.Text, passwordText.Text);
+            /*
+             DEPRECATED: Adobe code implementing the sign in feature using Firebase DB.
             var checkCredentials = App.MyDatabase.LoginValidate(userNameText.Text, passwordText.Text);
-
+            */
 
 
             if (checkCredentials != null)
@@ -56,7 +60,7 @@ namespace Kudomion
                 Console.WriteLine("Not Found, which means is null! " + checkCredentials);
                 DisplayAlert("Wrong Credentials!", "You Entered Wrong Credentials, Check UserName or Password", "OK!") ;
             }
-
+          
         }
 
 

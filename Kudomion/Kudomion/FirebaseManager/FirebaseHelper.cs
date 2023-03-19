@@ -41,6 +41,28 @@ namespace Kudomion.FirebaseManager
             }
         }
 
+
+        public async void GetUserStringByName(string name)
+        {
+            try
+            {
+                var allUsers =await  GetAllUsers();
+                await firebaseClient.Child("Users").OnceAsync<User>();
+               var getName =  allUsers.Where(a => a.name == name).FirstOrDefault().name;
+              //  Home.getLoggedInUser() = getName;
+                foreach(User usr in allUsers)
+                {
+
+                }
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine($"Error: {e}");
+                //return null;
+            }
+        }
+
+
         public async Task<User> GetUserByName(string name)
         {
             try
@@ -70,6 +92,21 @@ namespace Kudomion.FirebaseManager
 
             }
         }*/
+
+        public async Task<User> ValidateUserLogin(string _name, string _password)
+        {
+           try
+            {
+                var allUsers = await GetAllUsers();
+                await firebaseClient.Child("Users").OnceAsync<User>();
+                return allUsers.Where(a => a.name == _name && a.password == _password).FirstOrDefault();
+            }
+            catch(Exception e)
+            {
+                Debug.WriteLine($"Error: {e}");
+                return null;
+            }
+        }
 
         public async Task<bool> AddUser(string _name, string _password)
         {

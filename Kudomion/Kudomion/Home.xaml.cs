@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Kudomion.FirebaseManager;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,8 +26,8 @@ namespace Kudomion
             //numberOfPosts = noPosts.Text;
 
             
-            loggedInUsername.Text = getLoggedInUser().name;
-            noPoints.Text = getLoggedInUser().points.ToString();
+            loggedInUsername.Text = getLoggedInUser().Result.name;
+            noPoints.Text = getLoggedInUser().Result.points.ToString();
             //  noPosts.Text = getLoggedInUser().posts.ToString();
             //updateUser();
 
@@ -39,25 +40,32 @@ namespace Kudomion
 
         public static void updateUser()
         {
-             noPosts.Text = getLoggedInUser().posts.ToString();
-             noPoints.Text = getLoggedInUser().points.ToString();
+             noPosts.Text = getLoggedInUser().Result.posts.ToString();
+             noPoints.Text = getLoggedInUser().Result.points.ToString();
              
         }
 
         public static void updateUserRanking()
         {
-            noRanking.Text = getLoggedInUser().ranking.ToString();
+            noRanking.Text = getLoggedInUser().Result.ranking.ToString();
         }
 
         public static void updateUserPoints()
         {
-            noPoints.Text = getLoggedInUser().ranking.ToString();
+            noPoints.Text = getLoggedInUser().Result.ranking.ToString();
         }
 
 
-        public static User getLoggedInUser()
+        public async static Task<User> getLoggedInUser()
         {
-            return App.MyDatabase.getSpecificUser(LoginPage.currentLoggedInUser);
+            FirebaseHelper firebase = new FirebaseHelper();
+            return await firebase.GetUserByName(LoginPage.currentLoggedInUser);
+
+            /*
+           
+              DEPRECATED: Above code will implemetn it with new way (Firebase DB)
+             return App.MyDatabase.getSpecificUser(LoginPage.currentLoggedInUser);
+         */
         }
 
 
@@ -71,7 +79,7 @@ namespace Kudomion
         {
             Console.WriteLine("Post Tapped");
             //updatePostsValue(getLoggedInUser().posts.ToString());
-            noPosts.Text = getLoggedInUser().posts.ToString();
+            noPosts.Text = getLoggedInUser().Result.posts.ToString();
             await Navigation.PushAsync(new Posts());
         }
 
