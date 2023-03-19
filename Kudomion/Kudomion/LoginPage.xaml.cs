@@ -21,6 +21,7 @@ namespace Kudomion
         {
             InitializeComponent();
             NavigationPage.SetHasBackButton(this, false);
+            firebase.GetUserByName(Home.getLoggedInUser().Result.name);
            
         }
 

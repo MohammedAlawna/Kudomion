@@ -78,6 +78,7 @@ namespace Kudomion.FirebaseManager
             }
         }
 
+
         //Get User By Email (To Be Implemented Later)
         /*public async Task<User> GetUserByEmail(string email)
         {
