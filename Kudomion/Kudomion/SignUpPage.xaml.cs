@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Kudomion.FirebaseManager;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
@@ -13,7 +14,7 @@ namespace Kudomion
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SignUpPage : ContentPage
     {
-        
+        FirebaseHelper firebase = new FirebaseHelper();
         public SignUpPage()
         {
             InitializeComponent();
@@ -37,15 +38,19 @@ namespace Kudomion
 
             }
             else
-                registerNewUser();
+                RegisterNewUser();
             await DisplayAlert("Success!", "User Registered Succesffully!", "OK!");
             userName.Text = string.Empty;
             password.Text = string.Empty;
             confirmPassword.Text = string.Empty;   
         }
 
-         void registerNewUser()
+         async void RegisterNewUser()
         {
+
+            await firebase.AddUser(userName.Text, password.Text);
+           /*
+           Deprecated:: Above Code should handle the DB with Firebase.
             App.MyDatabase.CreateUser(new User
             {
                 name = userName.Text,
@@ -55,7 +60,7 @@ namespace Kudomion
                 points = 0,
                 duels = 0,
                 usertype = "User",
-            });
+            });*/
         }
 
         //Funnctions for re-using later on.
