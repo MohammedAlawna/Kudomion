@@ -53,7 +53,7 @@ namespace Kudomion
         //Testing Purposes
         private async void Button_Clicked(object sender, EventArgs e)
         {
-            await firebaseHelper.AddPerson("Jehad", "ig.jpg");
+            await firebaseHelper.AddDeck("Jehad", "ig.jpg");
         }
     }
 }
