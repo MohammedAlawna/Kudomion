@@ -17,7 +17,7 @@ namespace Kudomion
         {
             InitializeComponent();
            // author.Text = LoginPage.currentLoggedInUser;
-            author.Text = Home.getLoggedInUser().Result.name;
+            author.Text = Home.GetLoggedInUser().Result.name;
             App.MyDatabase.ReadAllRoomsToString();
             
         }
@@ -72,7 +72,7 @@ namespace Kudomion
 
                 //TODO Goods System will be implemented later on.
                 //postToCreate.goods = null;
-                Console.WriteLine(Home.getLoggedInUser());
+                Console.WriteLine(Home.GetLoggedInUser());
                 //  App.MyDatabase.UpdateUser(Home.getLoggedInUser());
               //  firebase.UpdateUser();
                 App.MyDatabase.CreatePost(postToCreate);

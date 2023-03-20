@@ -18,7 +18,7 @@ namespace Kudomion
         {
             InitializeComponent();
           
-            getLoggedInUser();
+            GetLoggedInUser();
             updateUser();
             updateUserPoints();
             updateUserRanking();
@@ -26,8 +26,8 @@ namespace Kudomion
             //numberOfPosts = noPosts.Text;
 
             
-            loggedInUsername.Text = getLoggedInUser().Result.name;
-            noPoints.Text = getLoggedInUser().Result.points.ToString();
+            loggedInUsername.Text = GetLoggedInUser().Result.name;
+            noPoints.Text = GetLoggedInUser().Result.points.ToString();
             //  noPosts.Text = getLoggedInUser().posts.ToString();
             //updateUser();
 
@@ -40,23 +40,23 @@ namespace Kudomion
 
         public static void updateUser()
         {
-             noPosts.Text = getLoggedInUser().Result.posts.ToString();
-             noPoints.Text = getLoggedInUser().Result.points.ToString();
+             noPosts.Text = GetLoggedInUser().Result.posts.ToString();
+             noPoints.Text = GetLoggedInUser().Result.points.ToString();
              
         }
 
         public static void updateUserRanking()
         {
-            noRanking.Text = getLoggedInUser().Result.ranking.ToString();
+            noRanking.Text = GetLoggedInUser().Result.ranking.ToString();
         }
 
         public static void updateUserPoints()
         {
-            noPoints.Text = getLoggedInUser().Result.ranking.ToString();
+            noPoints.Text = GetLoggedInUser().Result.ranking.ToString();
         }
 
 
-        public async static Task<User> getLoggedInUser()
+        public async static Task<User> GetLoggedInUser()
         {
             FirebaseHelper firebase = new FirebaseHelper();
             return await firebase.GetUserByName(LoginPage.currentLoggedInUser);
@@ -79,7 +79,7 @@ namespace Kudomion
         {
             Console.WriteLine("Post Tapped");
             //updatePostsValue(getLoggedInUser().posts.ToString());
-            noPosts.Text = getLoggedInUser().Result.posts.ToString();
+            noPosts.Text = GetLoggedInUser().Result.posts.ToString();
             await Navigation.PushAsync(new Posts());
         }
 

@@ -21,7 +21,7 @@ namespace Kudomion
         {
             InitializeComponent();
             NavigationPage.SetHasBackButton(this, false);
-            firebase.GetUserByName(Home.getLoggedInUser().Result.name);
+           // firebase.GetUserByName(Home.GetLoggedInUser().Result.name);
            
         }
 
@@ -36,12 +36,10 @@ namespace Kudomion
         }
 
 
-
-
-
         private void LoginButton_Clicked(object sender, EventArgs e)
         {
             var checkCredentials = firebase.ValidateUserLogin(userNameText.Text, passwordText.Text);
+            
             /*
              DEPRECATED: Adobe code implementing the sign in feature using Firebase DB.
             var checkCredentials = App.MyDatabase.LoginValidate(userNameText.Text, passwordText.Text);
@@ -53,7 +51,6 @@ namespace Kudomion
                 Console.WriteLine("Found!! " + checkCredentials);
                 currentLoggedInUser = userNameText.Text;
                 Navigation.PushAsync(new HomePage());
-            
             }
 
             if (checkCredentials == null)
