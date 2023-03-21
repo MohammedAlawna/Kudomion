@@ -50,10 +50,7 @@ namespace Kudomion.FirebaseManager
                 await firebaseClient.Child("Users").OnceAsync<User>();
                var getName =  allUsers.Where(a => a.name == name).FirstOrDefault().name;
               //  Home.getLoggedInUser() = getName;
-                foreach(User usr in allUsers)
-                {
-
-                }
+               
             }
             catch (Exception e)
             {
@@ -65,19 +62,21 @@ namespace Kudomion.FirebaseManager
 
         public async Task<User> GetUserByName(string name)
         {
-            try
-            {
                 var allUsers = await GetAllUsers();
                 await firebaseClient.Child("Users").OnceAsync<User>();
-                return allUsers.Where(a => a.name == name).FirstOrDefault();
-            }
-            catch(Exception e)
-            {
-                Debug.WriteLine($"Error: {e}");
-                return null;
-            }
+                return allUsers.Where(a => a.name == name).FirstOrDefault();   
         }
 
+        public static async Task<User> GetUsrFromName(string _name)
+        {
+            FirebaseClient cl = new FirebaseClient("https://kudomion-5c8e7-default-rtdb.firebaseio.com/");
+            FirebaseHelper fb = new FirebaseHelper();
+            var allUsers = await fb.GetAllUsers();
+            await cl.Child("Users").OnceAsync<User>();
+            return allUsers.Where(a => a.name == _name).FirstOrDefault();
+
+
+        }
 
         //Get User By Email (To Be Implemented Later)
         /*public async Task<User> GetUserByEmail(string email)
@@ -94,9 +93,24 @@ namespace Kudomion.FirebaseManager
             }
         }*/
 
-        public async Task<User> ValidateUserLogin(string _name, string _password)
+    /*    public async bool ValidateUserLogin(string _name, string _password)
         {
-           try
+            //Task<User>
+            try
+            {
+                var allUsers = await GetAllUsers();
+                await firebaseClient.Child("Users").OnceAsync<User>();
+                var getSpecifiedUser = allUsers.Where(a => a.name == _name).FirstOrDefault();
+                if(getSpecifiedUser.name == _name && getSpecifiedUser.password = _password)
+                {
+                    return true; 
+                }
+            }
+            catch(Exception e)
+            {
+
+            }
+          /* try
             {
                 var allUsers = await GetAllUsers();
                 await firebaseClient.Child("Users").OnceAsync<User>();
@@ -107,7 +121,7 @@ namespace Kudomion.FirebaseManager
                 Debug.WriteLine($"Error: {e}");
                 return null;
             }
-        }
+        }*/
 
         public async Task<bool> AddUser(string _name, string _password)
         {

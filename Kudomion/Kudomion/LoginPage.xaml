@@ -19,6 +19,15 @@
                 BorderWidth="1.5"
                 CornerRadius="50"></Button>
 
+            <Button
+                VerticalOptions="Center"
+                Text="Get Me"
+                TextColor="White"
+                Clicked="SignInClicked"
+                BackgroundColor="Gold" 
+                BorderWidth="1.5"
+                CornerRadius="50"></Button>
+
             <Label HorizontalOptions="Center">
                 <Label.FormattedText>
                     <FormattedString>

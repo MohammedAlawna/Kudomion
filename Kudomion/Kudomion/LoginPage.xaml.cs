@@ -35,29 +35,37 @@ namespace Kudomion
             return passwordText.Text;
         }
 
+        private async void SignInClicked(object sender, EventArgs e)
+        {
+            var outPut = await FirebaseHelper.GetUsrFromName(userNameText.Text);
+            Console.WriteLine("This OUTPUT!!" + outPut.name);
+        }
 
         private void LoginButton_Clicked(object sender, EventArgs e)
         {
-            var checkCredentials = firebase.ValidateUserLogin(userNameText.Text, passwordText.Text);
             
+            var GetUser = firebase.GetUserByName(userNameText.Text);
+            Console.WriteLine("Specfified User: " + GetUser.Result);
+            //var checkCredentials = firebase.ValidateUserLogin(userNameText.Text, passwordText.Text);
+         
             /*
              DEPRECATED: Adobe code implementing the sign in feature using Firebase DB.
             var checkCredentials = App.MyDatabase.LoginValidate(userNameText.Text, passwordText.Text);
             */
 
 
-            if (checkCredentials != null)
+          /*  if (checkCredentials != null)
             {
-                Console.WriteLine("Found!! " + checkCredentials);
-                currentLoggedInUser = userNameText.Text;
-                Navigation.PushAsync(new HomePage());
+                Console.WriteLine("Found!! " + checkCredentials.Result);
+               // currentLoggedInUser = userNameText.Text;
+                // Navigation.PushAsync(new HomePage());
             }
 
             if (checkCredentials == null)
             {
-                Console.WriteLine("Not Found, which means is null! " + checkCredentials);
+                Console.WriteLine("Not Found, which means is null! " + checkCredentials.Result);
                 DisplayAlert("Wrong Credentials!", "You Entered Wrong Credentials, Check UserName or Password", "OK!") ;
-            }
+            }*/
           
         }
 
