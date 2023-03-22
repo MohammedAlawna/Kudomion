@@ -22,26 +22,20 @@ namespace Kudomion
             updateUser();
             updateUserPoints();
             updateUserRanking();
-            //numberOfPoints = noPoints.Text;
-            //numberOfPosts = noPosts.Text;
+         
 
             
-            loggedInUsername.Text = GetLoggedInUser().Result.name;
+           // loggedInUsername.Text = GetLoggedInUser().Result.name;
             noPoints.Text = GetLoggedInUser().Result.points.ToString();
-            //  noPosts.Text = getLoggedInUser().posts.ToString();
-            //updateUser();
-
-
-            //Load Profile Image.
-            //prof.Source = "https://i.imgur.com/hFEz0Fv.png";
+        
         }
 
       
 
         public static void updateUser()
         {
-             noPosts.Text = GetLoggedInUser().Result.posts.ToString();
-             noPoints.Text = GetLoggedInUser().Result.points.ToString();
+            noPosts.Text = GetLoggedInUser().Result.posts.ToString();
+            noPoints.Text = GetLoggedInUser().Result.points.ToString();
              
         }
 

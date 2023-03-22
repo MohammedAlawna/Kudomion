@@ -69,11 +69,19 @@ namespace Kudomion.FirebaseManager
 
         public static async Task<User> GetUsrFromName(string _name)
         {
+            try
+            {          
             FirebaseClient cl = new FirebaseClient("https://kudomion-5c8e7-default-rtdb.firebaseio.com/");
             FirebaseHelper fb = new FirebaseHelper();
             var allUsers = await fb.GetAllUsers();
             await cl.Child("Users").OnceAsync<User>();
             return allUsers.Where(a => a.name == _name).FirstOrDefault();
+            }
+            catch(Exception e)
+            {
+                Debug.WriteLine($"Error: {e}");
+                return null;
+            }
 
 
         }

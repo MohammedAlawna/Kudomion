@@ -2,6 +2,7 @@
 using SQLite;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -21,8 +22,8 @@ namespace Kudomion
         {
             InitializeComponent();
             NavigationPage.SetHasBackButton(this, false);
-           // firebase.GetUserByName(Home.GetLoggedInUser().Result.name);
-           
+            // firebase.GetUserByName(Home.GetLoggedInUser().Result.name);
+            
         }
 
         public string GetUserName()
@@ -37,8 +38,41 @@ namespace Kudomion
 
         private async void SignInClicked(object sender, EventArgs e)
         {
+            try
+            {
+
+            
             var outPut = await FirebaseHelper.GetUsrFromName(userNameText.Text);
             Console.WriteLine("This OUTPUT!!" + outPut.name);
+
+                if (outPut == null)
+                {
+
+                    await DisplayAlert("User Not Found!", "No such user exist!", "OK!");
+
+                }
+
+
+                if (userNameText.Text == outPut.name && passwordText.Text == outPut.password)
+            {
+                 // DisplayAlert("Login Success!", "Username and Password are correct!", "OK!");
+                    currentLoggedInUser = outPut.name;
+                    await Navigation.PushAsync(new HomePage());
+                    
+            }
+            else
+            {
+              
+               await DisplayAlert("Wrong Credentials!", "Either Password or Useranme incorrect!", "OK!");
+                    return;
+                }
+               
+            } catch(NullReferenceException n)
+            {
+                await DisplayAlert("Exception!", "Null Reference Exception caught!", "OK!");
+                return;
+            }
+          
         }
 
         private void LoginButton_Clicked(object sender, EventArgs e)
