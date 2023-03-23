@@ -14,13 +14,13 @@ namespace Kudomion
         public Challenges()
         {
             InitializeComponent();
-            p1.Text = Home.GetLoggedInUser().Result.name;
+            p1.Text = Home.GetLoggedInUser().name;
             p1.IsEnabled = false;
           //  checkIfUserExistInLobby();
            //Console.WriteLine(checkIfUserExistInLobby());
             p2.ItemsSource = App.MyDatabase.ReadUsers();
             CheckRooms();
-            roomsCollectionView.ItemsSource = App.MyDatabase.GetActiveRoom(Home.GetLoggedInUser().Result.name);
+            roomsCollectionView.ItemsSource = App.MyDatabase.GetActiveRoom(Home.GetLoggedInUser().name);
             
         }
 
@@ -28,10 +28,10 @@ namespace Kudomion
         {
             var allRoomsVisual = roomsCollectionView.ItemsSource;
             var allRoomsLogic = App.MyDatabase.ReadRooms();
-            var getLoggedInUser = Home.GetLoggedInUser().Result.name;
+            var getLoggedInUser = Home.GetLoggedInUser().name;
             foreach(var r in allRoomsLogic)
             {
-                if(r.p1 != Home.GetLoggedInUser().Result.name || r.p2 != Home.GetLoggedInUser().Result.name)
+                if(r.p1 != Home.GetLoggedInUser().name || r.p2 != Home.GetLoggedInUser().name)
                 {
                     
                     r.disabled = true;
@@ -44,7 +44,7 @@ namespace Kudomion
 
         public void UpdateRoomsList()
         {
-            roomsCollectionView.ItemsSource = App.MyDatabase.GetActiveRoom(Home.GetLoggedInUser().Result.name);
+            roomsCollectionView.ItemsSource = App.MyDatabase.GetActiveRoom(Home.GetLoggedInUser().name);
 
         }
 
@@ -60,7 +60,7 @@ namespace Kudomion
         private async void AdmitDefeat_Clicked(object sender, EventArgs e)
         {
             await DisplayAlert("You Lost!", "You just admit defeated! Duel Records Will be changed!", "OK");
-            var getSelectedRoom = App.MyDatabase.GetActiveRoom(Home.GetLoggedInUser().Result.name);
+            var getSelectedRoom = App.MyDatabase.GetActiveRoom(Home.GetLoggedInUser().name);
             
             var getSelectedUser = App.MyDatabase.getSpecificUser(getSelectedRoom[0].p1);
             Console.WriteLine("Second Player To Add Points To IS:" + getSelectedRoom[0].p1);

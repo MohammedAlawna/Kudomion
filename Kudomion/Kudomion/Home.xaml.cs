@@ -18,109 +18,123 @@ namespace Kudomion
         {
             InitializeComponent();
           
-            GetLoggedInUser();
-            updateUser();
+          //  GetLoggedInUser();
+          /*  updateUser();
             updateUserPoints();
-            updateUserRanking();
-         
+            updateUserRanking();*/
+            DisplayAlert("Logged In!","User Is: ", "OK!");
 
             
            // loggedInUsername.Text = GetLoggedInUser().Result.name;
-            noPoints.Text = GetLoggedInUser().Result.points.ToString();
+          //  noPoints.Text = GetLoggedInUser().Result.points.ToString();
         
         }
 
-      
-
-        public static void updateUser()
-        {
-            noPosts.Text = GetLoggedInUser().Result.posts.ToString();
-            noPoints.Text = GetLoggedInUser().Result.points.ToString();
-             
+      public static User GetLoggedInUser()
+      {
+            Home h = new Home();
+            var returnedValue = FirebaseHelper.GetUsrFromName(h.loggedInUsername.Text);
+            return returnedValue.Result;
         }
 
-        public static void updateUserRanking()
-        {
-            noRanking.Text = GetLoggedInUser().Result.ranking.ToString();
-        }
+          public static void updateUser()
+          {
 
-        public static void updateUserPoints()
-        {
-            noPoints.Text = GetLoggedInUser().Result.ranking.ToString();
-        }
+                noPosts.Text = GetLoggedInUser().posts.ToString();
+                noPoints.Text = GetLoggedInUser().points.ToString();    
+          }
+       
+           public static void updateUserRanking()
+           {
+                Home h = new Home();
+                var GetUser = FirebaseHelper.GetUsrFromName(h.loggedInUsername.Text).Result.name;
 
+                noRanking.Text = GetUser;
+           }
 
-        public async static Task<User> GetLoggedInUser()
-        {
-            FirebaseHelper firebase = new FirebaseHelper();
-            return await firebase.GetUserByName(LoginPage.currentLoggedInUser);
-
-            /*
-           
-              DEPRECATED: Above code will implemetn it with new way (Firebase DB)
-             return App.MyDatabase.getSpecificUser(LoginPage.currentLoggedInUser);
-         */
-        }
+            public static void updateUserPoints()
+            {
+                Home H = new Home();
+                noPoints.Text = GetLoggedInUser().ranking.ToString();
+            }
 
 
-        private async void Profile_Tapped(object sender, EventArgs e)
-        {
-             await DisplayAlert("Not Available", "Profile Settings not available in this release.", "OK!");
-             Console.WriteLine("Profile Tapped");
-        }
-
-        private async void Post_Tapped(object sender, EventArgs e)
-        {
-            Console.WriteLine("Post Tapped");
-            //updatePostsValue(getLoggedInUser().posts.ToString());
-            noPosts.Text = GetLoggedInUser().Result.posts.ToString();
-            await Navigation.PushAsync(new Posts());
-        }
-
-        private async void Lobby_Tapped(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new Challenges());
-        }
-
-        private async void Leaderboard_Tapped(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new Leaderboard());
-        }
-
-        private async void Discord_Tapped(object sender, EventArgs e)
-        {
-           
-            var url = "https://discord.gg/mpvmEP8";
-            await Browser.OpenAsync(url);
-            Console.WriteLine("Discord Tapped");
-        }
-
-        private async void onClickDecks(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new DecksList());
-        }
-
-        private async void onClickYGOGuide(object sender, EventArgs e)
-        {
-            await DisplayAlert("Not Available", "YGO Guide not available in this release.", "OK!");
-
-            Console.WriteLine("YGO Guide! Clicked!");
-        
-        }
 
 
-        private async void onClickTournies(object sender,  EventArgs e)
-        {
-            await DisplayAlert("Not Available", "Tournaments not available in this release.", "OK!");
+            private async void Profile_Tapped(object sender, EventArgs e)
+            {
+                 await DisplayAlert("Not Available", "Profile Settings not available in this release.", "OK!");
+                 Console.WriteLine("Profile Tapped");
+            }
 
-            Console.WriteLine("Tournies! Clicked!");
-        }
+            private async void Post_Tapped(object sender, EventArgs e)
+            {
+                Console.WriteLine("Post Tapped");
+                //updatePostsValue(getLoggedInUser().posts.ToString());
+                noPosts.Text = GetLoggedInUser().posts.ToString();
+                await Navigation.PushAsync(new Posts());
+            }
+
+            private async void Lobby_Tapped(object sender, EventArgs e)
+            {
+                await Navigation.PushAsync(new Challenges());
+            }
+
+            private async void Leaderboard_Tapped(object sender, EventArgs e)
+            {
+                await Navigation.PushAsync(new Leaderboard());
+            }
+
+            private async void Discord_Tapped(object sender, EventArgs e)
+            {
+
+                var url = "https://discord.gg/mpvmEP8";
+                await Browser.OpenAsync(url);
+                Console.WriteLine("Discord Tapped");
+            }
+
+            private async void onClickDecks(object sender, EventArgs e)
+            {
+                await Navigation.PushAsync(new DecksList());
+            }
+
+            private async void onClickYGOGuide(object sender, EventArgs e)
+            {
+                await DisplayAlert("Not Available", "YGO Guide not available in this release.", "OK!");
+
+                Console.WriteLine("YGO Guide! Clicked!");
+
+            }
 
 
-        private async void Logout_Tapped(object sender, EventArgs e)
-        {
-            LoginPage.currentLoggedInUser = string.Empty;
-            await Navigation.PushAsync(new LoginPage());
-        }
+            private async void onClickTournies(object sender,  EventArgs e)
+            {
+                await DisplayAlert("Not Available", "Tournaments not available in this release.", "OK!");
+
+                Console.WriteLine("Tournies! Clicked!");
+            }
+
+
+            private async void Logout_Tapped(object sender, EventArgs e)
+            {
+                LoginPage.currentLoggedInUser = string.Empty;
+                await Navigation.PushAsync(new LoginPage());
+            }
     }
 }
+
+
+
+
+
+/*   public async static Task<User> GetLoggedInUser()
+   {
+       FirebaseHelper firebase = new FirebaseHelper();
+       return await firebase.GetUserByName(LoginPage.currentLoggedInUser);
+
+       /*
+
+         DEPRECATED: Above code will implemetn it with new way (Firebase DB)
+        return App.MyDatabase.getSpecificUser(LoginPage.currentLoggedInUser);
+
+   }*/
