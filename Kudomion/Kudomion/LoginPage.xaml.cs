@@ -47,7 +47,7 @@ namespace Kudomion
 
                 if (userNameText.Text == outPut.name && passwordText.Text == outPut.password)
                 {
-                    await Navigation.PushAsync(new HomePage());
+                    await Navigation.PushAsync(new LoggedInPage());
                     currentLoggedInUser = outPut.name;
                     return;
 

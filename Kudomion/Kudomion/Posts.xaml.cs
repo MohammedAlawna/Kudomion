@@ -17,8 +17,8 @@ namespace Kudomion
         {
             InitializeComponent();
            // author.Text = LoginPage.currentLoggedInUser;
-            author.Text = Home.GetLoggedInUser().name;
-            App.MyDatabase.ReadAllRoomsToString();
+          //  author.Text = Home.GetLoggedInUser().name;
+         //   App.MyDatabase.ReadAllRoomsToString();
             
         }
 

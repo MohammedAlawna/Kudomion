@@ -10,11 +10,12 @@ using Xamarin.Forms.Xaml;
 namespace Kudomion
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class HomeUser : ContentPage
+    public partial class LoggedInPage
     {
-        public HomeUser()
+        public LoggedInPage()
         {
             InitializeComponent();
+            
         }
     }
 }

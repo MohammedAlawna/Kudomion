@@ -39,7 +39,6 @@ namespace Kudomion
 
           public static void updateUser()
           {
-
                 noPosts.Text = GetLoggedInUser().posts.ToString();
                 noPoints.Text = GetLoggedInUser().points.ToString();    
           }

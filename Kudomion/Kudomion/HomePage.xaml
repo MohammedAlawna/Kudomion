@@ -7,9 +7,6 @@
             BarBackgroundColor="RoyalBlue"
             BackgroundColor="#202024"
             >
-    <local:Home Title="Home"  IconImageSource="Home"/>
-    <local:Posts Title="Posts" IconImageSource="Posts"/>
-    <local:Challenges Title="Lobby" IconImageSource="Challenges"/>
-    <local:Leaderboard Title="Rankings" IconImageSource="Leaderboard"/>
+   
     
 </TabbedPage>
