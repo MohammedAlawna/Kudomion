@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Kudomion.FirebaseManager;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,17 +12,18 @@ namespace Kudomion
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Challenges : ContentPage
     {
+        FirebaseHelper firebase = new FirebaseHelper();
         public Challenges()
         {
             InitializeComponent();
-            p1.Text = Home.GetLoggedInUser().name;
+            //p1.Text = Home.GetLoggedInUser().name; **issue
             p1.IsEnabled = false;
-          //  checkIfUserExistInLobby();
-           //Console.WriteLine(checkIfUserExistInLobby());
-            p2.ItemsSource = App.MyDatabase.ReadUsers();
-            CheckRooms();
-            roomsCollectionView.ItemsSource = App.MyDatabase.GetActiveRoom(Home.GetLoggedInUser().name);
+
+           // p2.ItemsSource = firebase.GetAllUsers().Result; **issue
+           //CheckRooms(); **issue
+           // roomsCollectionView.ItemsSource = App.MyDatabase.GetActiveRoom(Home.GetLoggedInUser().name); **issue
             
+            //Detected Issue: Any line of code that uses the new getLoggedInUser throws an error (lag).
         }
 
         public void CheckRooms()
@@ -48,7 +50,7 @@ namespace Kudomion
 
         }
 
-        private async void Reset_Clicked(object sender, EventArgs e)
+        private void Reset_Clicked(object sender, EventArgs e)
         {
             p2.SelectedItem = null;
             CheckRooms();
