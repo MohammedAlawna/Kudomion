@@ -17,7 +17,7 @@ namespace Kudomion
         public Home()
         {
             InitializeComponent();
-          
+            loggedInUsername.Text = LoginPage.currentLoggedInUser;
           //  GetLoggedInUser();
           /*  updateUser();
             updateUserPoints();
@@ -30,12 +30,18 @@ namespace Kudomion
         
         }
 
+        public static string getLoggedInUserName() {
+            Home h = new Home();
+            return h.loggedInUsername.Text;
+        }
+
       public static User GetLoggedInUser()
       {
             Home h = new Home();
-            var returnedValue = FirebaseHelper.GetUsrFromName(h.loggedInUsername.Text);
+            Task<User> returnedValue = FirebaseHelper.GetUsrFromName(h.loggedInUsername.Text);
             return returnedValue.Result;
-        }
+            
+      }
 
           public static void updateUser()
           {
@@ -87,7 +93,7 @@ namespace Kudomion
             private async void Discord_Tapped(object sender, EventArgs e)
             {
 
-                var url = "https://discord.gg/mpvmEP8";
+                string url = "https://discord.gg/mpvmEP8";
                 await Browser.OpenAsync(url);
                 Console.WriteLine("Discord Tapped");
             }

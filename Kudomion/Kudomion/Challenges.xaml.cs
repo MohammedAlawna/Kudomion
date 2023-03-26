@@ -16,9 +16,10 @@ namespace Kudomion
         public Challenges()
         {
             InitializeComponent();
-            //p1.Text = Home.GetLoggedInUser().name; **issue
+            p1.Text = Home.getLoggedInUserName();
             p1.IsEnabled = false;
-
+            Console.WriteLine(Home.getLoggedInUserName());
+            
            // p2.ItemsSource = firebase.GetAllUsers().Result; **issue
            //CheckRooms(); **issue
            // roomsCollectionView.ItemsSource = App.MyDatabase.GetActiveRoom(Home.GetLoggedInUser().name); **issue

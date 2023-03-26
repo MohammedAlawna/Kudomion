@@ -41,7 +41,7 @@ namespace Kudomion
             try
             {
 
-            
+                currentLoggedInUser = userNameText.Text;
             var outPut = await FirebaseHelper.GetUsrFromName(userNameText.Text);
             Console.WriteLine("This OUTPUT!!" + outPut.name);
 
