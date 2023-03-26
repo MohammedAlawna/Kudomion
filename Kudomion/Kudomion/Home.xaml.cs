@@ -43,6 +43,13 @@ namespace Kudomion
             
       }
 
+        public static User GetUser()
+        {
+            Home h = new Home();
+            User specifiedUser = FirebaseHelper.GetUsrFromName(h.loggedInUsername.Text).Result;
+            return specifiedUser;
+        }
+
           public static void updateUser()
           {
                 noPosts.Text = GetLoggedInUser().posts.ToString();
