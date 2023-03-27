@@ -177,6 +177,42 @@ namespace Kudomion.FirebaseManager
             }
         }
 
+        public async Task<List<Room>> GetAllRooms()
+        {
+            return null;
+        }
+
+        public async Task<List<Room>> GetActiveRoom(string nameOfUser)
+        {
+            return null;
+        }
+
+        public async Task<bool> DeleteRoom(string p1, string p2)
+        {
+            //Delete Room.
+            return false;
+        }
+
+        //TODO: Implement The Decide Winner Function:
+        public int DecideWinner(Room room, User winner)
+        {
+            room.status = true;
+            room.winner = winner.name;
+
+            IncreasePoints(winner, 3);
+            //return db.Update(room);
+            return 0;
+        }
+
+        //TODO: Implement the increase points function:
+        int IncreasePoints(User winner, int amount)
+        {
+            winner.points += amount;
+            Home.updateUser();
+            //return db.Update(winner);
+            return 0;
+
+        }
 
         public async Task<List<DeckItem>> GetAllDecks()
         {
