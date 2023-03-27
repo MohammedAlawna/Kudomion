@@ -16,15 +16,31 @@ namespace Kudomion
         public Challenges()
         {
             InitializeComponent();
-            p1.Text = Home.getLoggedInUserName();
-            p1.IsEnabled = false;
-            Console.WriteLine("Name in Challenges: " + FirebaseHelper.GetUsrFromName(Home.getLoggedInUserName()).Result.name);
+
+            LoadDuelistsData();
+          // Console.WriteLine("Name in Challenges: ");
             
            // p2.ItemsSource = firebase.GetAllUsers().Result; **issue
            //CheckRooms(); **issue
            // roomsCollectionView.ItemsSource = App.MyDatabase.GetActiveRoom(Home.GetLoggedInUser().name); **issue
             
             //Detected Issue: Any line of code that uses the new getLoggedInUser throws an error (lag).
+        }
+
+        private async void LoadDuelistsData()
+        {
+            //Load LoggedInUser Name.
+            var loggedInUserName = await FirebaseHelper.GetUsrFromName(LoginPage.currentLoggedInUser);
+            p1.Text = loggedInUserName.name;
+            p1.IsEnabled = false;
+
+            //Load AllUsersIntoSelector.
+            var listOfUsers = await firebase.GetAllUsers();
+            p2.ItemsSource = listOfUsers;
+
+            //Debugging Line.
+            Console.Write("LOGGED IN USER IS: " + loggedInUserName.name);
+           
         }
 
         public void CheckRooms()

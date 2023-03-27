@@ -38,7 +38,7 @@ namespace Kudomion
       public static User GetLoggedInUser()
       {
             Home h = new Home();
-            Task<User> returnedValue = FirebaseHelper.GetUsrFromName(h.loggedInUsername.Text);
+            var returnedValue = FirebaseHelper.GetUsrFromName(h.loggedInUsername.Text);
             return returnedValue.Result;
             
       }
