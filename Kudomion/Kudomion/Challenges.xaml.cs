@@ -18,15 +18,19 @@ namespace Kudomion
             InitializeComponent();
 
             LoadDuelistsData();
-          // Console.WriteLine("Name in Challenges: ");
-            
-           // p2.ItemsSource = firebase.GetAllUsers().Result; **issue
-           //CheckRooms(); **issue
-           // roomsCollectionView.ItemsSource = App.MyDatabase.GetActiveRoom(Home.GetLoggedInUser().name); **issue
+            // Console.WriteLine("Name in Challenges: ");
+            ProcessRoomCreation();
+            // p2.ItemsSource = firebase.GetAllUsers().Result; **issue
+            //CheckRooms(); **issue
+            // roomsCollectionView.ItemsSource = App.MyDatabase.GetActiveRoom(Home.GetLoggedInUser().name); **issue
             
             //Detected Issue: Any line of code that uses the new getLoggedInUser throws an error (lag).
         }
 
+        private async void ProcessRoomCreation()
+        {
+            await firebase.CreateRoom(new Room { p1 = "TESTING FIREBASE CHALLENGE" });
+        }
         private async void LoadDuelistsData()
         {
             //Load LoggedInUser Name.

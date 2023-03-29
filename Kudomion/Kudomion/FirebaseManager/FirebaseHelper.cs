@@ -177,6 +177,21 @@ namespace Kudomion.FirebaseManager
             }
         }
 
+        public async Task<bool> CreateRoom(Room room)
+        {
+            try
+            {
+                await firebaseClient.Child("Rooms").PostAsync(room);
+                return true;
+
+            }
+            catch(Exception e)
+            {
+                Debug.WriteLine($"Error: {e}");
+                return false;
+            }
+        }
+
         public async Task<List<Room>> GetAllRooms()
         {
             return null;
