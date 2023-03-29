@@ -191,6 +191,22 @@ namespace Kudomion.FirebaseManager
             }
         }
 
+        //This function is used to getSpecific room, just from one player!
+        public async Task<Room> GetPlayerRoom(string player)
+        {
+            try
+            {
+                var allRooms = await GetAllRooms();
+                await firebaseClient.Child("Rooms").OnceAsync<Room>();
+                return allRooms.Where(r => r.p1 == player || r.p2 == player).FirstOrDefault();
+            }
+            catch(Exception e)
+            {
+                Debug.WriteLine($"Error: {e}");
+                return null;
+            }
+        }
+
         public async Task<bool> DeleteRoom(string p1, string p2)
         {
             //Delete Room.

@@ -20,6 +20,7 @@ namespace Kudomion
             LoadDuelistsData();
             // Console.WriteLine("Name in Challenges: ");
             ProcessRoomCreation();
+            Console.WriteLine("Player 1 Is: " + LoginPage.currentLoggedInUser);
             // p2.ItemsSource = firebase.GetAllUsers().Result; **issue
             //CheckRooms(); **issue
             // roomsCollectionView.ItemsSource = App.MyDatabase.GetActiveRoom(Home.GetLoggedInUser().name); **issue
@@ -31,8 +32,8 @@ namespace Kudomion
         {
            // await firebase.CreateRoom(new Room { p1 = "KUDO", p2="Mezo" });
             await firebase.GetAllRooms();
-            var desiredRoom = await firebase.GetSpecificRoom("KUDO", "Mezo");
-            //Console.WriteLine(desiredRoom.p1 + "___VS___ " + desiredRoom.p2);
+           // var desiredRoom = await firebase.GetPlayerRoom("Mezo");
+           // Console.WriteLine(desiredRoom.p1 + " ||___VS___ || " + desiredRoom.p2);
         }
         private async void LoadDuelistsData()
         {
@@ -89,6 +90,11 @@ namespace Kudomion
 
         private async void AdmitDefeat_Clicked(object sender, EventArgs e)
         {
+            //First:: Get Selected Room (The One You Clicked At).
+            var getPlayerRoom =  await firebase.GetPlayerRoom(LoginPage.currentLoggedInUser);
+            
+            //Second:: Get Selected User From That Room.
+
             await DisplayAlert("You Lost!", "You just admit defeated! Duel Records Will be changed!", "OK");
             var getSelectedRoom = App.MyDatabase.GetActiveRoom(Home.GetLoggedInUser().name);
             
