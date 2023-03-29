@@ -85,53 +85,7 @@ namespace Kudomion.FirebaseManager
 
 
         }
-
-       
-        //Get User By Email (To Be Implemented Later)
-        /*public async Task<User> GetUserByEmail(string email)
-        {
-            try
-            {
-                var allUsers = await GetAllUsers();
-                await firebaseClient.Child("Users").OnceAsync<User>();
-                return allUsers.Where(a => a.name == name)
-            }
-            catch (Exception e)
-            {
-
-            }
-        }*/
-
-    /*    public async bool ValidateUserLogin(string _name, string _password)
-        {
-            //Task<User>
-            try
-            {
-                var allUsers = await GetAllUsers();
-                await firebaseClient.Child("Users").OnceAsync<User>();
-                var getSpecifiedUser = allUsers.Where(a => a.name == _name).FirstOrDefault();
-                if(getSpecifiedUser.name == _name && getSpecifiedUser.password = _password)
-                {
-                    return true; 
-                }
-            }
-            catch(Exception e)
-            {
-
-            }
-          /* try
-            {
-                var allUsers = await GetAllUsers();
-                await firebaseClient.Child("Users").OnceAsync<User>();
-                return allUsers.Where(a => a.name == _name && a.password == _password).FirstOrDefault();
-            }
-            catch(Exception e)
-            {
-                Debug.WriteLine($"Error: {e}");
-                return null;
-            }
-        }*/
-
+             
         public async Task<bool> AddUser(string _name, string _password)
         {
             try
@@ -194,7 +148,26 @@ namespace Kudomion.FirebaseManager
 
         public async Task<List<Room>> GetAllRooms()
         {
-            return null;
+           try
+            {
+                var roomsList = (await firebaseClient.Child("Rooms").OnceAsync<Room>()).Select(item =>
+                new Room
+                {
+                    disabled = item.Object.disabled,
+                    Id = item.Object.Id,
+                    p1 = item.Object.p1,
+                    p2 = item.Object.p2,
+                    winner = item.Object.winner,
+                    status = item.Object.status,
+                }).ToList();
+                return roomsList;
+                
+            }
+            catch(Exception e)
+            {
+                Debug.WriteLine($"Error: {e}");
+                return null;
+            }
         }
 
         public async Task<List<Room>> GetActiveRoom(string nameOfUser)

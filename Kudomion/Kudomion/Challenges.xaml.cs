@@ -29,7 +29,8 @@ namespace Kudomion
 
         private async void ProcessRoomCreation()
         {
-            await firebase.CreateRoom(new Room { p1 = "TESTING FIREBASE CHALLENGE" });
+          //  await firebase.CreateRoom(new Room { p1 = "TESTING FIREBASE CHALLENGE" });
+            await firebase.GetAllRooms();
         }
         private async void LoadDuelistsData()
         {
@@ -41,6 +42,10 @@ namespace Kudomion
             //Load AllUsersIntoSelector.
             var listOfUsers = await firebase.GetAllUsers();
             p2.ItemsSource = listOfUsers;
+
+
+            //Load All Rooms In The Lobby.
+            roomsCollectionView.ItemsSource = await firebase.GetAllRooms();
 
             //Debugging Line.
             Console.Write("LOGGED IN USER IS: " + loggedInUserName.name);
