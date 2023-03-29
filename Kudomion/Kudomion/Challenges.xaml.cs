@@ -92,10 +92,18 @@ namespace Kudomion
         {
             //First:: Get Selected Room (The One You Clicked At).
             var getPlayerRoom =  await firebase.GetPlayerRoom(LoginPage.currentLoggedInUser);
-            
-            //Second:: Get Selected User From That Room.
 
+            //Second:: Get Selected User From That Room.
+            var getSelectedPlayer = getPlayerRoom.p1;
+
+            //Third:: Decide Winner.
+
+
+            //Fourth:: Display Alert!
             await DisplayAlert("You Lost!", "You just admit defeated! Duel Records Will be changed!", "OK");
+
+
+
             var getSelectedRoom = App.MyDatabase.GetActiveRoom(Home.GetLoggedInUser().name);
             
             var getSelectedUser = App.MyDatabase.getSpecificUser(getSelectedRoom[0].p1);
