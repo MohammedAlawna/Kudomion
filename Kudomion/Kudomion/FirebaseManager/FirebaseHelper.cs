@@ -175,6 +175,22 @@ namespace Kudomion.FirebaseManager
             return null;
         }
 
+        //This function is used to get specific room (Player1, Player20)
+        public async Task<Room> GetSpecificRoom(string _p1, string _p2)
+        {
+            try
+            {
+                var allRooms = await GetAllRooms();
+                await firebaseClient.Child("Rooms").OnceAsync<Room>();
+                return allRooms.Where(r => r.p1 == _p1 && r.p2 == _p2).FirstOrDefault();
+            }
+            catch(Exception e)
+            {
+                Debug.WriteLine($"Error: {e}");
+                return null;
+            }
+        }
+
         public async Task<bool> DeleteRoom(string p1, string p2)
         {
             //Delete Room.

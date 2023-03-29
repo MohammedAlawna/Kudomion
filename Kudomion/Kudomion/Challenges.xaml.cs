@@ -29,8 +29,10 @@ namespace Kudomion
 
         private async void ProcessRoomCreation()
         {
-          //  await firebase.CreateRoom(new Room { p1 = "TESTING FIREBASE CHALLENGE" });
+           // await firebase.CreateRoom(new Room { p1 = "KUDO", p2="Mezo" });
             await firebase.GetAllRooms();
+            var desiredRoom = await firebase.GetSpecificRoom("KUDO", "Mezo");
+            //Console.WriteLine(desiredRoom.p1 + "___VS___ " + desiredRoom.p2);
         }
         private async void LoadDuelistsData()
         {
