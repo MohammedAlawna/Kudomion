@@ -101,13 +101,22 @@ namespace Kudomion.FirebaseManager
         }
 
         //Admin Priveleges To Fully-Control User Info From His/Her CP.
-        public async Task<bool> UpdateUser(string _name, string _password, int _points, int _posts, int _duels, int _ranking)
+        public async Task<bool> UpdateUser(string _name, string _password, int _points, int _posts, int _duels, int _ranking, string _usrtype)
         {
             try
             {
                 var userToUpdate = (await firebaseClient.Child("Users").OnceAsync<User>()).Where(a => a.Object.name == _name).FirstOrDefault();
-
-                await firebaseClient.Child("Users").Child(userToUpdate.Key).PutAsync(new User() { name = _name, password = _password });
+                var usrToUpdate = new User()
+                {
+                    name = _name,
+                    password = _password,
+                    points = _points,
+                    posts = _posts,
+                    duels = _duels,
+                    ranking = _ranking,
+                    usertype = _usrtype
+                };
+                await firebaseClient.Child("Users").Child(userToUpdate.Key).PutAsync(usrToUpdate);
                 return true;
             }
             catch(Exception e)
