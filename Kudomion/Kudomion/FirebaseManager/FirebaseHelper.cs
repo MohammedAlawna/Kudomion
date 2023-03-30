@@ -126,24 +126,6 @@ namespace Kudomion.FirebaseManager
             }
         }
 
-        public async Task<bool> UpdateDuelistRecords(string _name ,int _points)
-        {
-            try
-            {
-                var getUsers = (await firebaseClient.Child("Users").OnceAsync<User>()).Where(a => a.Object.name == _name).FirstOrDefault();
-                var usrToUpdate = new User
-                {
-                    name = _name,
-                    points = _points,
-                    
-                };
-            }
-            catch(Exception e)
-            {
-
-            }
-        }
-
         public async Task<bool> DeleteUser(string _name)
         {
             try
