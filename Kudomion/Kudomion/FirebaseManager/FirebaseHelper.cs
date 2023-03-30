@@ -101,7 +101,7 @@ namespace Kudomion.FirebaseManager
         }
 
         //Admin Priveleges To Fully-Control User Info From His/Her CP.
-        public async Task<bool> UpdateUser(User usrToUpdate)
+        public async Task<bool> UpdateUser(string _name, User usrToUpdate)
         {
             try
             {

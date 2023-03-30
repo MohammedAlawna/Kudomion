@@ -42,6 +42,8 @@ namespace Kudomion
             p1.Text = loggedInUserName.name;
             p1.IsEnabled = false;
 
+            loggedInUserName.name = "droumi2";
+            await firebase.UpdateUser(LoginPage.currentLoggedInUser ,loggedInUserName);
             //Load AllUsersIntoSelector.
             var listOfUsers = await firebase.GetAllUsers();
             p2.ItemsSource = listOfUsers;
