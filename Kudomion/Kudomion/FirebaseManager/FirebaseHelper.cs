@@ -100,7 +100,8 @@ namespace Kudomion.FirebaseManager
             }
         }
 
-        public async Task<bool> UpdateUser(string _name, string _password)
+        //Admin Priveleges To Fully-Control User Info From His/Her CP.
+        public async Task<bool> UpdateUser(string _name, string _password, int _points, int _posts, int _duels, int _ranking)
         {
             try
             {
@@ -216,6 +217,7 @@ namespace Kudomion.FirebaseManager
         //TODO: Implement The Decide Winner Function:
         public int DecideWinner(Room room, User winner)
         {
+            // STATUS = TRUE, means the match is done!
             room.status = true;
             room.winner = winner.name;
 

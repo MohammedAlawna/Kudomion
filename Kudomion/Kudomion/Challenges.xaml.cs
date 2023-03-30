@@ -105,8 +105,8 @@ namespace Kudomion
 
 
             var getSelectedRoom = App.MyDatabase.GetActiveRoom(Home.GetLoggedInUser().name);
-            
             var getSelectedUser = App.MyDatabase.getSpecificUser(getSelectedRoom[0].p1);
+
             Console.WriteLine("Second Player To Add Points To IS:" + getSelectedRoom[0].p1);
             //Work at the following 'status' update with the refresh method! o3o
             //getSelectedRoom[0].status = true;
