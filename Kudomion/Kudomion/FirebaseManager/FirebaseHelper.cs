@@ -101,12 +101,12 @@ namespace Kudomion.FirebaseManager
         }
 
         //Admin Priveleges To Fully-Control User Info From His/Her CP.
-        public async Task<bool> UpdateUser(string _name, string _password, int _points, int _posts, int _duels, int _ranking, string _usrtype)
+        public async Task<bool> UpdateUser(User usrToUpdate)
         {
             try
             {
                 var userToUpdate = (await firebaseClient.Child("Users").OnceAsync<User>()).Where(a => a.Object.name == _name).FirstOrDefault();
-                var usrToUpdate = new User()
+              /*  var usrToUpdate = new User()
                 {
                     name = _name,
                     password = _password,
@@ -115,7 +115,7 @@ namespace Kudomion.FirebaseManager
                     duels = _duels,
                     ranking = _ranking,
                     usertype = _usrtype
-                };
+                };*/
                 await firebaseClient.Child("Users").Child(userToUpdate.Key).PutAsync(usrToUpdate);
                 return true;
             }
@@ -123,6 +123,24 @@ namespace Kudomion.FirebaseManager
             {
                 Debug.WriteLine($"Error: {e}");
                 return false;
+            }
+        }
+
+        public async Task<bool> UpdateDuelistRecords(string _name ,int _points)
+        {
+            try
+            {
+                var getUsers = (await firebaseClient.Child("Users").OnceAsync<User>()).Where(a => a.Object.name == _name).FirstOrDefault();
+                var usrToUpdate = new User
+                {
+                    name = _name,
+                    points = _points,
+                    
+                };
+            }
+            catch(Exception e)
+            {
+
             }
         }
 
