@@ -42,8 +42,8 @@ namespace Kudomion
             p1.Text = loggedInUserName.name;
             p1.IsEnabled = false;
 
-            loggedInUserName.name = "droumi2";
-            await firebase.UpdateUser(LoginPage.currentLoggedInUser ,loggedInUserName);
+           // loggedInUserName.name = "droumi2";
+           // await firebase.UpdateUser(LoginPage.currentLoggedInUser ,loggedInUserName);
             //Load AllUsersIntoSelector.
             var listOfUsers = await firebase.GetAllUsers();
             p2.ItemsSource = listOfUsers;
@@ -92,29 +92,62 @@ namespace Kudomion
 
         private async void AdmitDefeat_Clicked(object sender, EventArgs e)
         {
+            try
+            {
+
+           
             //First:: Get Selected Room (The One You Clicked At).
             var getPlayerRoom =  await firebase.GetPlayerRoom(LoginPage.currentLoggedInUser);
 
-            //Second:: Get Selected User From That Room.
-            var getSelectedPlayer = getPlayerRoom.p1;
+                if(getPlayerRoom == null)
+                {
+                    await DisplayAlert("Error", "You cant Admit Defeat. This is not your room!", "OK!");
+                    return;
+                }
+                //Second:: Get Selected User From That Room.
+                string getSelectedPlayer = getPlayerRoom.p1;
+                
 
-            //Third:: Decide Winner.
+            //Third:: Get Player Rec.
+           // var getWinningPlayer = await FirebaseHelper.GetUsrFromName(getPlayerRoom.p1);
+           // var getLoggedInPlayer = await FirebaseHelper.GetUsrFromName(LoginPage.currentLoggedInUser);
 
+            //Check:: If The Player Who's Trying To Admit Defeat Is Not In The Room!
+          /*  if(getPlayerRoom.p1 != getLoggedInPlayer.name || getPlayerRoom.p2 != getLoggedInPlayer.name) {
+                await DisplayAlert("Room Error", "You are not involved in this match!", "OK!");
+                return;
+            }*/
+
+            //Fourth:: Decide Winner & Give Awards
+          //  getWinningPlayer.duels += 1;
+          //  getWinningPlayer.posts += 3;
+
+            //TODO:: Update Ranking Table. o3o
+
+            //Fifth:: Apply Updates
+         //   await firebase.UpdateUser(LoginPage.currentLoggedInUser, getWinningPlayer);
 
             //Fourth:: Display Alert!
             await DisplayAlert("You Lost!", "You just admit defeated! Duel Records Will be changed!", "OK");
 
 
 
-            var getSelectedRoom = App.MyDatabase.GetActiveRoom(Home.GetLoggedInUser().name);
-            var getSelectedUser = App.MyDatabase.getSpecificUser(getSelectedRoom[0].p1);
+        
+          //  Console.WriteLine("Second Player To Add Points To IS:" + getSelectedPlayer);
+            }
+            catch(NullReferenceException nu)
+            {
+                await DisplayAlert("Exception!", $"Null Reference Excpetion Caught! {nu}", "OK!");
+                return;
+            }
 
-            Console.WriteLine("Second Player To Add Points To IS:" + getSelectedRoom[0].p1);
+
             //Work at the following 'status' update with the refresh method! o3o
             //getSelectedRoom[0].status = true;
             //CheckRooms();
-            App.MyDatabase.DecideWinner(getSelectedRoom[0], getSelectedUser);  
-        
+
+            //App.MyDatabase.DecideWinner(getSelectedRoom[0], getSelectedUser);  
+
         }
 
        
