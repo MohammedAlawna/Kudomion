@@ -109,23 +109,23 @@ namespace Kudomion
                 
 
             //Third:: Get Player Rec.
-           // var getWinningPlayer = await FirebaseHelper.GetUsrFromName(getPlayerRoom.p1);
-           // var getLoggedInPlayer = await FirebaseHelper.GetUsrFromName(LoginPage.currentLoggedInUser);
+            var getWinningPlayer = await FirebaseHelper.GetUsrFromName(getPlayerRoom.p1);
+            var getLoggedInPlayer = await FirebaseHelper.GetUsrFromName(LoginPage.currentLoggedInUser);
 
             //Check:: If The Player Who's Trying To Admit Defeat Is Not In The Room!
-          /*  if(getPlayerRoom.p1 != getLoggedInPlayer.name || getPlayerRoom.p2 != getLoggedInPlayer.name) {
+            if(getPlayerRoom.p1 != getLoggedInPlayer.name || getPlayerRoom.p2 != getLoggedInPlayer.name) {
                 await DisplayAlert("Room Error", "You are not involved in this match!", "OK!");
                 return;
-            }*/
+            }
 
             //Fourth:: Decide Winner & Give Awards
-          //  getWinningPlayer.duels += 1;
-          //  getWinningPlayer.posts += 3;
+            getWinningPlayer.duels += 1;
+            getWinningPlayer.posts += 3;
 
             //TODO:: Update Ranking Table. o3o
 
             //Fifth:: Apply Updates
-         //   await firebase.UpdateUser(LoginPage.currentLoggedInUser, getWinningPlayer);
+            await firebase.UpdateUser(LoginPage.currentLoggedInUser, getWinningPlayer);
 
             //Fourth:: Display Alert!
             await DisplayAlert("You Lost!", "You just admit defeated! Duel Records Will be changed!", "OK");
