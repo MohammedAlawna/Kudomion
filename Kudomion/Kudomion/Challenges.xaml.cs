@@ -109,18 +109,23 @@ namespace Kudomion
                 
 
             //Third:: Get Player Rec.
-            var getWinningPlayer = await FirebaseHelper.GetUsrFromName(getPlayerRoom.p1);
+            var getWinningPlayer = await FirebaseHelper.GetUsrFromName(getPlayerRoom.p2);
             var getLoggedInPlayer = await FirebaseHelper.GetUsrFromName(LoginPage.currentLoggedInUser);
-
+                
             //Check:: If The Player Who's Trying To Admit Defeat Is Not In The Room!
-            if(getPlayerRoom.p1 != getLoggedInPlayer.name || getPlayerRoom.p2 != getLoggedInPlayer.name) {
-                await DisplayAlert("Room Error", "You are not involved in this match!", "OK!");
-                return;
+            if(getPlayerRoom.p1 != LoginPage.currentLoggedInUser) {
+                    if(getPlayerRoom.p2 != LoginPage.currentLoggedInUser)
+                    {
+                        await DisplayAlert("Room Error", $"You are not involved in this match! {getPlayerRoom.p1} , {getPlayerRoom.p2} , {LoginPage.currentLoggedInUser}", "OK!");
+                        return;
+                    }
+               
             }
 
             //Fourth:: Decide Winner & Give Awards
+            //TODO:: Winning player should be the second player in room!
             getWinningPlayer.duels += 1;
-            getWinningPlayer.posts += 3;
+            getWinningPlayer.points += 3;
 
             //TODO:: Update Ranking Table. o3o
 
