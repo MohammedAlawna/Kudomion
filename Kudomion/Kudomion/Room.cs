@@ -16,7 +16,8 @@ namespace Kudomion
 
         public string p2 { get; set; }
 
-        public bool status { get; set; }
+        // STATUS = TRUE, means the match is done!
+        public bool isDone { get; set; }
 
         public bool disabled { get; set; }
 

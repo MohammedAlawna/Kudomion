@@ -59,7 +59,7 @@ namespace Kudomion
          {
             //Get Room From DB where nameOfUser == p2 && status == false;
             var tableQuery = db.Table<Room>();
-            List<Room> activeRoom = tableQuery.Where(x => x.p2 == nameOfUser && x.status == false).ToList();
+            List<Room> activeRoom = tableQuery.Where(x => x.p2 == nameOfUser && x.isDone == false).ToList();
            
             //List<Room> activeRoom = tableQuery.Where(x => (x.p1 == nameOfUser || x.p2 == nameOfUser) && x.disabled != true && x.status == false).ToList();
 
@@ -68,7 +68,7 @@ namespace Kudomion
 
        
         public int DecideWinner(Room room, User winner){
-            room.status = true;
+            room.isDone = true;
             room.winner = winner.name;
             
             IncreasePoints(winner, 3);
@@ -87,7 +87,7 @@ namespace Kudomion
 
         public List<string> ReadAllActiveRoomsToString()
         {
-            var getAllRooms = db.Table<Room>().Where(x => x.status == false).ToList();
+            var getAllRooms = db.Table<Room>().Where(x => x.isDone == false).ToList();
             List<string> stringsList = new List<string>();
 
             foreach(Room r in getAllRooms)

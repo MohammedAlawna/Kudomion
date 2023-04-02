@@ -92,31 +92,31 @@ namespace Kudomion
 
         private async void AdmitDefeat_Clicked(object sender, EventArgs e)
         {
+            //First:: Get Selected Room (The One You Clicked At).
+            var getPlayerRoom = await firebase.GetPlayerRoom(LoginPage.currentLoggedInUser);
+
+            //Second:: Get Selected User From That Room.
+            string getSelectedPlayer = getPlayerRoom.p1;
+
+
+            //Third:: Get Player Rec.
+            var getWinningPlayer = await FirebaseHelper.GetUsrFromName(getPlayerRoom.p2);
+            var getLoggedInPlayer = await FirebaseHelper.GetUsrFromName(LoginPage.currentLoggedInUser);
+
             try
             {
-
-           
-            //First:: Get Selected Room (The One You Clicked At).
-            var getPlayerRoom =  await firebase.GetPlayerRoom(LoginPage.currentLoggedInUser);
 
                 if(getPlayerRoom == null)
                 {
                     await DisplayAlert("Error", "You cant Admit Defeat. This is not your room!", "OK!");
                     return;
                 }
-                //Second:: Get Selected User From That Room.
-                string getSelectedPlayer = getPlayerRoom.p1;
-                
-
-            //Third:: Get Player Rec.
-            var getWinningPlayer = await FirebaseHelper.GetUsrFromName(getPlayerRoom.p2);
-            var getLoggedInPlayer = await FirebaseHelper.GetUsrFromName(LoginPage.currentLoggedInUser);
-                
-            //Check:: If The Player Who's Trying To Admit Defeat Is Not In The Room!
+               
+           // Check:: If The Player Who's Trying To Admit Defeat Is Not In The Room!
             if(getPlayerRoom.p1 != LoginPage.currentLoggedInUser) {
                     if(getPlayerRoom.p2 != LoginPage.currentLoggedInUser)
                     {
-                        await DisplayAlert("Room Error", $"You are not involved in this match! {getPlayerRoom.p1} , {getPlayerRoom.p2} , {LoginPage.currentLoggedInUser}", "OK!");
+                        await DisplayAlert("Room Error (Not Exc)", $"You are not involved in this match! {getPlayerRoom.p1} , {getPlayerRoom.p2} , {LoginPage.currentLoggedInUser}", "OK!");
                         return;
                     }
                
@@ -138,20 +138,13 @@ namespace Kudomion
 
 
         
-          //  Console.WriteLine("Second Player To Add Points To IS:" + getSelectedPlayer);
+          // Console.WriteLine("Second Player To Add Points To IS:" + getSelectedPlayer);
             }
             catch(NullReferenceException nu)
             {
-                await DisplayAlert("Exception!", $"Null Reference Excpetion Caught! {nu}", "OK!");
+                await DisplayAlert("Room Error", $"You are not involved in this match! {getPlayerRoom.p1} , {getPlayerRoom.p2} , {LoginPage.currentLoggedInUser}", "OK!");
                 return;
             }
-
-
-            //Work at the following 'status' update with the refresh method! o3o
-            //getSelectedRoom[0].status = true;
-            //CheckRooms();
-
-            //App.MyDatabase.DecideWinner(getSelectedRoom[0], getSelectedUser);  
 
         }
 
@@ -203,7 +196,7 @@ namespace Kudomion
             roomToCreate.p1 = p1.Text;
             // roomToCreate.p2 = "opp";
             roomToCreate.p2 = p2.Items[p2.SelectedIndex];
-            roomToCreate.status = false;
+            roomToCreate.isDone = false;
             //roomToCreate.winner = "";
 
             App.MyDatabase.CreateRoom(roomToCreate);

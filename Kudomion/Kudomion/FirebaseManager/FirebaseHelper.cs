@@ -168,7 +168,7 @@ namespace Kudomion.FirebaseManager
                     p1 = item.Object.p1,
                     p2 = item.Object.p2,
                     winner = item.Object.winner,
-                    status = item.Object.status,
+                    isDone = item.Object.isDone,
                 }).ToList();
                 return roomsList;
                 
@@ -227,7 +227,7 @@ namespace Kudomion.FirebaseManager
         public int DecideWinner(Room room, User winner)
         {
             // STATUS = TRUE, means the match is done!
-            room.status = true;
+            room.isDone = true;
             room.winner = winner.name;
 
             IncreasePoints(winner, 3);
