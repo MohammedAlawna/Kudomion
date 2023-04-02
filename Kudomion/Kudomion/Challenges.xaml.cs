@@ -48,6 +48,12 @@ namespace Kudomion
             var listOfUsers = await firebase.GetAllUsers();
             p2.ItemsSource = listOfUsers;
 
+            Room trialRoom = new Room {
+            p1 = "j1", 
+            p2 = "j2",
+            isDone = false,
+            };
+            await firebase.CreateRoom(trialRoom);
 
             //Load All Rooms In The Lobby.
             roomsCollectionView.ItemsSource = await firebase.GetAllRooms();
@@ -84,7 +90,7 @@ namespace Kudomion
         private void Reset_Clicked(object sender, EventArgs e)
         {
             p2.SelectedItem = null;
-            CheckRooms();
+            //CheckRooms();
             
         }
 
@@ -93,15 +99,15 @@ namespace Kudomion
         private async void AdmitDefeat_Clicked(object sender, EventArgs e)
         {
             //First:: Get Selected Room (The One You Clicked At).
-            var getPlayerRoom = await firebase.GetPlayerRoom(LoginPage.currentLoggedInUser);
+            Room getPlayerRoom = await firebase.GetPlayerRoom(LoginPage.currentLoggedInUser);
 
             //Second:: Get Selected User From That Room.
             string getSelectedPlayer = getPlayerRoom.p1;
 
 
             //Third:: Get Player Rec.
-            var getWinningPlayer = await FirebaseHelper.GetUsrFromName(getPlayerRoom.p2);
-            var getLoggedInPlayer = await FirebaseHelper.GetUsrFromName(LoginPage.currentLoggedInUser);
+            User getWinningPlayer = await FirebaseHelper.GetUsrFromName(getPlayerRoom.p2);
+            User getLoggedInPlayer = await FirebaseHelper.GetUsrFromName(LoginPage.currentLoggedInUser);
 
             try
             {
@@ -199,10 +205,11 @@ namespace Kudomion
             roomToCreate.isDone = false;
             //roomToCreate.winner = "";
 
-            App.MyDatabase.CreateRoom(roomToCreate);
+            await firebase.CreateRoom(roomToCreate);
+           
             //TODO Update Number of Duels for both players by 1.
             UpdateRoomsList();
-            CheckRooms();
+            //CheckRooms();
             await DisplayAlert("Success!", "Room Added! Waiting for your opponent..", "OK!");
 
 
