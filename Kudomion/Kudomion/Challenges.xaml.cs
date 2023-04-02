@@ -142,7 +142,7 @@ namespace Kudomion
             }
             catch(NullReferenceException nu)
             {
-                await DisplayAlert("Room Error", $"You are not involved in this match! {getPlayerRoom.p1} , {getPlayerRoom.p2} , {LoginPage.currentLoggedInUser}", "OK!");
+                await DisplayAlert("Room Error", $"Error, Cant Com[lete The Operstion. Contact The Staff!", "OK!");
                 return;
             }
 
@@ -205,7 +205,6 @@ namespace Kudomion
             CheckRooms();
             await DisplayAlert("Success!", "Room Added! Waiting for your opponent..", "OK!");
 
-         
 
              }
         
