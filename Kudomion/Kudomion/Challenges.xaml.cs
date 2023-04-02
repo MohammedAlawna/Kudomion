@@ -48,12 +48,12 @@ namespace Kudomion
             var listOfUsers = await firebase.GetAllUsers();
             p2.ItemsSource = listOfUsers;
 
-            Room trialRoom = new Room {
+          /*  Room trialRoom = new Room {
             p1 = "j1", 
             p2 = "j2",
             isDone = false,
             };
-            await firebase.CreateRoom(trialRoom);
+            await firebase.CreateRoom(trialRoom);*/
 
             //Load All Rooms In The Lobby.
             roomsCollectionView.ItemsSource = await firebase.GetAllRooms();
