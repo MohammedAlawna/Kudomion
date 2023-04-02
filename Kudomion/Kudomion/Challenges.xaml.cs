@@ -57,7 +57,7 @@ namespace Kudomion
            
         }
 
-        public void CheckRooms()
+      /*  public void CheckRooms()
         {
             var allRoomsVisual = roomsCollectionView.ItemsSource;
             var allRoomsLogic = App.MyDatabase.ReadRooms();
@@ -73,12 +73,12 @@ namespace Kudomion
                 }
              
             }
-        }
+        }*/
 
-        public void UpdateRoomsList()
+        private async void UpdateRoomsList()
         {
-            roomsCollectionView.ItemsSource = App.MyDatabase.GetActiveRoom(Home.GetLoggedInUser().name);
-
+            //roomsCollectionView.ItemsSource = App.MyDatabase.GetActiveRoom(Home.GetLoggedInUser().name);
+            roomsCollectionView.ItemsSource = await firebase.GetAllRooms();
         }
 
         private void Reset_Clicked(object sender, EventArgs e)
