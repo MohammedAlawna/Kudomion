@@ -97,11 +97,48 @@ namespace Kudomion
             //Second:: Get Selected User From That Room.
             string getSelectedPlayer = getPlayerRoom.p1;
 
-
-            //Third:: Get Player Rec.
-            User getWinningPlayer = await FirebaseHelper.GetUsrFromName(getPlayerRoom.p2);
             User getLoggedInPlayer = await FirebaseHelper.GetUsrFromName(LoginPage.currentLoggedInUser);
 
+            //Third:: Get Player Rec.
+            User getWinningPlayer = null;
+         /*   if(getPlayerRoom.p1 != LoginPage.currentLoggedInUser && getPlayerRoom.p2 != LoginPage.currentLoggedInUser)
+            {
+                await DisplayAlert("User Not Found", "You are not invvoled in this match, plese choose another one..", "OK!");
+                return; 
+            }*/
+            if(getPlayerRoom.p1 == LoginPage.currentLoggedInUser)
+            {
+                //var player1 = await FirebaseHelper.GetUsrFromName(LoginPage.currentLoggedInUser);
+                var player2 = await FirebaseHelper.GetUsrFromName(getPlayerRoom.p2);
+               
+                getWinningPlayer = player2;
+                getWinningPlayer.duels += 1;
+                getWinningPlayer.points += 3;
+
+              //  player1.duels += 1;
+
+             //   await firebase.UpdateUser(getWinningPlayer.name, getWinningPlayer);
+              //  await firebase.UpdateUser(player1.name, player1);
+
+                Console.WriteLine("WINNING PLAYER IZ: " + getWinningPlayer.name);
+            }
+            if(getPlayerRoom.p1 != LoginPage.currentLoggedInUser)
+            {
+                var player1 = await FirebaseHelper.GetUsrFromName(getPlayerRoom.p1);
+                var player2 = await FirebaseHelper.GetUsrFromName(getPlayerRoom.p2);
+
+                getWinningPlayer = player1;
+                getWinningPlayer.duels += 1;
+                getWinningPlayer.points += 3;
+
+                player2.duels += 1;
+
+                await firebase.UpdateUser(getWinningPlayer.name, getWinningPlayer);
+                await firebase.UpdateUser(player2.name, player2);
+
+                Console.WriteLine("WINNING PLAYER IZ: " + getWinningPlayer);
+            }
+           
             try
             {
 
@@ -121,12 +158,7 @@ namespace Kudomion
                
             }
 
-            //Fourth:: Decide Winner & Give Awards
-            //TODO:: Winning player should be the second player in room!
-            getWinningPlayer.duels += 1;
-            getWinningPlayer.points += 3;
-
-            //TODO:: Update Ranking Table. o3o
+          
 
             //Fifth:: Apply Updates
             await firebase.UpdateUser(LoginPage.currentLoggedInUser, getWinningPlayer);
