@@ -42,18 +42,11 @@ namespace Kudomion
             p1.Text = loggedInUserName.name;
             p1.IsEnabled = false;
 
-           // loggedInUserName.name = "droumi2";
-           // await firebase.UpdateUser(LoginPage.currentLoggedInUser ,loggedInUserName);
+        
             //Load AllUsersIntoSelector.
-            var listOfUsers = await firebase.GetAllUsers();
+           
+            List<User> listOfUsers = await firebase.GetAllUsers();
             p2.ItemsSource = listOfUsers;
-
-          /*  Room trialRoom = new Room {
-            p1 = "j1", 
-            p2 = "j2",
-            isDone = false,
-            };
-            await firebase.CreateRoom(trialRoom);*/
 
             //Load All Rooms In The Lobby.
             roomsCollectionView.ItemsSource = await firebase.GetAllRooms();
