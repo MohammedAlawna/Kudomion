@@ -11,6 +11,7 @@
     <local:Home Title="Home"  IconImageSource="Home"/>
     <local:Posts Title="Posts" IconImageSource="Posts"/>
     <local:Challenges Title="Lobby" IconImageSource="Lobby"/>
+    <local:Leaderboard Title="Ranking" IconImageSource="Rnke"/>
 
 
 </TabbedPage>

@@ -16,26 +16,24 @@ namespace Kudomion
         public Leaderboard()
         {
             InitializeComponent();
-            var rankedUsers = App.MyDatabase.ReadUsers().OrderByDescending(x => x.points);
-            userRankingsToLoad.ItemsSource =  rankedUsers;
+           // var rankedUsers = App.MyDatabase.ReadUsers().OrderByDescending(x => x.points);
+           // userRankingsToLoad.ItemsSource =  rankedUsers;
            
             //var listToGetCount = rankedUsers.ToList();
           
-            var getCount = Enumerable.Count(rankedUsers);
+         //   var getCount = Enumerable.Count(rankedUsers);
 
             //var getCountOfThisUser = listToGetCount.FindIndex(0, getCount, );
 
 
-            for (int i = 0; i < getCount; i++)
+         /*   for (int i = 0; i < getCount; i++)
             {
-             //   int f = 1;
+             
 
                 var newArr =  rankedUsers.ToArray();
-             //   f = newArr[i].ranking;
-
-             //   f++;
+             
                 
-            }
+            }*/
         }
         }
     }
