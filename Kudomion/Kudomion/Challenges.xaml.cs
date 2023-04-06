@@ -30,10 +30,7 @@ namespace Kudomion
 
         private async void ProcessRoomCreation()
         {
-           // await firebase.CreateRoom(new Room { p1 = "KUDO", p2="Mezo" });
             await firebase.GetAllRooms();
-           // var desiredRoom = await firebase.GetPlayerRoom("Mezo");
-           // Console.WriteLine(desiredRoom.p1 + " ||___VS___ || " + desiredRoom.p2);
         }
         private async void LoadDuelistsData()
         {
@@ -165,28 +162,7 @@ namespace Kudomion
             getWinningPlayer = null;
         }
 
-        private async Task<bool> checkIfUserExistInLobby()
-        {
-
-            var getAllRooms = await firebase.GetAllRooms();
-            var all = getAllRooms.ToList();
-            //   Console.WriteLine(getAllRooms[0]);
-
-            if (getAllRooms.Count == 0)
-            {
-                return false;
-            }
-           
-            if (getAllRooms.Contains(p1) || getAllRooms.Contains(p2.SelectedItem))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
+       
         private async void CreateRoom_Clicked(object sender, EventArgs e)
         {
             if(p2 == null)
@@ -194,8 +170,9 @@ namespace Kudomion
                 await DisplayAlert("Missing Player!", "Please Enter Your Opponent Name", "OK!");
                 return;
             }
-            
-            if(checkIfUserExistInLobby() == true)
+            bool isUserExist = await firebase.CheckIfUserExists();
+            Console.WriteLine($"Is User Exist: {isUserExist}");
+            if(isUserExist == true)
             {
                 await DisplayAlert("User Exist!", "You can't have more than one room at once. Please, complete your first match..", "OK!");
               

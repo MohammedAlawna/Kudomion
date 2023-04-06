@@ -201,24 +201,25 @@ namespace Kudomion.FirebaseManager
             return await GetAllRooms();
         }
 
-        public async Task<List<string>> GetAllActiveRoomsToString()
+        public async Task<bool> CheckIfUserExists()
         {
-            try
-            {
-                List<Room> getAllActiveRooms =  await GetAllRMs();
-                List<string> stringsList = new List<string>();
-                foreach(Room r in getAllActiveRooms)
+          
+               List<Room> getAllActiveRooms =  await GetAllRMs();
+               foreach(Room r in getAllActiveRooms)
                 {
-                    stringsList.Add(r.p2);
+                    if(r.p1 == LoginPage.currentLoggedInUser || r.p2 == LoginPage.currentLoggedInUser)
+                    {
+                    return true;
                 }
-                return null;
+
+
+            }
+            return false;
+                
+               
               
-            }
-            catch(Exception e)
-            {
-                Debug.WriteLine($"Error, Can't process {e}");
-                return null;
-            }
+            
+           
         }
 
         public async Task<List<Room>> GetActiveRoom(string nameOfUser)
