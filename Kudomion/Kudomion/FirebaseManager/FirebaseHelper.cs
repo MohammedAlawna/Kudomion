@@ -196,6 +196,31 @@ namespace Kudomion.FirebaseManager
             }
         }
 
+        public async Task<List<Room>> GetAllRMs()
+        {
+            return await GetAllRooms();
+        }
+
+        public async Task<List<string>> GetAllActiveRoomsToString()
+        {
+            try
+            {
+                List<Room> getAllActiveRooms =  await GetAllRMs();
+                List<string> stringsList = new List<string>();
+                foreach(Room r in getAllActiveRooms)
+                {
+                    stringsList.Add(r.p2);
+                }
+                return null;
+              
+            }
+            catch(Exception e)
+            {
+                Debug.WriteLine($"Error, Can't process {e}");
+                return null;
+            }
+        }
+
         public async Task<List<Room>> GetActiveRoom(string nameOfUser)
         {
             return null;

@@ -165,10 +165,11 @@ namespace Kudomion
             getWinningPlayer = null;
         }
 
-        bool checkIfUserExistInLobby()
+        private async Task<bool> checkIfUserExistInLobby()
         {
-            
-            var getAllRooms = App.MyDatabase.ReadAllActiveRoomsToString();
+
+            var getAllRooms = await firebase.GetAllRooms();
+            var all = getAllRooms.ToList();
             //   Console.WriteLine(getAllRooms[0]);
 
             if (getAllRooms.Count == 0)
@@ -176,7 +177,7 @@ namespace Kudomion
                 return false;
             }
            
-            if (getAllRooms.Contains(p1.Text) || getAllRooms.Contains(p2.SelectedItem))
+            if (getAllRooms.Contains(p1) || getAllRooms.Contains(p2.SelectedItem))
             {
                 return true;
             }
