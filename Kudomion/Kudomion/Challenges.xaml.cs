@@ -16,7 +16,7 @@ namespace Kudomion
         public Challenges()
         {
             InitializeComponent();
-
+            ResetRoomValues();
             LoadDuelistsData();
             // Console.WriteLine("Name in Challenges: ");
             ProcessRoomCreation();
@@ -56,24 +56,7 @@ namespace Kudomion
            
         }
 
-      /*  public void CheckRooms()
-        {
-            var allRoomsVisual = roomsCollectionView.ItemsSource;
-            var allRoomsLogic = App.MyDatabase.ReadRooms();
-            var getLoggedInUser = Home.GetLoggedInUser().name;
-            foreach(var r in allRoomsLogic)
-            {
-                if(r.p1 != Home.GetLoggedInUser().name || r.p2 != Home.GetLoggedInUser().name)
-                {
-                    
-                    r.disabled = true;
-                 
-
-                }
-             
-            }
-        }*/
-
+     
         private async void UpdateRoomsList()
         {
             //roomsCollectionView.ItemsSource = App.MyDatabase.GetActiveRoom(Home.GetLoggedInUser().name);
@@ -87,99 +70,99 @@ namespace Kudomion
             
         }
 
-        
 
+        private Room getPlayerRoom = null;
+        public User firstPlayer = null;
+        public User secondPlayer = null;
+        public User getWinningPlayer = null;
         private async void AdmitDefeat_Clicked(object sender, EventArgs e)
         {
-            //First:: Get Selected Room (The One You Clicked At).
-            Room getPlayerRoom = await firebase.GetPlayerRoom(LoginPage.currentLoggedInUser);
-
-            //Second:: Get Selected User From That Room.
-            string getSelectedPlayer = getPlayerRoom.p1;
-
-            User getLoggedInPlayer = await FirebaseHelper.GetUsrFromName(LoginPage.currentLoggedInUser);
-
-            //Third:: Get Player Rec.
-            User getWinningPlayer = null;
-         /*   if(getPlayerRoom.p1 != LoginPage.currentLoggedInUser && getPlayerRoom.p2 != LoginPage.currentLoggedInUser)
-            {
-                await DisplayAlert("User Not Found", "You are not invvoled in this match, plese choose another one..", "OK!");
-                return; 
-            }*/
-            if(getPlayerRoom.p1 == LoginPage.currentLoggedInUser)
-            {
-                //var player1 = await FirebaseHelper.GetUsrFromName(LoginPage.currentLoggedInUser);
-                var player2 = await FirebaseHelper.GetUsrFromName(getPlayerRoom.p2);
-               
-                getWinningPlayer = player2;
-                getWinningPlayer.duels += 1;
-                getWinningPlayer.points += 3;
-
-              //  player1.duels += 1;
-
-             //   await firebase.UpdateUser(getWinningPlayer.name, getWinningPlayer);
-              //  await firebase.UpdateUser(player1.name, player1);
-
-                Console.WriteLine("WINNING PLAYER IZ: " + getWinningPlayer.name);
-            }
-            if(getPlayerRoom.p1 != LoginPage.currentLoggedInUser)
-            {
-                var player1 = await FirebaseHelper.GetUsrFromName(getPlayerRoom.p1);
-                var player2 = await FirebaseHelper.GetUsrFromName(getPlayerRoom.p2);
-
-                getWinningPlayer = player1;
-                getWinningPlayer.duels += 1;
-                getWinningPlayer.points += 3;
-
-                player2.duels += 1;
-
-                await firebase.UpdateUser(getWinningPlayer.name, getWinningPlayer);
-                await firebase.UpdateUser(player2.name, player2);
-
-                Console.WriteLine("WINNING PLAYER IZ: " + getWinningPlayer);
-            }
-           
+            ResetRoomValues();
             try
             {
+                //First:: Get Selected Room (The One You Clicked At).
+                getPlayerRoom = await firebase.GetPlayerRoom(LoginPage.currentLoggedInUser);
+                firstPlayer = await FirebaseHelper.GetUsrFromName(getPlayerRoom.p1);
+                secondPlayer = await FirebaseHelper.GetUsrFromName(getPlayerRoom.p2);
 
-                if(getPlayerRoom == null)
+                if (getPlayerRoom == null)
                 {
                     await DisplayAlert("Error", "You cant Admit Defeat. This is not your room!", "OK!");
                     return;
                 }
-               
-           // Check:: If The Player Who's Trying To Admit Defeat Is Not In The Room!
-            if(getPlayerRoom.p1 != LoginPage.currentLoggedInUser) {
-                    if(getPlayerRoom.p2 != LoginPage.currentLoggedInUser)
-                    {
-                        await DisplayAlert("Room Error (Not Exc)", $"You are not involved in this match! {getPlayerRoom.p1} , {getPlayerRoom.p2} , {LoginPage.currentLoggedInUser}", "OK!");
-                        return;
-                    }
-               
-            }
 
-          
+                Console.WriteLine($"First Player Is: {firstPlayer.name}" + $", Second Player Is: {secondPlayer.name}");
+                //Second:: Get Selected User From That Room.
+                string getSelectedPlayer = getPlayerRoom.p1;
 
-            //Fifth:: Apply Updates
-            await firebase.UpdateUser(LoginPage.currentLoggedInUser, getWinningPlayer);
+                User getLoggedInPlayer = await FirebaseHelper.GetUsrFromName(LoginPage.currentLoggedInUser);
 
-            //Fourth:: Display Alert!
-            await DisplayAlert("You Lost!", "You just admit defeated! Duel Records Will be changed!", "OK");
+                //Third:: Get Player Rec.
+                getWinningPlayer = null;
+                if (firstPlayer.name != getPlayerRoom.p1 && firstPlayer.name != getPlayerRoom.p2)
+                {
+                    await DisplayAlert("Missing Duelist!", "You Are Not Involved In This Room!", "OK!");
+                    return;
+                }
+                if (firstPlayer.name == getPlayerRoom.p1)
+                {
+                    //Second Player => winner.
+                    getWinningPlayer = secondPlayer;
+                    getWinningPlayer.duels += 1;
+                    getWinningPlayer.points += 3;
+                    firstPlayer.duels += 1;
+
+                    //Update User Records.
+                    await firebase.UpdateUser(getWinningPlayer.name, getWinningPlayer);
+                    await firebase.UpdateUser(firstPlayer.name, firstPlayer);
+                }
+                if (firstPlayer.name != getPlayerRoom.p1)
+                {
+                    //First Player => winner.
+                    getWinningPlayer = firstPlayer;
+                    getWinningPlayer.duels += 1;
+                    getWinningPlayer.posts += 3;
+                    secondPlayer.duels += 1;
+
+                    //Update User Records.
+                    await firebase.UpdateUser(getWinningPlayer.name, getWinningPlayer);
+                    await firebase.UpdateUser(secondPlayer.name, secondPlayer);
+                }
 
 
+                //Award Points
+                
+                
 
-        
-          // Console.WriteLine("Second Player To Add Points To IS:" + getSelectedPlayer);
+                //Apply Updates
+                await firebase.UpdateUser(getWinningPlayer.name, getWinningPlayer);
+                
+
+                //Fourth:: Display Alert!
+                await DisplayAlert("You Lost!", $"You just admit defeated! Duel Records Will be changed!" + getWinningPlayer.name, "OK");
+
+                //Reseting Room Values:
+                ResetRoomValues();
             }
             catch(NullReferenceException nu)
             {
-                await DisplayAlert("Room Error", $"Error, Cant Com[lete The Operstion. Contact The Staff!", "OK!");
+                await DisplayAlert("Error", $"We cant process the operation.. You are not involved in this match.", "OK!");
                 return;
             }
+            
+            
+            
 
         }
 
        
+        void ResetRoomValues()
+        {
+            getPlayerRoom = null;
+            firstPlayer = null;
+            secondPlayer = null;
+            getWinningPlayer = null;
+        }
 
         bool checkIfUserExistInLobby()
         {
