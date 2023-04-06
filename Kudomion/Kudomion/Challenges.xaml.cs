@@ -77,7 +77,7 @@ namespace Kudomion
         public User getWinningPlayer = null;
         private async void AdmitDefeat_Clicked(object sender, EventArgs e)
         {
-            ResetRoomValues();
+           // ResetRoomValues();
             try
             {
                 //First:: Get Selected Room (The One You Clicked At).
@@ -111,10 +111,12 @@ namespace Kudomion
                     getWinningPlayer.duels += 1;
                     getWinningPlayer.points += 3;
                     firstPlayer.duels += 1;
+                    getPlayerRoom.isDone = true;
 
-                    //Update User Records.
+                    //Update User and Room Records.
                     await firebase.UpdateUser(getWinningPlayer.name, getWinningPlayer);
                     await firebase.UpdateUser(firstPlayer.name, firstPlayer);
+                    await firebase.UpdateRoom(getPlayerRoom.p1, getPlayerRoom.p2, getPlayerRoom);
                 }
                 if (firstPlayer.name != getPlayerRoom.p1)
                 {
@@ -123,39 +125,38 @@ namespace Kudomion
                     getWinningPlayer.duels += 1;
                     getWinningPlayer.posts += 3;
                     secondPlayer.duels += 1;
+                    getPlayerRoom.isDone = true;
 
-                    //Update User Records.
+                    //Update User and Room Records.
                     await firebase.UpdateUser(getWinningPlayer.name, getWinningPlayer);
                     await firebase.UpdateUser(secondPlayer.name, secondPlayer);
+                    await firebase.UpdateRoom(getPlayerRoom.p1, getPlayerRoom.p2, getPlayerRoom);
                 }
 
 
-                //Award Points
-                
-                
-
-                //Apply Updates
-                await firebase.UpdateUser(getWinningPlayer.name, getWinningPlayer);
-                
+                //Reseting Room Values:
+                ResetRoomValues();
 
                 //Fourth:: Display Alert!
                 await DisplayAlert("You Lost!", $"You just admit defeated! Duel Records Will be changed!" + getWinningPlayer.name, "OK");
 
-                //Reseting Room Values:
-                ResetRoomValues();
+                
             }
             catch(NullReferenceException nu)
             {
                 await DisplayAlert("Error", $"We cant process the operation.. You are not involved in this match.", "OK!");
                 return;
             }
-            
-            
-            
+
+
+            //Update Rooms List:
+            UpdateRoomsList();
+
+
 
         }
 
-       
+
         void ResetRoomValues()
         {
             getPlayerRoom = null;

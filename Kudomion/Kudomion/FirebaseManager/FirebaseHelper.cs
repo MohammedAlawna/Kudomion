@@ -100,6 +100,22 @@ namespace Kudomion.FirebaseManager
             }
         }
 
+        public async Task<bool> UpdateRoom(string _p1, string _p2, Room romToUpdate)
+        {
+            try
+            {
+                var roomToUpdate = (await firebaseClient.Child("Rooms").OnceAsync<Room>()).Where(
+                r => r.Object.p1 == _p1 && r.Object.p2 == _p2).FirstOrDefault();
+                await firebaseClient.Child("Rooms").Child(roomToUpdate.Key).PutAsync(romToUpdate);
+                return true;
+            }
+            catch(Exception e)
+            {
+                Debug.WriteLine($"Error: {e}");
+                return false;
+            }
+        }
+
         //Admin Priveleges To Fully-Control User Info From His/Her CP.
         public async Task<bool> UpdateUser(string _name, User usrToUpdate)
         {
@@ -170,7 +186,7 @@ namespace Kudomion.FirebaseManager
                     winner = item.Object.winner,
                     isDone = item.Object.isDone,
                 }).ToList();
-                return roomsList;
+                return roomsList.Where(r => r.isDone == false).ToList();
                 
             }
             catch(Exception e)
