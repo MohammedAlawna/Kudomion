@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Kudomion.FirebaseManager;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -12,10 +13,12 @@ namespace Kudomion
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Leaderboard : ContentPage
     {
-        
+        FirebaseHelper firebaseHelper = new FirebaseHelper();
         public Leaderboard()
         {
             InitializeComponent();
+
+            RankAllUsers();
            // var rankedUsers = App.MyDatabase.ReadUsers().OrderByDescending(x => x.points);
            // userRankingsToLoad.ItemsSource =  rankedUsers;
            
@@ -35,5 +38,13 @@ namespace Kudomion
                 
             }*/
         }
+
+        private async void RankAllUsers()
+        {
+            List<User> allUsers = await firebaseHelper.GetAllUsers();
+            var rankedUsers = allUsers.OrderByDescending(p => p.points);
+            userRankingsToLoad.ItemsSource = rankedUsers;
         }
+
+    }
     }
