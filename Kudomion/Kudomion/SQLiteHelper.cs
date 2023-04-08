@@ -78,7 +78,7 @@ namespace Kudomion
         int IncreasePoints(User winner, int amount)
         {
             winner.points += amount;
-            Home.updateUser();
+          //  Home.updateUser();
             return db.Update(winner);
             
         }
@@ -135,7 +135,7 @@ namespace Kudomion
         {
             userToUpdate.posts = userToUpdate.posts + 1;
             // Home.noPosts.Text = userToUpdate.posts.ToString();
-            Home.updateUser();
+            //Home.updateUser();
          //   instance.UpdatePostProfile();
             return db.Update(userToUpdate);
             
@@ -169,7 +169,7 @@ namespace Kudomion
         //Functions For Posting System.
         public int CreatePost(Post postToCreate)
         {
-           Home.updateUser();
+          // Home.updateUser();
            return db.Insert(postToCreate);
            
         }

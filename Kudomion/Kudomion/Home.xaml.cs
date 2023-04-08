@@ -18,62 +18,28 @@ namespace Kudomion
         {
             InitializeComponent();
             loggedInUsername.Text = LoginPage.currentLoggedInUser;
-          //  GetLoggedInUser();
-          /*  updateUser();
-            updateUserPoints();
-            updateUserRanking();*/
-            DisplayAlert("Logged In!","User Is: ", "OK!");
-
-            
-           // loggedInUsername.Text = GetLoggedInUser().Result.name;
-          //  noPoints.Text = GetLoggedInUser().Result.points.ToString();
-        
+            LoadDuelistProfile();
         }
 
-        public static string getLoggedInUserName() {
-            Home h = new Home();
-            return h.loggedInUsername.Text;
-        }
-
-      public static User GetLoggedInUser()
-      {
-            Home h = new Home();
-            var returnedValue = FirebaseHelper.GetUsrFromName(h.loggedInUsername.Text);
-            return returnedValue.Result;
-            
-      }
-
-        public static User GetUser()
+        public async void LoadDuelistProfile()
         {
-            Home h = new Home();
-            User specifiedUser = FirebaseHelper.GetUsrFromName(h.loggedInUsername.Text).Result;
-            return specifiedUser;
+            //Get Current Logged-In User/Duelist.
+            User getDuelist = await FirebaseHelper.GetUsrFromName(loggedInUsername.Text);
+            
+            //Get & Assign The Number Of Points.
+            string numberOfPoints = getDuelist.points.ToString();
+            noPoints.Text = numberOfPoints;
+
+            //Get & Assign The Number of Duels.
+            string numberOfDuels = getDuelist.duels.ToString();
+            noDuels.Text = numberOfDuels;
+
+            //Get & Assign The Ranking.
+            string duelistRanking = getDuelist.ranking.ToString();
+            noRanking.Text = duelistRanking;
         }
 
-          public static void updateUser()
-          {
-                noPosts.Text = GetLoggedInUser().posts.ToString();
-                noPoints.Text = GetLoggedInUser().points.ToString();    
-          }
-       
-           public static void updateUserRanking()
-           {
-                Home h = new Home();
-                var GetUser = FirebaseHelper.GetUsrFromName(h.loggedInUsername.Text).Result.name;
-
-                noRanking.Text = GetUser;
-           }
-
-            public static void updateUserPoints()
-            {
-                Home H = new Home();
-                noPoints.Text = GetLoggedInUser().ranking.ToString();
-            }
-
-
-
-
-            private async void Profile_Tapped(object sender, EventArgs e)
+        private async void Profile_Tapped(object sender, EventArgs e)
             {
                  await DisplayAlert("Not Available", "Profile Settings not available in this release.", "OK!");
                  Console.WriteLine("Profile Tapped");
@@ -82,8 +48,7 @@ namespace Kudomion
             private async void Post_Tapped(object sender, EventArgs e)
             {
                 Console.WriteLine("Post Tapped");
-                //updatePostsValue(getLoggedInUser().posts.ToString());
-                noPosts.Text = GetLoggedInUser().posts.ToString();
+              
                 await Navigation.PushAsync(new Posts());
             }
 

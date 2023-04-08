@@ -42,7 +42,7 @@ namespace Kudomion
            User selectedUser = listOfUsers.Find(u => u.name == userNameToGet);
            selectedUser.posts++;
 
-            Home.updateUser();
+          //  Home.updateUser();
             
         }
         
@@ -72,13 +72,13 @@ namespace Kudomion
 
                 //TODO Goods System will be implemented later on.
                 //postToCreate.goods = null;
-                Console.WriteLine(Home.GetLoggedInUser());
+               
                 //  App.MyDatabase.UpdateUser(Home.getLoggedInUser());
               //  firebase.UpdateUser();
                 App.MyDatabase.CreatePost(postToCreate);
 
                 //  Console.WriteLine(Home.getLoggedInUser().posts);
-                Home.updateUser();
+             //   Home.updateUser();
 
                 DisplayAlert("Success!", "Post Added Successfully!", "OK!");
             }

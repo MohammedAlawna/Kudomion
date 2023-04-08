@@ -265,28 +265,10 @@ namespace Kudomion.FirebaseManager
             return false;
         }
 
-        //TODO: Implement The Decide Winner Function:
-        public int DecideWinner(Room room, User winner)
-        {
-            // STATUS = TRUE, means the match is done!
-            room.isDone = true;
-            room.winner = winner.name;
+     
+       
 
-            IncreasePoints(winner, 3);
-            //return db.Update(room);
-            return 0;
-        }
-
-        //TODO: Implement the increase points function:
-        int IncreasePoints(User winner, int amount)
-        {
-            winner.points += amount;
-            Home.updateUser();
-            //return db.Update(winner);
-            return 0;
-
-        }
-
+        
         public async Task<List<DeckItem>> GetAllDecks()
         {
 
