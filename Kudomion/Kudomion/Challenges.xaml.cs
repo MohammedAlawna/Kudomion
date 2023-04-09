@@ -18,14 +18,10 @@ namespace Kudomion
             InitializeComponent();
             ResetRoomValues();
             LoadDuelistsData();
-            // Console.WriteLine("Name in Challenges: ");
-            ProcessRoomCreation();
-            Console.WriteLine("Player 1 Is: " + LoginPage.currentLoggedInUser);
-            // p2.ItemsSource = firebase.GetAllUsers().Result; **issue
-            //CheckRooms(); **issue
-            // roomsCollectionView.ItemsSource = App.MyDatabase.GetActiveRoom(Home.GetLoggedInUser().name); **issue
             
-            //Detected Issue: Any line of code that uses the new getLoggedInUser throws an error (lag).
+           // ProcessRoomCreation();
+            Console.WriteLine("Player 1 Is: " + LoginPage.currentLoggedInUser);
+          
         }
 
         private async void ProcessRoomCreation()
@@ -47,9 +43,6 @@ namespace Kudomion
 
             //Load All Rooms In The Lobby.
             roomsCollectionView.ItemsSource = await firebase.GetAllRooms();
-
-            //Debugging Line.
-            Console.Write("LOGGED IN USER IS: " + loggedInUserName.name);
            
         }
 
@@ -74,19 +67,14 @@ namespace Kudomion
         public User getWinningPlayer = null;
         private async void AdmitDefeat_Clicked(object sender, EventArgs e)
         {
-           // ResetRoomValues();
-            try
-            {
+          
+           
                 //First:: Get Selected Room (The One You Clicked At).
                 getPlayerRoom = await firebase.GetPlayerRoom(LoginPage.currentLoggedInUser);
                 firstPlayer = await FirebaseHelper.GetUsrFromName(getPlayerRoom.p1);
                 secondPlayer = await FirebaseHelper.GetUsrFromName(getPlayerRoom.p2);
 
-                if (getPlayerRoom == null)
-                {
-                    await DisplayAlert("Error", "You cant Admit Defeat. This is not your room!", "OK!");
-                    return;
-                }
+             
 
                 Console.WriteLine($"First Player Is: {firstPlayer.name}" + $", Second Player Is: {secondPlayer.name}");
                 //Second:: Get Selected User From That Room.
@@ -136,14 +124,10 @@ namespace Kudomion
 
                 //Fourth:: Display Alert!
                 await DisplayAlert("You Lost!", $"You just admit defeated! Duel Records Will be changed!" + getWinningPlayer.name, "OK");
-
-                
-            }
-            catch(NullReferenceException nu)
-            {
-                await DisplayAlert("Error", $"We cant process the operation.. You are not involved in this match.", "OK!");
                 return;
-            }
+                
+            
+      
 
 
             //Update Rooms List:
