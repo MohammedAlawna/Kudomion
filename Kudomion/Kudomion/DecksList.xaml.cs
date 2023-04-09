@@ -51,7 +51,7 @@ namespace Kudomion
         }
 
         //Testing Purposes
-        private async void Button_Clicked(object sender, EventArgs e)
+        private async void AddDeckBtn_Clicked(object sender, EventArgs e)
         {
            // await firebaseHelper.AddDeck("Jehad", "ig.jpg");
         }

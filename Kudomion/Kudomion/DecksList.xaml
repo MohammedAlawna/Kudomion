@@ -8,16 +8,19 @@
         <StackLayout>
             <StackLayout>
                 <Frame Margin="15" BackgroundColor="#2c2c2c" HeightRequest="245">
-                    <Grid>
-                        <Label FontSize="25" HorizontalTextAlignment="Center" TextColor="White" FontAttributes="Bold" Text="Add Your Deck!        \n  (Currently Unavailable)"/>
-                        </Grid>
+                    <StackLayout>
+                        <Label Text="Add Deck" FontSize="30" TextColor="RoyalBlue" HorizontalOptions="CenterAndExpand"/>
+                        <Entry x:Name="dckName" Placeholder="Enter Deck Name.." TextColor="White" PlaceholderColor="White"/>
+                        <Entry x:Name="dckYdke" Placeholder="Enter Deck YDKe Code.." TextColor="White" PlaceholderColor="White"/>
+                        <Entry x:Name="dckSrc" Placeholder="Enter Deck Download Link Here.." TextColor="White" PlaceholderColor="White"/>
+                        <Button Text="Post Deck" BackgroundColor="Orange" TextColor="White" Clicked="AddDeckBtn_Clicked" />
+                    </StackLayout>
+                  
                 </Frame>
             </StackLayout>
             <StackLayout x:Name="allDecksToLoad">
                 <Frame Margin="15" BackgroundColor="#2c2c2c" x:Name="deckCard">
                     <StackLayout>
-
-                        <Button Text="Add!!" Clicked="Button_Clicked"/>
                         <CollectionView x:Name="decksToLoad">
                             <CollectionView.ItemTemplate>
                                 <DataTemplate>
