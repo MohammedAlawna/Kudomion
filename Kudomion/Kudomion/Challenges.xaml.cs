@@ -103,7 +103,7 @@ namespace Kudomion
                     await firebase.UpdateRoom(getPlayerRoom.p1, getPlayerRoom.p2, getPlayerRoom);
 
                     //Prompt Admit Defeat!
-                    await DisplayAlert("You Lost!", $"You just admit defeated! Duel Records Will be changed! Room: {getPlayerRoom.winner}", "OK");
+                    await DisplayAlert("You Lost!", $"You just admit defeated! Duel Records Will be changed! Room Winner: {getPlayerRoom.winner}, P1{getPlayerRoom.p1} P2{getPlayerRoom.p2} Winning Player{getWinningPlayer.name}", "OK");
 
                     //Update Rooms List.
                     UpdateRoomsList();
