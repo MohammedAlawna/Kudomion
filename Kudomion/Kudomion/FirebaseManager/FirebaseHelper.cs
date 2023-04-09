@@ -281,10 +281,19 @@ namespace Kudomion.FirebaseManager
               }).ToList();
         }
 
-        public async Task AddDeck(string _title, string _thumbSrc)
+        public async Task<bool> AddDeck(DeckItem deckToAdd)
         {
-            DeckItem newItem = new DeckItem() {title = _title, thumbSrc = _thumbSrc };
-            await firebaseClient.Child("Decks").PostAsync(newItem);
+            try
+            {
+                await firebaseClient.Child("Decks").PostAsync(deckToAdd);
+                return true;
+            }
+            catch(Exception e)
+            {
+                Debug.WriteLine($"Deck Added: {e}");
+                return false;
+            }
+
         }
 
     
