@@ -7,12 +7,13 @@
     <StackLayout>
         <StackLayout>
             <StackLayout>
-                <Frame Margin="15" BackgroundColor="#2c2c2c" HeightRequest="245">
+                <Frame Margin="15" BackgroundColor="#2c2c2c" HeightRequest="345">
                     <StackLayout>
                         <Label Text="Add Deck" FontSize="30" TextColor="RoyalBlue" HorizontalOptions="CenterAndExpand"/>
                         <Entry x:Name="dckName" Placeholder="Enter Deck Name.." TextColor="White" PlaceholderColor="White"/>
                         <Entry x:Name="dckYdke" Placeholder="Enter Deck YDKe Code.." TextColor="White" PlaceholderColor="White"/>
-                        <Entry x:Name="dckSrc" Placeholder="Enter Deck Download Link Here.." TextColor="White" PlaceholderColor="White"/>
+                        <Entry x:Name="dckSrc" Placeholder="Enter Deck Download Link.." TextColor="White" PlaceholderColor="White"/>
+                        <Entry x:Name="dckImg" Placeholder="Enter Deck Image.." TextColor="White" PlaceholderColor="White"/>
                         <Button Text="Post Deck" BackgroundColor="Orange" TextColor="White" Clicked="AddDeckBtn_Clicked" />
                     </StackLayout>
                   
