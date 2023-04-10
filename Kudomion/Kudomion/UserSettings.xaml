@@ -14,10 +14,10 @@
            <Frame Margin="5" BackgroundColor="#414141" HeightRequest="250">
                 <StackLayout>
                 <Entry x:Name="nUser" Placeholder="Enter New Username.." TextColor="White" PlaceholderColor="White"/>
-                <Entry x:Name="nPass" Placeholder="Enter New Password.." TextColor="White" PlaceholderColor="White"/>
-                <Entry x:Name="nPassConfirm" Placeholder="Enter New Password Again.." TextColor="White" PlaceholderColor="White"/>
+                <Entry x:Name="nPass" IsPassword="True" Placeholder="Enter New Password.." TextColor="White" PlaceholderColor="White"/>
+                <Entry x:Name="nPassConfirm" IsPassword="True" Placeholder="Enter New Password Again.." TextColor="White" PlaceholderColor="White"/>
                 <Entry x:Name="nEmail" Placeholder="Enter New Email.." TextColor="White" PlaceholderColor="White" IsEnabled="False"/>
-                <Button BackgroundColor="DarkOrange" Text="Submit" TextColor="White"/>
+                    <Button BackgroundColor="DarkOrange" Text="Submit" Clicked="SubmitButton" TextColor="White"/>
                 </StackLayout>
             </Frame>
         </StackLayout>
