@@ -51,8 +51,7 @@ namespace Kudomion
         {
             DisplayAlert("NOT AUTHORIZED!", "Posting system is only allowed for admins and supervisors", "OK!");
             return;
-            try
-            {
+          
                 if (content.Text == null)
                 {
                     DisplayAlert("Post Empty!", "Please Write Something To Post!", "OK!");
@@ -80,12 +79,9 @@ namespace Kudomion
                 //  Console.WriteLine(Home.getLoggedInUser().posts);
              //   Home.updateUser();
 
-                DisplayAlert("Success!", "Post Added Successfully!", "OK!");
-            }
-            catch 
-            {
-
-            }
+               DisplayAlert("Success!", "Post Added Successfully!", "OK!");
+            
+           
            
         }
 

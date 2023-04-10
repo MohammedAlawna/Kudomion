@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             BackgroundColor="#202024"
+             x:Class="Kudomion.UserSettings">
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame BackgroundColor="RoyalBlue">
+                <StackLayout>
+                    <Label Text="User Settings" HorizontalOptions="CenterAndExpand" TextColor="White" FontSize="30"/>
+                </StackLayout>
+                
+                </Frame>
+           <Frame Margin="5" BackgroundColor="#414141" HeightRequest="250">
+                <StackLayout>
+                <Entry x:Name="nUser" Placeholder="Enter New Username.." TextColor="White" PlaceholderColor="White"/>
+                <Entry x:Name="nPass" Placeholder="Enter New Password.." TextColor="White" PlaceholderColor="White"/>
+                <Entry x:Name="nPassConfirm" Placeholder="Enter New Password Again.." TextColor="White" PlaceholderColor="White"/>
+                <Entry x:Name="nEmail" Placeholder="Enter New Email.." TextColor="White" PlaceholderColor="White" IsEnabled="False"/>
+                <Button BackgroundColor="DarkOrange" Text="Submit" TextColor="White"/>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+        
+    </ContentPage.Content>
+</ContentPage>

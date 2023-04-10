@@ -23,3 +23,4 @@ D:\OGRE Tech CO\Kudomion\Kudomion\Kudomion\Kudomion\obj\Debug\netstandard2.0\Xam
 D:\OGRE Tech CO\Kudomion\Kudomion\Kudomion\Kudomion\obj\Debug\netstandard2.0\Kudomion.dll
 D:\OGRE Tech CO\Kudomion\Kudomion\Kudomion\Kudomion\obj\Debug\netstandard2.0\ref\Kudomion.dll
 D:\OGRE Tech CO\Kudomion\Kudomion\Kudomion\Kudomion\obj\Debug\netstandard2.0\Kudomion.pdb
+D:\OGRE Tech CO\Kudomion\Kudomion\Kudomion\Kudomion\obj\Debug\netstandard2.0\UserSettings.xaml.g.cs

@@ -13,7 +13,6 @@ namespace Kudomion
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Home : ContentPage
     {
-       
         public Home()
         {
             InitializeComponent();
@@ -40,78 +39,54 @@ namespace Kudomion
         }
 
         private async void Profile_Tapped(object sender, EventArgs e)
-            {
-                 await DisplayAlert("Not Available", "Profile Settings not available in this release.", "OK!");
-                 Console.WriteLine("Profile Tapped");
-            }
+        {
+            await Navigation.PushAsync(new UserSettings());
+        }
 
-            private async void Post_Tapped(object sender, EventArgs e)
-            {
-                Console.WriteLine("Post Tapped");
-              
-                await Navigation.PushAsync(new Posts());
-            }
+        private async void Post_Tapped(object sender, EventArgs e)
+        {     
+            await Navigation.PushAsync(new Posts());
+        }
 
-            private async void Lobby_Tapped(object sender, EventArgs e)
-            {
-                await Navigation.PushAsync(new Challenges());
-            }
+        private async void Lobby_Tapped(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Challenges());
+        }
 
-            private async void Leaderboard_Tapped(object sender, EventArgs e)
-            {
-                await Navigation.PushAsync(new Leaderboard());
-            }
+        private async void Leaderboard_Tapped(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Leaderboard());
+        }
 
-            private async void Discord_Tapped(object sender, EventArgs e)
-            {
+        private async void Discord_Tapped(object sender, EventArgs e)
+        {
 
-                string url = "https://discord.gg/mpvmEP8";
-                await Browser.OpenAsync(url);
-                Console.WriteLine("Discord Tapped");
-            }
+            string url = "https://discord.gg/mpvmEP8";
+            await Browser.OpenAsync(url);
+            Console.WriteLine("Discord Tapped");
+        }
 
-            private async void onClickDecks(object sender, EventArgs e)
-            {
-                await Navigation.PushAsync(new DecksList());
-            }
+        private async void OnClickDecks(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new DecksList());
+        }
 
-            private async void onClickYGOGuide(object sender, EventArgs e)
-            {
-                await DisplayAlert("Not Available", "YGO Guide not available in this release.", "OK!");
-
-                Console.WriteLine("YGO Guide! Clicked!");
-
-            }
+        private async void OnClickYGOGuide(object sender, EventArgs e)
+        {
+            await DisplayAlert("Not Available", "YGO Guide not available in this release.", "OK!");
+        }
 
 
-            private async void onClickTournies(object sender,  EventArgs e)
-            {
-                await DisplayAlert("Not Available", "Tournaments not available in this release.", "OK!");
-
-                Console.WriteLine("Tournies! Clicked!");
-            }
+        private async void OnClickTournies(object sender, EventArgs e)
+        {
+            await DisplayAlert("Not Available", "Tournaments not available in this release.", "OK!");
+        }
 
 
-            private async void Logout_Tapped(object sender, EventArgs e)
-            {
-                LoginPage.currentLoggedInUser = string.Empty;
-                await Navigation.PushAsync(new LoginPage());
-            }
+        private async void Logout_Tapped(object sender, EventArgs e)
+        {
+            LoginPage.currentLoggedInUser = string.Empty;
+            await Navigation.PushAsync(new LoginPage());
+        }
     }
 }
-
-
-
-
-
-/*   public async static Task<User> GetLoggedInUser()
-   {
-       FirebaseHelper firebase = new FirebaseHelper();
-       return await firebase.GetUserByName(LoginPage.currentLoggedInUser);
-
-       /*
-
-         DEPRECATED: Above code will implemetn it with new way (Firebase DB)
-        return App.MyDatabase.getSpecificUser(LoginPage.currentLoggedInUser);
-
-   }*/

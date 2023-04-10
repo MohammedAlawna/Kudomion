@@ -73,19 +73,19 @@
 
                 <Image x:Name="decks" Source="dcks" Grid.Column="2" Grid.Row="1">
                     <Image.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="onClickDecks"/>
+                        <TapGestureRecognizer Tapped="OnClickDecks"/>
                     </Image.GestureRecognizers>
                 </Image>
 
                 <Image x:Name="guide" Source="ygo_guide" Grid.Column="0" Grid.Row="2">
                     <Image.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="onClickYGOGuide"/>
+                        <TapGestureRecognizer Tapped="OnClickYGOGuide"/>
                     </Image.GestureRecognizers>
                 </Image>
 
                 <Image x:Name="tournies" Source="tournies" Grid.Column="1" Grid.Row="1">
                     <Image.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="onClickTournies"/>
+                        <TapGestureRecognizer Tapped="OnClickTournies"/>
                     </Image.GestureRecognizers>
                 </Image>
                 
