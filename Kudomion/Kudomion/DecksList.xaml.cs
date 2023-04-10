@@ -20,26 +20,10 @@ namespace Kudomion
        
         public DecksList()
         {
-
             InitializeComponent();
 
             //Initalize DeckList from Firebase!
             UpdateDecksList();
-
-
-            //Create Dummy Deck:
-          
-          /*DeckItem dummyDeck = new DeckItem();
-            dummyDeck.author = "KUDO";
-            dummyDeck.thumbSrc = "https://www.phdgames.com/wp-content/uploads/2020/02/Yugi-Dino.jpg";
-            dummyDeck.title = "Dinos";
-            dummyDeck.ydkeCode = "qr53543ki2354"; 
-            
-            App.MyDatabase.CreateDeck(dummyDeck); */
-
-            //Initialize The CollectionList:
-          //  decksToLoad.ItemsSource = App.MyDatabase.ReadDecks();
-
         }
 
        
@@ -47,7 +31,6 @@ namespace Kudomion
         {
             //Load and assign to db retrived from Firebase.
              decksToLoad.ItemsSource = await firebaseHelper.GetAllDecks();
-            
         }
 
        
@@ -74,6 +57,17 @@ namespace Kudomion
                 Debug.WriteLine($"Error: {er}");
                 return;
             }
+        }
+
+        private void GetYDKE(object sender, EventArgs e)
+        {
+            Button button = (Button)sender;
+            DisplayAlert("Error!", $"Error: {button.Parent}", "OK!");
+        }
+
+        private void DownloadYDK (object sender, EventArgs e)
+        {
+
         }
     }
 }
