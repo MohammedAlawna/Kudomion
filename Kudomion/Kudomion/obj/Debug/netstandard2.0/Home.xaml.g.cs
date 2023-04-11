@@ -17,16 +17,16 @@ namespace Kudomion {
     public partial class Home : global::Xamarin.Forms.ContentPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
-        public static global::Xamarin.Forms.Label loggedInUsername;
+        private global::Xamarin.Forms.Label loggedInUsername;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
-        public static global::Xamarin.Forms.Label noDuels;
+        private global::Xamarin.Forms.Label noDuels;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
-        public static global::Xamarin.Forms.Label noPoints;
+        private global::Xamarin.Forms.Label noPoints;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
-        public static global::Xamarin.Forms.Label noRanking;
+        private global::Xamarin.Forms.Label noRanking;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
         private global::Xamarin.Forms.Image prof;

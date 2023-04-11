@@ -9,8 +9,16 @@
                 <StackLayout>
                     <Label Text="User Settings" HorizontalOptions="CenterAndExpand" TextColor="White" FontSize="30"/>
                 </StackLayout>
-                
-                </Frame>
+
+            </Frame>
+            <StackLayout>
+                <Image x:Name="prfImg" HorizontalOptions="Center" Grid.Column="0" Grid.Row="0" Margin="3" Source="prfle" HeightRequest="150">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnClickAvatar"/>
+                    </Image.GestureRecognizers>
+                </Image>
+
+                   </StackLayout>
            <Frame Margin="5" BackgroundColor="#414141" HeightRequest="250">
                 <StackLayout>
                 <Entry x:Name="nUser" Placeholder="Enter New Username.." TextColor="White" PlaceholderColor="White"/>

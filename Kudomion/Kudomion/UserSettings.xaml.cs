@@ -29,6 +29,9 @@ namespace Kudomion
             
             User getCurrentUser = await FirebaseHelper.GetUsrFromName(LoginPage.currentLoggedInUser);
 
+                //Assign Current User To Top.
+                currentUser.Text = LoginPage.currentLoggedInUser;
+
             //Assign New Values To The Current Logged In User.
             User userToBeUpdated = new User {
             name = nUser.Text,
@@ -49,6 +52,7 @@ namespace Kudomion
 
             //Update User Profile.
             Home.loggedInUsername.Text = nUser.Text;
+            currentUser.Text = nUser.Text;
 
             //Reset Values
             nUser.Text = String.Empty;
@@ -93,6 +97,11 @@ namespace Kudomion
                 DisplayAlert("Missing Credentials!", "Please Enter The New Email..", "OK!");
                 return;
             }*/
+        }
+
+        private void OnClickAvatar(object sender, EventArgs e)
+        {
+            DisplayAlert("Feature Not Available", "You cant change your profile picture now. Feature will be available in futural release.", "OK!");
         }
     }
 }
