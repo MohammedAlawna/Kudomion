@@ -120,7 +120,7 @@ namespace Kudomion
                     //First Player => winner.
                     getWinningPlayer = firstPlayer;
                     getWinningPlayer.duels += 1;
-                    getWinningPlayer.posts += 3;
+                    getWinningPlayer.points += 3;
                     secondPlayer.duels += 1;
                     getPlayerRoom.isDone = true;
 
