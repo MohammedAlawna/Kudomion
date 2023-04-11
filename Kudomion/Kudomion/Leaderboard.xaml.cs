@@ -39,7 +39,7 @@ namespace Kudomion
             }*/
         }
 
-        private async void RankAllUsers()
+        public async void RankAllUsers()
         {
             List<User> allUsers = await firebaseHelper.GetAllUsers();
             var rankedUsers = allUsers.OrderByDescending(p => p.points);

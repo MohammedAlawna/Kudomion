@@ -18,10 +18,6 @@ namespace Kudomion
             InitializeComponent();
             ResetRoomValues();
             LoadDuelistsData();
-            
-           // ProcessRoomCreation();
-            Console.WriteLine("Player 1 Is: " + LoginPage.currentLoggedInUser);
-          
         }
 
         private async void ProcessRoomCreation()
@@ -35,15 +31,12 @@ namespace Kudomion
             p1.Text = loggedInUserName.name;
             p1.IsEnabled = false;
 
-        
             //Load AllUsersIntoSelector.
-           
             List<User> listOfUsers = await firebase.GetAllUsers();
             p2.ItemsSource = listOfUsers;
 
             //Load All Rooms In The Lobby.
-            roomsCollectionView.ItemsSource = await firebase.GetAllRooms();
-           
+            roomsCollectionView.ItemsSource = await firebase.GetAllRooms();           
         }
 
      
@@ -87,7 +80,7 @@ namespace Kudomion
                     await DisplayAlert("Missing Duelist!", "You Are Not Involved In This Room!", "OK!");
                     return;
                 }
-                if (firstPlayer.name == getPlayerRoom.p1)
+                if (LoginPage.currentLoggedInUser == getPlayerRoom.p1)
                 {
                     //Second Player => winner.
                     getWinningPlayer = secondPlayer;
@@ -102,6 +95,15 @@ namespace Kudomion
                     await firebase.UpdateUser(firstPlayer.name, firstPlayer);
                     await firebase.UpdateRoom(getPlayerRoom.p1, getPlayerRoom.p2, getPlayerRoom);
 
+                    //Update User Profile In Home Page.
+                    User currentUser = await FirebaseHelper.GetUsrFromName(LoginPage.currentLoggedInUser);
+                    Home.noDuels.Text = currentUser.duels.ToString();
+                    Home.noPoints.Text = currentUser.points.ToString();
+
+                    //Update Ranking
+                    Leaderboard lb = new Leaderboard();
+                    lb.RankAllUsers();
+
                     //Prompt Admit Defeat!
                     await DisplayAlert("You Lost!", $"You just admit defeated! Duel Records Will be changed! Room Winner: {getPlayerRoom.winner}, P1{getPlayerRoom.p1} P2{getPlayerRoom.p2} Winning Player{getWinningPlayer.name}", "OK");
 
@@ -112,9 +114,8 @@ namespace Kudomion
                     ResetRoomValues();
 
                     return;
-
                 }
-                if (firstPlayer.name != getPlayerRoom.p1)
+                if (LoginPage.currentLoggedInUser != getPlayerRoom.p1)
                 {
                     //First Player => winner.
                     getWinningPlayer = firstPlayer;
@@ -127,6 +128,15 @@ namespace Kudomion
                     await firebase.UpdateUser(getWinningPlayer.name, getWinningPlayer);
                     await firebase.UpdateUser(secondPlayer.name, secondPlayer);
                     await firebase.UpdateRoom(getPlayerRoom.p1, getPlayerRoom.p2, getPlayerRoom);
+
+                    //Update User Profile In Home Page.
+                    User currentUser = await FirebaseHelper.GetUsrFromName(LoginPage.currentLoggedInUser);
+                    Home.noDuels.Text = currentUser.duels.ToString();
+                    Home.noPoints.Text = currentUser.points.ToString();
+
+                    //Update Ranking
+                    Leaderboard lb = new Leaderboard();
+                    lb.RankAllUsers();
 
                     //Prompt Admit Defeat.
                     await DisplayAlert("You Lost!", $"You just admit defeated! Duel Records Will be changed!" + getWinningPlayer.name, "OK");
@@ -147,9 +157,6 @@ namespace Kudomion
             {
                 await DisplayAlert("Exception!", $"{er.HResult}, {er.Message}", "OK!");
             }
-
-            //Update Rooms List:
-            //UpdateRoomsList();
         }
 
 
