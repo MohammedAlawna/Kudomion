@@ -24,7 +24,10 @@ namespace Kudomion
         {
             //Get Current Logged-In User/Duelist.
             User getDuelist = await FirebaseHelper.GetUsrFromName(loggedInUsername.Text);
-            
+
+            //Get & Assign The Name (New one if Updated).
+            loggedInUsername.Text = getDuelist.name;
+
             //Get & Assign The Number Of Points.
             string numberOfPoints = getDuelist.points.ToString();
             noPoints.Text = numberOfPoints;

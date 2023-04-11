@@ -44,16 +44,21 @@ namespace Kudomion
             //Update User Via Firebase.
             await firebase.UpdateUser(LoginPage.currentLoggedInUser, userToBeUpdated);
 
+            //Update Current Logged In User Name.
+            LoginPage.currentLoggedInUser = nUser.Text;
+
+            //Update User Profile.
+            Home.loggedInUsername.Text = nUser.Text;
+
             //Reset Values
             nUser.Text = String.Empty;
             nEmail.Text = String.Empty;
             nPass.Text = String.Empty;
             nPassConfirm.Text = String.Empty;
 
-            //Display Alert
-            await DisplayAlert("User Updated!", "User Information changed successfully.", "OK!");
 
-            
+                //Display Alert
+                await DisplayAlert("User Updated!", "User Information changed successfully.", "OK!");
             }
             catch(NullReferenceException er)
             {
