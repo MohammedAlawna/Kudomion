@@ -17,26 +17,7 @@ namespace Kudomion
         public Leaderboard()
         {
             InitializeComponent();
-
             RankAllUsers();
-           // var rankedUsers = App.MyDatabase.ReadUsers().OrderByDescending(x => x.points);
-           // userRankingsToLoad.ItemsSource =  rankedUsers;
-           
-            //var listToGetCount = rankedUsers.ToList();
-          
-         //   var getCount = Enumerable.Count(rankedUsers);
-
-            //var getCountOfThisUser = listToGetCount.FindIndex(0, getCount, );
-
-
-         /*   for (int i = 0; i < getCount; i++)
-            {
-             
-
-                var newArr =  rankedUsers.ToArray();
-             
-                
-            }*/
         }
 
         public async void RankAllUsers()
@@ -46,5 +27,6 @@ namespace Kudomion
             userRankingsToLoad.ItemsSource = rankedUsers;
         }
 
+      
     }
     }
