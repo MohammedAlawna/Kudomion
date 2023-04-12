@@ -134,11 +134,6 @@ namespace Kudomion
                     Home.noDuels.Text = currentUser.duels.ToString();
                     Home.noPoints.Text = currentUser.points.ToString();
 
-                    //Update Ranking
-                    List<User> allUsers = await firebase.GetAllUsers();
-                    var rankedUsers = allUsers.OrderByDescending(p => p.points);
-                    Leaderboard.userRankingsToLoad.ItemsSource = rankedUsers;                   
-
                     //Prompt Admit Defeat.
                     await DisplayAlert("You Lost!", $"You just admit defeated! Duel Records Will be changed!" + getWinningPlayer.name, "OK");
 

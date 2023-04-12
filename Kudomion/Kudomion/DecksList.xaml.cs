@@ -61,8 +61,11 @@ namespace Kudomion
 
         private void GetYDKE(object sender, EventArgs e)
         {
-            Button button = (Button)sender;
-            DisplayAlert("Error!", $"Error: {button.Parent}", "OK!");
+            Button btn = (Button)sender;
+            Element listView = btn.Parent;
+            
+
+            DisplayAlert("Sender!", $"Sender is: {listView}, {e}, {e.ToString()}", "OK!");
         }
 
         private void DownloadYDK (object sender, EventArgs e)

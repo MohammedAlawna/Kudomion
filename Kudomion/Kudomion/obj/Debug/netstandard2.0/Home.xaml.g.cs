@@ -16,12 +16,13 @@ namespace Kudomion {
     [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Home.xaml")]
     public partial class Home : global::Xamarin.Forms.ContentPage {
         
+        
         public static global::Xamarin.Forms.Label loggedInUsername;
-        
         public static global::Xamarin.Forms.Label noDuels;
-        
+      
         public static global::Xamarin.Forms.Label noPoints;
         
+      
         public static global::Xamarin.Forms.Label noRanking;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]

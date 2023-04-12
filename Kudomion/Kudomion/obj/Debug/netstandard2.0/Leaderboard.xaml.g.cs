@@ -23,7 +23,7 @@ namespace Kudomion {
         private global::Xamarin.Forms.Frame leaderboardCard;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
-        public static global::Xamarin.Forms.CollectionView userRankingsToLoad;
+        private global::Xamarin.Forms.CollectionView userRankingsToLoad;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
         private void InitializeComponent() {
