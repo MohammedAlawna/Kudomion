@@ -62,10 +62,10 @@ namespace Kudomion
         private void GetYDKE(object sender, EventArgs e)
         {
             Button btn = (Button)sender;
-            Element listView = btn.Parent;
+            var listView = (Grid)btn.Parent;
+            var getI = listView.Children[2];
             
-            
-            DisplayAlert("Sender!", $"Sender is: {listView}, {e}, {e.ToString()}", "OK!");
+            DisplayAlert("Sender!", $"Sender is: {listView}, {getI}", "OK!");
         }
         
 

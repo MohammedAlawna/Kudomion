@@ -13,7 +13,7 @@ namespace Kudomion.FirebaseManager
     {
         //Follow this Article: https://www.c-sharpcorner.com/article/xamarin-forms-working-with-firebase-realtime-database-crud-operations/
 
-        FirebaseClient firebaseClient = new FirebaseClient("https://kudomion-5c8e7-default-rtdb.firebaseio.com/");
+        FirebaseClient firebaseClient = new FirebaseClient("https://kudo-d1168-default-rtdb.firebaseio.com/");
      
 
         //Start User-Related Functions.
