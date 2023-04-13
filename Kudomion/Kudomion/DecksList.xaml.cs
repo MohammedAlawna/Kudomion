@@ -64,9 +64,11 @@ namespace Kudomion
             Button btn = (Button)sender;
             Element listView = btn.Parent;
             
-
+            
             DisplayAlert("Sender!", $"Sender is: {listView}, {e}, {e.ToString()}", "OK!");
         }
+        
+
 
         private void DownloadYDK (object sender, EventArgs e)
         {
