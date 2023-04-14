@@ -71,7 +71,7 @@ namespace Kudomion.FirebaseManager
         {
             try
             {          
-            FirebaseClient cl = new FirebaseClient("https://kudomion-5c8e7-default-rtdb.firebaseio.com/");
+            FirebaseClient cl = new FirebaseClient("https://kudo-d1168-default-rtdb.firebaseio.com/");
             FirebaseHelper fb = new FirebaseHelper();
             var allUsers = await fb.GetAllUsers();
             await cl.Child("Users").OnceAsync<User>();
