@@ -1,12 +1,35 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Kudomion.ViewModel.UserProfile">
+             x:Class="Kudomion.ViewModel.UserProfile"
+             BackgroundImageSource="bgkd"
+             >
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout HorizontalOptions="Center">
+            <Image Source="prfle" Margin="10" HeightRequest="85"/>
+            <Label FontAttributes="Bold" HorizontalOptions="CenterAndExpand" TextColor="White" Text="Kudo Shinichi" x:Name="loggedInUsername" FontSize="20"/>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                  
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+
+                <Frame Margin="3" HeightRequest="10" Grid.ColumnSpan="3"></Frame>
+                <Button BackgroundColor="Orange" Grid.Row="0" Grid.Column="0" Text="Chat"/>
+                <Button BackgroundColor="Coral" Grid.Row="0" Grid.Column="1" Text="Duel!"/>
+                <Button BackgroundColor="Gold" Grid.Row="0" Grid.Column="2" Text="Add Friend" />
+                  
+                
+            </Grid>
+        
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

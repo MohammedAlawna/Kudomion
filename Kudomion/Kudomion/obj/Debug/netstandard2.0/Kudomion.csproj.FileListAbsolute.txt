@@ -24,3 +24,5 @@ D:\OGRE Tech CO\Kudomion\Kudomion\Kudomion\Kudomion\obj\Debug\netstandard2.0\Vie
 D:\OGRE Tech CO\Kudomion\Kudomion\Kudomion\Kudomion\obj\Debug\netstandard2.0\ViewModel\SignUpPage.xaml.g.cs
 D:\OGRE Tech CO\Kudomion\Kudomion\Kudomion\Kudomion\obj\Debug\netstandard2.0\ViewModel\UserSettings.xaml.g.cs
 D:\OGRE Tech CO\Kudomion\Kudomion\Kudomion\Kudomion\obj\Debug\netstandard2.0\ViewModel\UsersPage.xaml.g.cs
+D:\OGRE Tech CO\Kudomion\Kudomion\Kudomion\Kudomion\obj\Debug\netstandard2.0\ViewModel\NewsFeed.xaml.g.cs
+D:\OGRE Tech CO\Kudomion\Kudomion\Kudomion\Kudomion\obj\Debug\netstandard2.0\ViewModel\UserProfile.xaml.g.cs

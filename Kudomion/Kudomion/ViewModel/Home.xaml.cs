@@ -1,4 +1,5 @@
 ﻿using Kudomion.FirebaseManager;
+using Kudomion.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -76,7 +77,7 @@ namespace Kudomion
 
         private async void OnClickYGOGuide(object sender, EventArgs e)
         {
-            await DisplayAlert("Not Available", "YGO Guide not available in this release.", "OK!");
+            await Navigation.PushAsync(new UserProfile());
         }
 
 
