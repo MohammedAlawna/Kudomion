@@ -15,6 +15,8 @@ namespace Kudomion.ViewModel
         public UserProfile()
         {
             InitializeComponent();
+
+            //This may hold some info for the user. Most important "name". ~
         }
     }
 }
