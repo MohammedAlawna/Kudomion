@@ -8,12 +8,12 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: global::Xamarin.Forms.Xaml.XamlResourceIdAttribute("Kudomion.Challenges.xaml", "Challenges.xaml", typeof(global::Kudomion.Challenges))]
+[assembly: global::Xamarin.Forms.Xaml.XamlResourceIdAttribute("Kudomion.ViewModel.Challenges.xaml", "ViewModel/Challenges.xaml", typeof(global::Kudomion.Challenges))]
 
 namespace Kudomion {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Challenges.xaml")]
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("ViewModel\\Challenges.xaml")]
     public partial class Challenges : global::Xamarin.Forms.ContentPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]

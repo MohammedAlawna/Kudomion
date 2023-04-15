@@ -13,6 +13,18 @@ namespace Kudomion
         public string thumbSrc { get; set; }
         public string ydkeCode { get; set; }
         public string ydkSrc { get; set; }
+
+        public string YDKe
+        {
+            get
+            {
+                return ydkeCode;
+            }
+            set
+            {
+                ydkeCode = value;
+            }
+        }
         
     }
 }

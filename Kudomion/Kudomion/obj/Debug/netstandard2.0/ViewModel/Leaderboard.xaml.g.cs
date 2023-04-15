@@ -8,12 +8,12 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: global::Xamarin.Forms.Xaml.XamlResourceIdAttribute("Kudomion.Leaderboard.xaml", "Leaderboard.xaml", typeof(global::Kudomion.Leaderboard))]
+[assembly: global::Xamarin.Forms.Xaml.XamlResourceIdAttribute("Kudomion.ViewModel.Leaderboard.xaml", "ViewModel/Leaderboard.xaml", typeof(global::Kudomion.Leaderboard))]
 
 namespace Kudomion {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Leaderboard.xaml")]
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("ViewModel\\Leaderboard.xaml")]
     public partial class Leaderboard : global::Xamarin.Forms.ContentPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]

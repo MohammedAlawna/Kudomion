@@ -8,17 +8,17 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: global::Xamarin.Forms.Xaml.XamlResourceIdAttribute("Kudomion.LoggedInPage.xaml", "LoggedInPage.xaml", typeof(global::Kudomion.LoggedInPage))]
+[assembly: global::Xamarin.Forms.Xaml.XamlResourceIdAttribute("Kudomion.ViewModel.MainPage.xaml", "ViewModel/MainPage.xaml", typeof(global::Kudomion.MainPage))]
 
 namespace Kudomion {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("LoggedInPage.xaml")]
-    public partial class LoggedInPage : global::Xamarin.Forms.TabbedPage {
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("ViewModel\\MainPage.xaml")]
+    public partial class MainPage : global::Xamarin.Forms.ContentPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
         private void InitializeComponent() {
-            global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(LoggedInPage));
+            global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(MainPage));
         }
     }
 }

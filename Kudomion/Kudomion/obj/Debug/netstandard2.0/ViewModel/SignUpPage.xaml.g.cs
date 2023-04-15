@@ -8,12 +8,12 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: global::Xamarin.Forms.Xaml.XamlResourceIdAttribute("Kudomion.SignUpPage.xaml", "SignUpPage.xaml", typeof(global::Kudomion.SignUpPage))]
+[assembly: global::Xamarin.Forms.Xaml.XamlResourceIdAttribute("Kudomion.ViewModel.SignUpPage.xaml", "ViewModel/SignUpPage.xaml", typeof(global::Kudomion.SignUpPage))]
 
 namespace Kudomion {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("SignUpPage.xaml")]
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("ViewModel\\SignUpPage.xaml")]
     public partial class SignUpPage : global::Xamarin.Forms.ContentPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]

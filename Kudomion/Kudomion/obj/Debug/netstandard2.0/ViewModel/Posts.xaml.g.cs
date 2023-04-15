@@ -8,12 +8,12 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: global::Xamarin.Forms.Xaml.XamlResourceIdAttribute("Kudomion.Posts.xaml", "Posts.xaml", typeof(global::Kudomion.Posts))]
+[assembly: global::Xamarin.Forms.Xaml.XamlResourceIdAttribute("Kudomion.ViewModel.Posts.xaml", "ViewModel/Posts.xaml", typeof(global::Kudomion.Posts))]
 
 namespace Kudomion {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Posts.xaml")]
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("ViewModel\\Posts.xaml")]
     public partial class Posts : global::Xamarin.Forms.ContentPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
