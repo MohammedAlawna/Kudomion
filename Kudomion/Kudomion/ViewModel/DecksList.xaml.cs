@@ -16,11 +16,15 @@ namespace Kudomion
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class DecksList : ContentPage
     {
-        FirebaseHelper firebaseHelper = new FirebaseHelper(); 
-       
+        FirebaseHelper firebaseHelper = new FirebaseHelper();
+
+        //Commands.
+        public Command OpenYDKe { get; }
+      
         public DecksList()
         {
             InitializeComponent();
+            BindingContext = new DeckItem();
 
             //Initalize DeckList from Firebase!
             UpdateDecksList();
@@ -64,12 +68,12 @@ namespace Kudomion
             Button btn = (Button)sender;
 
             var listView = (Grid)btn.Parent;
-            var getI = (Label)listView.Children[1];
+            var getI = (Label)listView.Children[2];
             var getText = getI.Text;
 
             DisplayAlert("Sender!", $"Sender: {getText}", "OK!");
         }
-        
+
 
 
         private void DownloadYDK (object sender, EventArgs e)
