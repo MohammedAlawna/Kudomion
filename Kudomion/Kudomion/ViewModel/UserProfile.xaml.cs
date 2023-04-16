@@ -19,13 +19,19 @@ namespace Kudomion.ViewModel
 
         private void InviteToDuelClicked(object sender, EventArgs e)
         {
-            //Change Button Color.
+            //Change BG of Button.
+            invDuel.BackgroundColor = Color.White;
 
-            DisplayAlert("Success!", "Invitation Sent To Your Opponent Notifications!", "OK!");
+            //Prompt Alert (Testing Purposes).
+            DisplayAlert("Success!", $"Invitation Sent To Your Opponent Notifications!", "OK!");
         }
 
         private void SendChatRequest(object sender, EventArgs e)
         {
+            //Change BG of Button.
+            chatReq.BackgroundColor = Color.White;
+           
+            //Prompt Alert (Testing Purposes)
             DisplayAlert("Success!", "Chat Invitation Has Been Sent!", "OK!");
         }
     }
