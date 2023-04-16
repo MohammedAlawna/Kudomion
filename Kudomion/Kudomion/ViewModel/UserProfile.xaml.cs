@@ -15,8 +15,18 @@ namespace Kudomion.ViewModel
         public UserProfile()
         {
             InitializeComponent();
+        }
 
-            //This may hold some info for the user. Most important "name". ~
+        private void InviteToDuelClicked(object sender, EventArgs e)
+        {
+            //Change Button Color.
+
+            DisplayAlert("Success!", "Invitation Sent To Your Opponent Notifications!", "OK!");
+        }
+
+        private void SendChatRequest(object sender, EventArgs e)
+        {
+            DisplayAlert("Success!", "Chat Invitation Has Been Sent!", "OK!");
         }
     }
 }

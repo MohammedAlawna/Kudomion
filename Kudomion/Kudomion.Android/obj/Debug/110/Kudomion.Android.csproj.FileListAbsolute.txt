@@ -666,3 +666,5 @@ D:\OGRE Tech CO\Kudomion\Kudomion\Kudomion\Kudomion.Android\obj\Debug\110\stamp\
 D:\OGRE Tech CO\Kudomion\Kudomion\Kudomion\Kudomion.Android\obj\Debug\110\stamp\_GeneratePackageManagerJava.stamp
 D:\OGRE Tech CO\Kudomion\Kudomion\Kudomion\Kudomion.Android\obj\Debug\110\stamp\_ResolveLibraryProjectImports.stamp
 D:\OGRE Tech CO\Kudomion\Kudomion\Kudomion\Kudomion.Android\obj\Debug\110\res\drawable\btle.png
+D:\OGRE Tech CO\Kudomion\Kudomion\Kudomion\Kudomion.Android\obj\Debug\110\res\drawable\chtbtn.png
+D:\OGRE Tech CO\Kudomion\Kudomion\Kudomion\Kudomion.Android\obj\Debug\110\res\drawable\btlebtn.png

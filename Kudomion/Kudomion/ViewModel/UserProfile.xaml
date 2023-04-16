@@ -22,12 +22,20 @@
                 </Grid.ColumnDefinitions>
 
 
-                
-                   
-                        <Button Margin="0" BackgroundColor="Orange" Grid.Row="0" Grid.Column="0" Text="Chat"/>
-                <Button Margin="0" BackgroundColor="Coral" Grid.Row="0" Grid.Column="1" Text="Duel!"/>
-                <Button Margin="0" BackgroundColor="Gold" Grid.Row="0" Grid.Column="2" Text="Add Friend" />
-                       
+                <StackLayout Grid.Column="1" HeightRequest="80" Orientation="Horizontal">
+                <Image x:Name="invDuel" Source="btlebtn" Grid.Column="0" Grid.Row="0">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="InviteToDuelClicked"/>
+                    </Image.GestureRecognizers>
+                </Image>
+
+                <Image x:Name="chatReq" Source="chtbtn" Grid.Column="1" Grid.Row="0">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="SendChatRequest"/>
+                    </Image.GestureRecognizers>
+                </Image>
+
+                </StackLayout>
               
                
 
