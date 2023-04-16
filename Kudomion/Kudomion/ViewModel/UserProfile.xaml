@@ -22,12 +22,15 @@
                 </Grid.ColumnDefinitions>
 
 
-                <Frame BackgroundColor="DarkGray" Margin="0" HeightRequest="10" Grid.ColumnSpan="3"></Frame>
-                <Button Margin="3" BackgroundColor="Orange" Grid.Row="0" Grid.Column="0" Text="Chat"/>
-                <Button Margin="3" BackgroundColor="Coral" Grid.Row="0" Grid.Column="1" Text="Duel!"/>
-                <Button Margin="3" BackgroundColor="Gold" Grid.Row="0" Grid.Column="2" Text="Add Friend" />
-                  
                 
+                   
+                        <Button Margin="0" BackgroundColor="Orange" Grid.Row="0" Grid.Column="0" Text="Chat"/>
+                <Button Margin="0" BackgroundColor="Coral" Grid.Row="0" Grid.Column="1" Text="Duel!"/>
+                <Button Margin="0" BackgroundColor="Gold" Grid.Row="0" Grid.Column="2" Text="Add Friend" />
+                       
+              
+               
+
             </Grid>
         
         </StackLayout>
