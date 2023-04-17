@@ -6,41 +6,30 @@
              >
     <ContentPage.Content>
         <StackLayout HorizontalOptions="Center">
-            <Image Source="prfle" Margin="10" HeightRequest="85"/>
+            <Image Source="prfle" Margin="10" HeightRequest="110"/>
             <Label FontAttributes="Bold" HorizontalOptions="CenterAndExpand" TextColor="White" Text="Kudo Shinichi" x:Name="loggedInUsername" FontSize="20"/>
 
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition />
-                  
-                </Grid.RowDefinitions>
-
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-
-
-                <StackLayout Grid.Column="1" HeightRequest="80" Orientation="Horizontal">
-                <Image x:Name="invDuel" Source="btlebtn" Grid.Column="0" Grid.Row="0">
+                       <StackLayout Orientation="Horizontal">
+                <Image WidthRequest="75" HorizontalOptions="Start" x:Name="invDuel" Source="btlebtn">
                     <Image.GestureRecognizers>
                         <TapGestureRecognizer Tapped="InviteToDuelClicked"/>
                     </Image.GestureRecognizers>
                 </Image>
 
-                <Image x:Name="chatReq" Source="chtbtn" Grid.Column="1" Grid.Row="0">
+                <Image WidthRequest="75" x:Name="chatReq" Source="chtbtn">
                     <Image.GestureRecognizers>
                         <TapGestureRecognizer Tapped="SendChatRequest"/>
                     </Image.GestureRecognizers>
                 </Image>
+                
+            </StackLayout>
 
-                </StackLayout>
-              
-               
-
-            </Grid>
-        
+            <StackLayout Orientation="Vertical">
+                <Picker x:Name="userStatPicker" BackgroundColor="#323232"/>
+            </StackLayout>
+            
+            
         </StackLayout>
+
     </ContentPage.Content>
 </ContentPage>

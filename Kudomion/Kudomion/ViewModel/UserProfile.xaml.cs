@@ -12,9 +12,23 @@ namespace Kudomion.ViewModel
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class UserProfile : ContentPage
     {
+         
         public UserProfile()
         {
             InitializeComponent();
+
+            //Load Picker Items.
+            LoadPickerItems();
+
+
+        }
+
+        void LoadPickerItems()
+        {
+            userStatPicker.Items.Add("Stats");
+            userStatPicker.Items.Add("Duels");
+            userStatPicker.Items.Add("Posts");
+            userStatPicker.Items.Add("Signature");
         }
 
         private void InviteToDuelClicked(object sender, EventArgs e)
