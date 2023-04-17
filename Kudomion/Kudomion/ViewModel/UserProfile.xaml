@@ -25,7 +25,7 @@
             </StackLayout>
 
             <StackLayout Orientation="Vertical">
-                <Picker x:Name="userStatPicker" BackgroundColor="#323232"/>
+                <Picker SelectedIndex="1" x:Name="userStatPicker" TextColor="White" BackgroundColor="#323232"/>
             </StackLayout>
             
             
