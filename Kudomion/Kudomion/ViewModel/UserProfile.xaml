@@ -27,8 +27,23 @@
             <StackLayout Orientation="Vertical">
                 <Picker SelectedIndex="1" x:Name="userStatPicker" TextColor="White" BackgroundColor="#323232"/>
             </StackLayout>
-            
-            
+
+            <StackLayout x:Name="stats" IsVisible="false">
+                <Label Text="I'm Stats!" TextColor="White"/>
+            </StackLayout>
+
+            <StackLayout x:Name="duels" IsVisible="false">
+                <Label Text="I'm Duels!" TextColor="White"/>
+            </StackLayout>
+
+            <StackLayout x:Name="posts" IsVisible="false">
+                <Label Text="I'm Posts!" TextColor="White"/>
+            </StackLayout>
+
+            <StackLayout x:Name="signature" IsVisible="false">
+                <Label Text="I'm Signature" TextColor="White" />
+            </StackLayout>
+
         </StackLayout>
 
     </ContentPage.Content>
