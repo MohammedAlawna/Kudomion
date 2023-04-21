@@ -29,19 +29,42 @@
             </StackLayout>
 
             <StackLayout x:Name="stats" IsVisible="false">
-                <Label Text="I'm Stats!" TextColor="White"/>
+                <Frame BackgroundColor="#323232">
+                    <StackLayout>
+                        <Label FontSize="20" FontAttributes="Italic" HorizontalTextAlignment="Center" TextColor="RoyalBlue" Text="Duels: 0"/>
+                        <Label FontSize="20" FontAttributes="Italic" HorizontalTextAlignment="Center" TextColor="RoyalBlue" Text="Points: 0"/>
+                        <Label FontSize="20" FontAttributes="Italic" HorizontalTextAlignment="Center" TextColor="RoyalBlue" Text="Posts: 0"/>
+                        <Label FontSize="20" FontAttributes="Italic" HorizontalTextAlignment="Center" TextColor="RoyalBlue" Text="Ranking: 0"/>
+
+                    </StackLayout>
+                </Frame>
             </StackLayout>
 
             <StackLayout x:Name="duels" IsVisible="false">
-                <Label Text="I'm Duels!" TextColor="White"/>
+                <Frame BackgroundColor="#323232">
+                    <StackLayout>
+                        <Label FontSize="20" FontAttributes="Italic" HorizontalTextAlignment="Center" TextColor="RoyalBlue" Text="Duels List Should Appear Here.."/>
+
+                    </StackLayout>
+                </Frame>
             </StackLayout>
 
             <StackLayout x:Name="posts" IsVisible="false">
-                <Label Text="I'm Posts!" TextColor="White"/>
+                <Frame BackgroundColor="#323232">
+                    <StackLayout>
+                        <Label FontSize="20" FontAttributes="Italic" HorizontalTextAlignment="Center" TextColor="RoyalBlue" Text="Posts Should Appear Here.."/>
+
+                    </StackLayout>
+                </Frame>
             </StackLayout>
 
             <StackLayout x:Name="signature" IsVisible="false">
-                <Label Text="I'm Signature" TextColor="White" />
+                <Frame BackgroundColor="#323232">
+                    <StackLayout>
+                        <Label FontSize="20" FontAttributes="Italic" HorizontalTextAlignment="Center" TextColor="RoyalBlue" Text="Signature Currently Not Available."/>
+
+                    </StackLayout>
+                </Frame>
             </StackLayout>
 
         </StackLayout>

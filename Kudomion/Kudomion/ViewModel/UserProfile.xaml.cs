@@ -41,7 +41,7 @@ namespace Kudomion.ViewModel
                 if(userStatPicker.SelectedIndex == 0)
                 {
                     //TODO Show user Profile Stats.
-                    DisplayAlert("Alert!", "You are vieweing user Stats!", "OK!");
+                    
 
                     //Switch Visibility For StackLayout.
                     stats.IsVisible = true;
@@ -53,7 +53,7 @@ namespace Kudomion.ViewModel
                 if(userStatPicker.SelectedIndex == 1)
                 {
                     //TODO Show user Duels.
-                    DisplayAlert("Alert!", "You are vieweing user Duels!", "OK!");
+                    
 
                     //Switch Visibility for StackLayout.
                     stats.IsVisible = false;
@@ -65,7 +65,7 @@ namespace Kudomion.ViewModel
                 if(userStatPicker.SelectedIndex == 2)
                 {
                     //TODO Show user Posts.
-                    DisplayAlert("Alert!", "You are viewing user Posts!", "OK!");
+                    
 
                     //Switch Visibility for StackLayout.
                     stats.IsVisible = false;
@@ -77,7 +77,7 @@ namespace Kudomion.ViewModel
                 if(userStatPicker.SelectedIndex == 3)
                 {
                     //TODO Show user Signature.
-                    DisplayAlert("Alert!", "You are viewing user Signature", "OK!");
+                    
 
                     //Switch Visibility for StackLayout.
                     stats.IsVisible = false;
