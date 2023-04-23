@@ -1,4 +1,5 @@
 ﻿using Kudomion.FirebaseManager;
+using Kudomion.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -27,12 +28,15 @@ namespace Kudomion
             userRankingsToLoad.ItemsSource = rankedUsers;
         }
 
-        private void UsernameClicked(object sender, EventArgs e)
+        private async void UsernameClicked(object sender, EventArgs e)
         {
             var parent = (Label)sender;
             
-            //Displaying The User Clicked (Debuggin) -> Done: Is Working.
-            DisplayAlert("Alert!", $"Sender is: {parent.Text}", "OK!");
+            //Displaying The User Clicked (Debugging) -> Done: Is Working.
+            //await DisplayAlert("Alert!", $"Sender is: {parent.Text}", "OK!"); -> Done!
+
+            //Navigate to UserProfile Page with the clicked user card in ranking.
+            await Navigation.PushAsync(new UserProfile(parent.Text));
         }
     }
     }
