@@ -25,8 +25,38 @@ namespace Kudomion
 
         }
 
+        
         private async void SignUpButton_Clicked(object sender, EventArgs e)
         {
+            //Check if user already exists.
+            List<string> userStrings = new List<string>();
+            var listAllUsers = await firebase.GetAllUsers();
+            if (!listAllUsers.Any())
+            {
+                await DisplayAlert("Success!", "User Registered Succesffully!", "OK!");
+                RegisterNewUser();
+                userName.Text = string.Empty;
+                password.Text = string.Empty;
+                confirmPassword.Text = string.Empty;
+                return;
+            }
+            foreach (User item in listAllUsers)
+            {
+                userStrings.Add(item.name);
+            }
+            User enteredUser = await FirebaseHelper.GetUsrFromName(userName.Text);
+            string enteredUserString = enteredUser.name;
+            bool userExits = userStrings.Contains(enteredUserString);
+            Console.WriteLine("User Status: " + userExits);
+
+            
+
+            if(userExits == true)
+            {
+                await DisplayAlert("User Exists!", "Sorry. This Name Already Registered, Choose another name..", "OK!");
+                return;
+            }
+
             if (password.Text != confirmPassword.Text)
             {
                 await DisplayAlert("Password Mismatch!", "Please Make Sure That Passwords Are Match!", "OK!");
