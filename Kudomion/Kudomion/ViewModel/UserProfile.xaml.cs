@@ -12,9 +12,11 @@ namespace Kudomion.ViewModel
     public partial class UserProfile : ContentPage
     {
          
-        public UserProfile()
+        public UserProfile(string username)
         {
             InitializeComponent();
+
+            loggedInUsername.Text = username;
 
             //Load Picker Items.
             LoadPickerItems();
@@ -28,6 +30,7 @@ namespace Kudomion.ViewModel
 
         void LoadPickerItems()
         {
+            
             userStatPicker.Items.Add("Stats");
             userStatPicker.Items.Add("Duels");
             userStatPicker.Items.Add("Posts");

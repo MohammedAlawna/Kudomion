@@ -77,7 +77,8 @@ namespace Kudomion
 
         private async void OnClickYGOGuide(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new UserProfile());
+            string currentUser = LoginPage.currentLoggedInUser;
+            await Navigation.PushAsync(new UserProfile(currentUser));
         }
 
 

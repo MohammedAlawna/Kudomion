@@ -27,6 +27,11 @@ namespace Kudomion
             userRankingsToLoad.ItemsSource = rankedUsers;
         }
 
-      
+        private void UsernameClicked(object sender, EventArgs e)
+        {
+            var parent = (Label)sender;
+            
+            DisplayAlert("Alert!", $"Sender is: {parent.Text}", "OK!");
+        }
     }
     }
