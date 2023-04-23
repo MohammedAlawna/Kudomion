@@ -31,6 +31,7 @@ namespace Kudomion
         {
             var parent = (Label)sender;
             
+            //Displaying The User Clicked (Debuggin) -> Done: Is Working.
             DisplayAlert("Alert!", $"Sender is: {parent.Text}", "OK!");
         }
     }
