@@ -31,10 +31,10 @@
             <StackLayout x:Name="stats" IsVisible="false">
                 <Frame BackgroundColor="#323232">
                     <StackLayout>
-                        <Label FontSize="20" FontAttributes="Italic" HorizontalTextAlignment="Center" TextColor="RoyalBlue" Text="Duels: 0"/>
-                        <Label FontSize="20" FontAttributes="Italic" HorizontalTextAlignment="Center" TextColor="RoyalBlue" Text="Points: 0"/>
-                        <Label FontSize="20" FontAttributes="Italic" HorizontalTextAlignment="Center" TextColor="RoyalBlue" Text="Posts: 0"/>
-                        <Label FontSize="20" FontAttributes="Italic" HorizontalTextAlignment="Center" TextColor="RoyalBlue" Text="Ranking: 0"/>
+                        <Label x:Name="noDuels" FontSize="20" FontAttributes="Italic" HorizontalTextAlignment="Center" TextColor="RoyalBlue" Text="Duels: 0"/>
+                        <Label x:Name="noPoints" FontSize="20" FontAttributes="Italic" HorizontalTextAlignment="Center" TextColor="RoyalBlue" Text="Points: 0"/>
+                        <Label x:Name="noPosts" FontSize="20" FontAttributes="Italic" HorizontalTextAlignment="Center" TextColor="RoyalBlue" Text="Posts: 0"/>
+                        <Label x:Name="noRanking" FontSize="20" FontAttributes="Italic" HorizontalTextAlignment="Center" TextColor="RoyalBlue" Text="Ranking: 0"/>
 
                     </StackLayout>
                 </Frame>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Kudomion.FirebaseManager;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,7 +17,8 @@ namespace Kudomion.ViewModel
         {
             InitializeComponent();
 
-            loggedInUsername.Text = username;
+            //Load User Profile.
+            LoadUserProfile(username);
 
             //Load Picker Items.
             LoadPickerItems();
@@ -28,9 +30,20 @@ namespace Kudomion.ViewModel
             duels.IsVisible = false;
         }
 
-        void LoadPickerItems()
+        private async void LoadUserProfile(string name)
         {
-            
+            loggedInUsername.Text = name;
+            User getLoggedInUser = await FirebaseHelper.GetUsrFromName(name);
+
+            //Assign Profile Values. :D 
+            noDuels.Text = "Duels: " + getLoggedInUser.duels.ToString();
+            noPoints.Text = "Points: " + getLoggedInUser.points.ToString();
+            noPosts.Text = "Posts: " + getLoggedInUser.posts.ToString();
+            noRanking.Text = "Ranking: " + getLoggedInUser.ranking.ToString();
+        } 
+
+        private void LoadPickerItems()
+        {
             userStatPicker.Items.Add("Stats");
             userStatPicker.Items.Add("Duels");
             userStatPicker.Items.Add("Posts");
