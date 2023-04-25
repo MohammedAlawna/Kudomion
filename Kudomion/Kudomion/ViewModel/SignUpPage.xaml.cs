@@ -31,13 +31,14 @@ namespace Kudomion
             bool allowUserCreation = false;
             //TODO Check If User Exist
             List<string> stringsL = new List<string>();
-            List<User> allUsers = new List<User>();
-
+            List<User> allUsers = await firebase.GetAllUsers();
+            await DisplayAlert("Alert!", $"Number Of Users: ${allUsers.Count}", "OK!");
             //RegisterNewUser();
             
             //CheckRegisterNewUser(); if List of Users Empty..
             if (allUsers.Count == 0)
             {
+                
                 allowUserCreation = true;
                 
             }
@@ -49,7 +50,14 @@ namespace Kudomion
                 await DisplayAlert("Password Mismatch!", "Please Make Sure That Passwords Are Match!", "OK!");
             }
 
-            if(allowUserCreation == true)
+            //Check If Input (User, Pass) is/are Empty.
+            if (string.IsNullOrWhiteSpace(userName.Text) || string.IsNullOrWhiteSpace(password.Text) || string.IsNullOrWhiteSpace(confirmPassword.Text))
+            {
+                await DisplayAlert("Invalid", "Whitespace or Blank Value is Invalid.", "OK!");
+
+            }
+
+            if (allowUserCreation == true)
             {
                 RegisterNewUser();
             }
@@ -58,11 +66,7 @@ namespace Kudomion
 
             /*  
 
-              if (string.IsNullOrWhiteSpace(userName.Text) || string.IsNullOrWhiteSpace(password.Text) || string.IsNullOrWhiteSpace(confirmPassword.Text))
-              {
-                  await DisplayAlert("Invalid", "Whitespace or Blank Value is Invalid.", "OK!");
-
-              }
+             
               else
                   RegisterNewUser();
               await DisplayAlert("Success!", "User Registered Succesffully!", "OK!");
