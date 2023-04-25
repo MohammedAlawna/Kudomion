@@ -28,6 +28,39 @@ namespace Kudomion
         
         private async void SignUpButton_Clicked(object sender, EventArgs e)
         {
+            bool allowUserCreation = false;
+            //TODO Check If User Exist
+            List<string> stringsL = new List<string>();
+            List<User> allUsers = new List<User>();
+
+            //Check if List of Users Empty..
+            if(allUsers.Count == 0)
+            {
+                allowUserCreation = true;
+                RegisterNewUser();
+            }
+            
+          
+          /*  if (password.Text != confirmPassword.Text)
+            {
+                await DisplayAlert("Password Mismatch!", "Please Make Sure That Passwords Are Match!", "OK!");
+            }
+
+            if (string.IsNullOrWhiteSpace(userName.Text) || string.IsNullOrWhiteSpace(password.Text) || string.IsNullOrWhiteSpace(confirmPassword.Text))
+            {
+                await DisplayAlert("Invalid", "Whitespace or Blank Value is Invalid.", "OK!");
+
+            }
+            else
+                RegisterNewUser();
+            await DisplayAlert("Success!", "User Registered Succesffully!", "OK!");
+            userName.Text = string.Empty;
+            password.Text = string.Empty;
+            confirmPassword.Text = string.Empty;   */
+        }
+
+        private async void CheckIfUserExist()
+        {
             //Check if user already exists.
             List<string> userStrings = new List<string>();
             var listAllUsers = await firebase.GetAllUsers();
@@ -49,33 +82,14 @@ namespace Kudomion
             bool userExits = userStrings.Contains(enteredUserString);
             Console.WriteLine("User Status: " + userExits);
 
-            
-
-            if(userExits == true)
+            if (userExits == true)
             {
                 await DisplayAlert("User Exists!", "Sorry. This Name Already Registered, Choose another name..", "OK!");
                 return;
             }
-
-            if (password.Text != confirmPassword.Text)
-            {
-                await DisplayAlert("Password Mismatch!", "Please Make Sure That Passwords Are Match!", "OK!");
-            }
-
-            if (string.IsNullOrWhiteSpace(userName.Text) || string.IsNullOrWhiteSpace(password.Text) || string.IsNullOrWhiteSpace(confirmPassword.Text))
-            {
-                await DisplayAlert("Invalid", "Whitespace or Blank Value is Invalid.", "OK!");
-
-            }
-            else
-                RegisterNewUser();
-            await DisplayAlert("Success!", "User Registered Succesffully!", "OK!");
-            userName.Text = string.Empty;
-            password.Text = string.Empty;
-            confirmPassword.Text = string.Empty;   
         }
 
-         async void RegisterNewUser()
+        async void RegisterNewUser()
         {
 
             await firebase.AddUser(userName.Text, password.Text);
