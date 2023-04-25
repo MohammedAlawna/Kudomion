@@ -34,34 +34,40 @@ namespace Kudomion
             List<User> allUsers = await firebase.GetAllUsers();
             await DisplayAlert("Alert!", $"Number Of Users: ${allUsers.Count}", "OK!");
             //RegisterNewUser();
-            
-            //CheckRegisterNewUser(); if List of Users Empty..
-            if (allUsers.Count == 0)
-            {
-                
-                allowUserCreation = true;
-                
-            }
-
-            //Check If Credentials Are Mis-Matched.
-            if (password.Text != confirmPassword.Text)
-            {
-                allowUserCreation = false;
-                await DisplayAlert("Password Mismatch!", "Please Make Sure That Passwords Are Match!", "OK!");
-            }
 
             //Check If Input (User, Pass) is/are Empty.
             if (string.IsNullOrWhiteSpace(userName.Text) || string.IsNullOrWhiteSpace(password.Text) || string.IsNullOrWhiteSpace(confirmPassword.Text))
             {
                 await DisplayAlert("Invalid", "Whitespace or Blank Value is Invalid.", "OK!");
-
+                return;
             }
+
+            //Check If Credentials Are Mis-Matched.
+            if (password.Text != confirmPassword.Text)
+            {
+                
+                await DisplayAlert("Password Mismatch!", "Please Make Sure That Passwords Are Match!", "OK!");
+                return;
+            }
+
+
+            //CheckRegisterNewUser(); if List of Users Empty..
+            if (allUsers.Count == 0)
+            {
+                RegisterNewUser();
+            }
+
+            //Check if User Exists and The !allUsers.Count == 0.
+
+           
+
+           
+           
 
             if (allowUserCreation == true)
             {
                 RegisterNewUser();
             }
-           
 
 
             /*  
@@ -70,9 +76,7 @@ namespace Kudomion
               else
                   RegisterNewUser();
               await DisplayAlert("Success!", "User Registered Succesffully!", "OK!");
-              userName.Text = string.Empty;
-              password.Text = string.Empty;
-              confirmPassword.Text = string.Empty;   */
+                 */
         }
 
         private async void CheckIfUserExist()
@@ -105,35 +109,18 @@ namespace Kudomion
             }
         }
 
-        async void RegisterNewUser()
+        private async void RegisterNewUser()
         {
-
+            //Add User To DB.
             await firebase.AddUser(userName.Text, password.Text);
-           /*
-           Deprecated:: Above Code should handle the DB with Firebase.
-            App.MyDatabase.CreateUser(new User
-            {
-                name = userName.Text,
-                password = password.Text,
-                posts = 0,
-                ranking = 0,
-                points = 0,
-                duels = 0,
-                usertype = "User",
-            });*/
-        }
+            await DisplayAlert("Success!", "User Registered Succesffully!", "OK!");
 
-        //Funnctions for re-using later on.
-
-        //1- Show All The Users.
-        private void ShowAllUsers()
-        {
-            //myCollectionView.ItemsSource = await App.MyDatabase.ReadUsers();
+            //Reset Values
+            userName.Text = string.Empty;
+            password.Text = string.Empty;
+            confirmPassword.Text = string.Empty;
         }
 
 
-
-            }
-        }
-
-    
+    }
+}
