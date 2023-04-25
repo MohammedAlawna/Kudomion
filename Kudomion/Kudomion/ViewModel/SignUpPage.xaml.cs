@@ -33,30 +33,42 @@ namespace Kudomion
             List<string> stringsL = new List<string>();
             List<User> allUsers = new List<User>();
 
-            //Check if List of Users Empty..
-            if(allUsers.Count == 0)
+            //RegisterNewUser();
+            
+            //CheckRegisterNewUser(); if List of Users Empty..
+            if (allUsers.Count == 0)
             {
                 allowUserCreation = true;
-                RegisterNewUser();
+                
             }
-            
-          
-          /*  if (password.Text != confirmPassword.Text)
+
+            //Check If Credentials Are Mis-Matched.
+            if (password.Text != confirmPassword.Text)
             {
+                allowUserCreation = false;
                 await DisplayAlert("Password Mismatch!", "Please Make Sure That Passwords Are Match!", "OK!");
             }
 
-            if (string.IsNullOrWhiteSpace(userName.Text) || string.IsNullOrWhiteSpace(password.Text) || string.IsNullOrWhiteSpace(confirmPassword.Text))
+            if(allowUserCreation == true)
             {
-                await DisplayAlert("Invalid", "Whitespace or Blank Value is Invalid.", "OK!");
-
-            }
-            else
                 RegisterNewUser();
-            await DisplayAlert("Success!", "User Registered Succesffully!", "OK!");
-            userName.Text = string.Empty;
-            password.Text = string.Empty;
-            confirmPassword.Text = string.Empty;   */
+            }
+           
+
+
+            /*  
+
+              if (string.IsNullOrWhiteSpace(userName.Text) || string.IsNullOrWhiteSpace(password.Text) || string.IsNullOrWhiteSpace(confirmPassword.Text))
+              {
+                  await DisplayAlert("Invalid", "Whitespace or Blank Value is Invalid.", "OK!");
+
+              }
+              else
+                  RegisterNewUser();
+              await DisplayAlert("Success!", "User Registered Succesffully!", "OK!");
+              userName.Text = string.Empty;
+              password.Text = string.Empty;
+              confirmPassword.Text = string.Empty;   */
         }
 
         private async void CheckIfUserExist()
