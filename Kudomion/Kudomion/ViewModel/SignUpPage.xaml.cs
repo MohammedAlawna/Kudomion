@@ -39,11 +39,12 @@ namespace Kudomion
                 bool isUserExists = false;
                 foreach (User item in allUsers)
                 {
-                    userStrings.Add(item.name);
+                    userStrings.Add(item.name.ToLower());
                 }
 
                 //Assign Bool Value If Exist..
-                isUserExists = userStrings.Contains(userName.Text);
+                //Value of upper should equalize the lower case value:
+                isUserExists = userStrings.Contains(userName.Text.ToLower());
 
                 //Check Point.
                 if (isUserExists)
