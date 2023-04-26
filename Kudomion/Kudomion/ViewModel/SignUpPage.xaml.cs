@@ -28,12 +28,38 @@ namespace Kudomion
         
         private async void SignUpButton_Clicked(object sender, EventArgs e)
         {
-           
-           
             List<string> stringsL = new List<string>();
             List<User> allUsers = await firebase.GetAllUsers();
-            await DisplayAlert("Alert!", $"Number Of Users: ${allUsers.Count}", "OK!");
-            //RegisterNewUser();
+            //await DisplayAlert("Alert!", $"Number Of Users: ${allUsers.Count}", "OK!");
+
+            //Check if User Exists and The !allUsers.Count == 0.
+            List<string> userStrings = new List<string>();
+            if (allUsers.Count > 0)
+            {
+                bool isUserExists = false;
+                foreach (User item in allUsers)
+                {
+                    userStrings.Add(item.name);
+                }
+
+                //Assign Bool Value If Exist..
+                isUserExists = userStrings.Contains(userName.Text);
+
+                //Check Point.
+                if (isUserExists)
+                {
+                    await DisplayAlert("User Exists!", "Sorry. This Name Already Registered, Choose another name..", "OK!");
+                    return;
+                }
+
+                //If User Not Exist Then Add The User.
+                if (!isUserExists)
+                {
+                    RegisterNewUser();
+                }
+               
+
+            }
 
             //Check If Input (User, Pass) is/are Empty.
             if (string.IsNullOrWhiteSpace(userName.Text) || string.IsNullOrWhiteSpace(password.Text) || string.IsNullOrWhiteSpace(confirmPassword.Text))
@@ -55,28 +81,6 @@ namespace Kudomion
             if (allUsers.Count == 0)
             {
                 RegisterNewUser();
-            }
-
-            //Check if User Exists and The !allUsers.Count == 0.
-            List<string> userStrings = new List<string>();
-            if(allUsers.Count > 0)
-            {
-                bool isUserExists = false;
-                foreach (User item in allUsers)
-                {
-                    userStrings.Add(item.name);
-                }
-
-                //Assign Bool Value If Exist..
-                isUserExists = userStrings.Contains(userName.Text);
-
-                //Check Point.
-                if(isUserExists == true)
-                {
-                    await DisplayAlert("User Exists!", "Sorry. This Name Already Registered, Choose another name..", "OK!");
-                    return;
-                }
-
             }
         }
 
