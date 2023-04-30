@@ -52,7 +52,7 @@
             <StackLayout x:Name="posts" IsVisible="false">
                 <Frame BackgroundColor="#323232">
                     <StackLayout>
-                        <Label FontSize="20" FontAttributes="Italic" HorizontalTextAlignment="Center" TextColor="RoyalBlue" Text="Posts Should Appear Here.."/>
+                        <Label FontSize="20" FontAttributes="Italic" HorizontalTextAlignment="Center" TextColor="RoyalBlue" Text="Posts Currently Not Available.."/>
 
                     </StackLayout>
                 </Frame>

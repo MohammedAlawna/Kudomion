@@ -42,6 +42,26 @@ namespace Kudomion.ViewModel
             noRanking.Text = "Ranking: " + getLoggedInUser.ranking.ToString();
         } 
 
+        private async void ShowUserDuels(string username)
+        {
+            FirebaseHelper firebase = new FirebaseHelper();
+            List<Room> allRooms = await firebase.GetAllRooms();
+
+            List<Room> roomsForSpecifiedUser = allRooms.Where(n => n.p1 == username || n.p2 == username).ToList();
+
+            if(roomsForSpecifiedUser.Count == 0 || allRooms.Count == 0)
+            {
+               await DisplayAlert("Room List Alert!", "There are currently no duels for this user!", "OK!");
+               return;
+            }
+
+            if(roomsForSpecifiedUser.Count > 0)
+            {
+                await DisplayAlert("Duels List!", "Username: " + roomsForSpecifiedUser[0].p1 + " , " + roomsForSpecifiedUser[0].p2,"OK!");
+            }
+           
+        }
+
         private void LoadPickerItems()
         {
             userStatPicker.Items.Add("Stats");
@@ -69,7 +89,7 @@ namespace Kudomion.ViewModel
                 if(userStatPicker.SelectedIndex == 1)
                 {
                     //TODO Show user Duels.
-                    
+                    ShowUserDuels(loggedInUsername.Text);
 
                     //Switch Visibility for StackLayout.
                     stats.IsVisible = false;
