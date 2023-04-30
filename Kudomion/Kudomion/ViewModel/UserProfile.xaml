@@ -43,8 +43,31 @@
             <StackLayout x:Name="duels" IsVisible="false">
                 <Frame BackgroundColor="#323232">
                     <StackLayout>
-                        <Label FontSize="20" FontAttributes="Italic" HorizontalTextAlignment="Center" TextColor="RoyalBlue" Text="Duels List Should Appear Here.."/>
+                        <CollectionView x:Name="userDuels">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <Frame BorderColor="Black" BackgroundColor="RoyalBlue" HorizontalOptions="CenterAndExpand">
+                                        <StackLayout HorizontalOptions="CenterAndExpand">
+                                            <Grid Padding="5">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition/>
+                                                </Grid.RowDefinitions>
 
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition/>
+                                                </Grid.ColumnDefinitions>
+
+                                                <Label Text="{Binding p1}" FontAttributes="Bold" FontSize="20" HorizontalTextAlignment="Center" TextColor="White" Grid.Column="0" Grid.Row="0"/>
+                                                <Label Text="{Binding p2}" FontAttributes="Bold" FontSize="20" HorizontalTextAlignment="Center" TextColor="White" Grid.Column="2" Grid.Row="0"/>
+                                                <Image Source="btle" WidthRequest="5" HeightRequest="5" Grid.Column="1" Grid.Row="0"/>
+                                            </Grid>
+                                        </StackLayout>
+                                    </Frame>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
                     </StackLayout>
                 </Frame>
             </StackLayout>

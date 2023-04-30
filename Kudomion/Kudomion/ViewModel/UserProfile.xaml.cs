@@ -58,6 +58,7 @@ namespace Kudomion.ViewModel
             if(roomsForSpecifiedUser.Count > 0)
             {
                 await DisplayAlert("Duels List!", "Username: " + roomsForSpecifiedUser[0].p1 + " , " + roomsForSpecifiedUser[0].p2,"OK!");
+                userDuels.ItemsSource = roomsForSpecifiedUser;
             }
            
         }
