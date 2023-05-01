@@ -1,12 +1,43 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Kudomion.ViewModel.NewsFeed">
+             x:Class="Kudomion.ViewModel.NewsFeed"
+             BackgroundImageSource="bgkd"
+             >
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Frame BackgroundColor="#1c1c1c">
+                <StackLayout>
+                    <CollectionView x:Name="postsInNewsFeed">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Frame BorderColor="black" BackgroundColor="RoyalBlue" HorizontalOptions="CenterAndExpand">
+                                    <StackLayout HorizontalOptions="CenterAndExpand">
+                                        <Grid Padding="5">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition/>
+                                                <RowDefinition/>
+                                                <RowDefinition />
+                                            </Grid.RowDefinitions>
+
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition/>
+                                             
+                                            </Grid.ColumnDefinitions>
+
+                                            <Label Text="Text For Post"/>
+                                            <!--Image for Post (If exits!)-->
+                                            <Image Source="sr" /> 
+                                            <!--Reaction Item Frame (if not exits, it counts 0)-->
+                                            <ImageButton />
+                                        </Grid>
+                                    </StackLayout>
+                                </Frame>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </StackLayout>
+            </Frame>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
