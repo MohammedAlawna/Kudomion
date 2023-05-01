@@ -5,18 +5,21 @@
              BackgroundImageSource="bgkd"
              >
     <ContentPage.Content>
-        <StackLayout HorizontalOptions="Center">
+        <StackLayout>
+            
+            <StackLayout>
             <Image Source="prfle" Margin="10" HeightRequest="110"/>
             <Label FontAttributes="Bold" HorizontalOptions="CenterAndExpand" TextColor="White" Text="Kudo Shinichi" x:Name="loggedInUsername" FontSize="20"/>
-
-                       <StackLayout Orientation="Horizontal">
-                <Image WidthRequest="75" HorizontalOptions="Start" x:Name="invDuel" Source="btlebtn">
+            </StackLayout>
+            
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                <Image WidthRequest="75" HorizontalOptions="Center" x:Name="invDuel" Source="btlebtn">
                     <Image.GestureRecognizers>
                         <TapGestureRecognizer Tapped="InviteToDuelClicked"/>
                     </Image.GestureRecognizers>
                 </Image>
 
-                <Image WidthRequest="75" x:Name="chatReq" Source="chtbtn">
+                <Image WidthRequest="75" HorizontalOptions="Center" x:Name="chatReq" Source="chtbtn">
                     <Image.GestureRecognizers>
                         <TapGestureRecognizer Tapped="SendChatRequest"/>
                     </Image.GestureRecognizers>
@@ -25,11 +28,11 @@
             </StackLayout>
 
             <StackLayout Orientation="Vertical">
-                <Picker SelectedIndex="1" x:Name="userStatPicker" TextColor="White" BackgroundColor="#323232"/>
+                <Picker Margin="5" SelectedIndex="1" x:Name="userStatPicker" TextColor="White" BackgroundColor="#323232"/>
             </StackLayout>
 
             <StackLayout x:Name="stats" IsVisible="false">
-                <Frame BackgroundColor="#323232">
+                <Frame Margin="5" BackgroundColor="#323232">
                     <StackLayout>
                         <Label x:Name="noDuels" FontSize="20" FontAttributes="Italic" HorizontalTextAlignment="Center" TextColor="RoyalBlue" Text="Duels: 0"/>
                         <Label x:Name="noPoints" FontSize="20" FontAttributes="Italic" HorizontalTextAlignment="Center" TextColor="RoyalBlue" Text="Points: 0"/>
@@ -41,7 +44,7 @@
             </StackLayout>
 
             <StackLayout x:Name="duels" IsVisible="false">
-                <Frame BackgroundColor="#323232">
+                <Frame Margin="5" BackgroundColor="#323232">
                     <StackLayout>
                         <CollectionView x:Name="userDuels">
                             <CollectionView.ItemTemplate>
@@ -73,7 +76,7 @@
             </StackLayout>
 
             <StackLayout x:Name="posts" IsVisible="false">
-                <Frame BackgroundColor="#323232">
+                <Frame Margin="5" BackgroundColor="#323232">
                     <StackLayout>
                         <Label FontSize="20" FontAttributes="Italic" HorizontalTextAlignment="Center" TextColor="RoyalBlue" Text="Posts Currently Not Available.."/>
 
@@ -82,7 +85,7 @@
             </StackLayout>
 
             <StackLayout x:Name="signature" IsVisible="false">
-                <Frame BackgroundColor="#323232">
+                <Frame Margin="5" BackgroundColor="#323232">
                     <StackLayout>
                         <Label FontSize="20" FontAttributes="Italic" HorizontalTextAlignment="Center" TextColor="RoyalBlue" Text="Signature Currently Not Available."/>
 
