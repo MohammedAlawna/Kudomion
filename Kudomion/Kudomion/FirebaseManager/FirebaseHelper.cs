@@ -321,6 +321,20 @@ namespace Kudomion.FirebaseManager
 
         }
 
+        //News Feed Related Functions.
+        //1- GetAllPosts(): Retrieve all posts in the DB (to list then in news feed)
+        public async Task<List<Post>> GetAllPosts()
+        {
+            return (await firebaseClient.Child("Posts").OnceAsync<Post>()).Select(post => new Post
+            {
+                content = post.Object.content,
+                YGOGoodReaction = post.Object.YGOGoodReaction,
+                imageSource = post.Object.imageSource,
+            }).ToList();
+        }
+
+        // 2- Create Post:: Admin/Mods Privelleges Only!
+
     
     }
 }
