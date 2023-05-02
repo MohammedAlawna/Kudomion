@@ -334,6 +334,21 @@ namespace Kudomion.FirebaseManager
         }
 
         // 2- Create Post:: Admin/Mods Privelleges Only!
+        public async Task<bool> AddPost(Post postToAdd)
+        {
+            try
+            {
+                await firebaseClient.Child("Posts").PostAsync(postToAdd);
+                return true;
+            }
+            catch(Exception e)
+            {
+                Debug.WriteLine($"Error: {e}");
+                return false;
+            }
+        }
+
+        //TODOS: 3- Edit Post, 4- Delete Post.
 
     
     }

@@ -49,7 +49,7 @@ namespace Kudomion
 
         private async void Post_Tapped(object sender, EventArgs e)
         {     
-            await Navigation.PushAsync(new Posts());
+            await Navigation.PushAsync(new NewsFeed());
         }
 
         private async void Lobby_Tapped(object sender, EventArgs e)
