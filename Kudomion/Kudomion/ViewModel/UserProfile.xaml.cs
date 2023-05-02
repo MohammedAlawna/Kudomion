@@ -45,7 +45,7 @@ namespace Kudomion.ViewModel
         private async void ShowUserDuels(string username)
         {
             FirebaseHelper firebase = new FirebaseHelper();
-            List<Room> allRooms = await firebase.GetAllRooms();
+            List<Room> allRooms = await firebase.GetAllRoomsInDB();
 
             List<Room> roomsForSpecifiedUser = allRooms.Where(n => n.p1 == username || n.p2 == username).ToList();
 

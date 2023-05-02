@@ -196,6 +196,31 @@ namespace Kudomion.FirebaseManager
             }
         }
 
+        public async Task<List<Room>> GetAllRoomsInDB()
+        {
+            try
+            {
+                var roomsList = (await firebaseClient.Child("Rooms").OnceAsync<Room>()).Select(item =>
+                new Room
+                {
+                    disabled = item.Object.disabled,
+                    Id = item.Object.Id,
+                    p1 = item.Object.p1,
+                    p2 = item.Object.p2,
+                    winner = item.Object.winner,
+                    isDone = item.Object.isDone,
+                }).ToList();
+                return roomsList;
+
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine($"Error: {e}");
+                return null;
+            }
+        }
+
+
         public async Task<List<Room>> GetAllRMs()
         {
             return await GetAllRooms();

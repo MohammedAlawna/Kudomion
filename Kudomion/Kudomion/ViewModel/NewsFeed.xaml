@@ -22,7 +22,7 @@
 
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition/>
-                                             
+                                            
                                             </Grid.ColumnDefinitions>
 
                                             <Label Text="Text For Post"/>
