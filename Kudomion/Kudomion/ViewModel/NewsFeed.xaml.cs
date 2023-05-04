@@ -17,7 +17,7 @@ namespace Kudomion.ViewModel
         public NewsFeed()
         {
             InitializeComponent();
-            AddPostTrial();
+           // AddPostTrial();
             LoadNewsData();
             
         }
