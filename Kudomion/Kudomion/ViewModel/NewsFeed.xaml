@@ -39,7 +39,10 @@
                                             <!--Image for Post (If exits!)-->
                                             <Image Source="ygb" Grid.RowSpan="6" Grid.Row="2" Grid.Column="0" /> 
                                             <!--Reaction Item Frame (if not exits, it counts 0)-->
-                                            <Image HorizontalOptions="End" Source="emj" Grid.Row="8" Grid.RowSpan="2" />
+                                            <Image HorizontalOptions="Center" Source="emj" Grid.Row="8" Grid.RowSpan="2"/>
+                                            <Label Margin="25,7,0,0" Grid.Row="8" Grid.RowSpan="2" Text="1" FontSize="14" TextColor="White" HorizontalOptions="Center"/>
+
+
 
 
                                             </Grid>

@@ -19,7 +19,6 @@ namespace Kudomion.ViewModel
             InitializeComponent();
            // AddPostTrial();
             LoadNewsData();
-            
         }
 
         async void LoadNewsData()
