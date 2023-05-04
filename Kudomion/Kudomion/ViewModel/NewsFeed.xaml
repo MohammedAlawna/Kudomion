@@ -6,33 +6,41 @@
              >
     <ContentPage.Content>
         <StackLayout>
-            <Frame BackgroundColor="#1c1c1c">
+            <Frame BackgroundColor="#313338">
                 <StackLayout>
                     <CollectionView x:Name="postsInNewsFeed">
-                        <CollectionView.ItemTemplate>
-                            <DataTemplate>
-                                <Frame BorderColor="black" BackgroundColor="RoyalBlue" HorizontalOptions="CenterAndExpand">
-                                    <StackLayout HorizontalOptions="CenterAndExpand">
-                                        <Grid Padding="5">
+                      
+                        <CollectionView.ItemTemplate >
+                            <DataTemplate >
+                                <StackLayout Margin="7">
+                                    <Frame  BorderColor="DarkGray" BackgroundColor="#303030" HorizontalOptions="CenterAndExpand">
+                                    <StackLayout HeightRequest="170" HorizontalOptions="CenterAndExpand">
+                                        <Grid >
                                             <Grid.RowDefinitions>
                                                 <RowDefinition/>
                                                 <RowDefinition/>
                                                 <RowDefinition />
+                                                <RowDefinition />
+                                                
                                             </Grid.RowDefinitions>
 
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition/>
                                             
                                             </Grid.ColumnDefinitions>
-
-                                            <Label Text="Text For Post"/>
+                                           
+                                              
+                                            <Label Grid.Row="0" Grid.Column="0" FontSize="13" TextColor="White" Text="Hello Duelists. New Tournament Available."/>
                                             <!--Image for Post (If exits!)-->
-                                            <Image Source="sr" /> 
+                                            <Image HeightRequest="500" Source="ygb" Grid.RowSpan="4" Grid.Row="1" Grid.Column="0" /> 
                                             <!--Reaction Item Frame (if not exits, it counts 0)-->
-                                            <ImageButton />
+                                            <!--<ImageButton Grid.Column="0" Grid.Row="3" />-->
+                                              
+                                           
                                         </Grid>
                                     </StackLayout>
                                 </Frame>
+                                </StackLayout>
                             </DataTemplate>
                         </CollectionView.ItemTemplate>
                     </CollectionView>

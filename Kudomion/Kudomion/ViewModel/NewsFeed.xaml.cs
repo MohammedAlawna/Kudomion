@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Kudomion.FirebaseManager;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,9 +13,30 @@ namespace Kudomion.ViewModel
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class NewsFeed : ContentPage
     {
+        FirebaseHelper firebase = new FirebaseHelper(); 
         public NewsFeed()
         {
             InitializeComponent();
+            AddPostTrial();
+            LoadNewsData();
+            
+        }
+
+        async void LoadNewsData()
+        {
+            postsInNewsFeed.ItemsSource = await firebase.GetAllPosts();
+        }
+
+        async void AddPostTrial()
+        {
+            Post _postToAdd = new Post
+            {
+                content = "Welcome Duelists!",
+                imageSource = "",
+                YGOGoodReaction = 0
+            };
+
+            await firebase.AddPost(_postToAdd);
         }
     }
 }
