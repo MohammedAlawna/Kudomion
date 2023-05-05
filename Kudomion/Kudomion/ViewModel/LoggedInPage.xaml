@@ -8,9 +8,9 @@
             BackgroundColor="#202024"
             >
     
-    <local:Home Title="Home"  IconImageSource="Home"/>
-    <local1:NewsFeed Title="News" IconImageSource="Posts"/>
-    <local:Challenges Title="Lobby" IconImageSource="Lobby"/>
+    <local:Home Title=""  IconImageSource="hme"/>
+    <local1:NewsFeed Title="" IconImageSource="newss"/>
+    <local:Challenges Title="" IconImageSource="btlic"/>
     <local:Leaderboard Title="Ranking" IconImageSource="Rnke"/>
 
 

@@ -670,3 +670,4 @@ D:\OGRE Tech CO\Kudomion\Kudomion\Kudomion\Kudomion.Android\obj\Debug\110\androi
 D:\OGRE Tech CO\Kudomion\Kudomion\Kudomion\Kudomion.Android\obj\Debug\110\androidx\proguard\f2b40ddd-6797-42e4-b6b4-b530022498ad.txt
 D:\OGRE Tech CO\Kudomion\Kudomion\Kudomion\Kudomion.Android\obj\Debug\110\res\drawable\ygb.jpg
 D:\OGRE Tech CO\Kudomion\Kudomion\Kudomion\Kudomion.Android\obj\Debug\110\res\drawable\emj.png
+D:\OGRE Tech CO\Kudomion\Kudomion\Kudomion\Kudomion.Android\obj\Debug\110\res\drawable\btlic.png
