@@ -9,7 +9,7 @@
             >
     
     <local:Home Title="Home"  IconImageSource="Home"/>
-    <local1:NewsFeed Title="Posts" IconImageSource="Posts"/>
+    <local1:NewsFeed Title="News" IconImageSource="Posts"/>
     <local:Challenges Title="Lobby" IconImageSource="Lobby"/>
     <local:Leaderboard Title="Ranking" IconImageSource="Rnke"/>
 

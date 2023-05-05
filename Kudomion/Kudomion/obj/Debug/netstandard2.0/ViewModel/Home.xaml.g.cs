@@ -12,7 +12,6 @@
 
 namespace Kudomion {
     
-    
     [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("ViewModel\\Home.xaml")]
     public partial class Home : global::Xamarin.Forms.ContentPage {
         
