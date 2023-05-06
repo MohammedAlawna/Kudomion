@@ -4,7 +4,7 @@
              x:Class="Kudomion.ViewModel.NotificationsPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Notifications Page!"
+            <Label TextColor="White" Text="Welcome to Notifications Page!"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
         </StackLayout>

@@ -671,3 +671,7 @@ D:\OGRE Tech CO\Kudomion\Kudomion\Kudomion\Kudomion.Android\obj\Debug\110\androi
 D:\OGRE Tech CO\Kudomion\Kudomion\Kudomion\Kudomion.Android\obj\Debug\110\res\drawable\ygb.jpg
 D:\OGRE Tech CO\Kudomion\Kudomion\Kudomion\Kudomion.Android\obj\Debug\110\res\drawable\emj.png
 D:\OGRE Tech CO\Kudomion\Kudomion\Kudomion\Kudomion.Android\obj\Debug\110\res\drawable\btlic.png
+D:\OGRE Tech CO\Kudomion\Kudomion\Kudomion\Kudomion.Android\obj\Debug\110\res\drawable\hme.png
+D:\OGRE Tech CO\Kudomion\Kudomion\Kudomion\Kudomion.Android\obj\Debug\110\res\drawable\newss.png
+D:\OGRE Tech CO\Kudomion\Kudomion\Kudomion\Kudomion.Android\obj\Debug\110\res\drawable\rnke.png
+D:\OGRE Tech CO\Kudomion\Kudomion\Kudomion\Kudomion.Android\obj\Debug\110\res\drawable\notif.png
