@@ -11,6 +11,7 @@
         "dependencies": {
           "FirebaseDatabase.net": "4.2.0",
           "NETStandard.Library": "2.0.3",
+          "Plugin.FirebasePushNotification": "3.4.35",
           "Xamarin.Essentials": "1.7.5",
           "Xamarin.Forms": "5.0.0.2578",
           "sqlite-net-pcl": "1.8.116"
@@ -56,6 +57,14 @@
           "lib/netstandard2.0/Newtonsoft.Json.dll": {
             "assemblyVersion": "13.0.0.0",
             "fileVersion": "13.0.1.25517"
+          }
+        }
+      },
+      "Plugin.FirebasePushNotification/3.4.35": {
+        "runtime": {
+          "lib/netstandard2.0/Plugin.FirebasePushNotification.dll": {
+            "assemblyVersion": "3.3.0.0",
+            "fileVersion": "3.3.0.0"
           }
         }
       },
@@ -298,6 +307,13 @@
       "sha512": "sha512-ppPFpBcvxdsfUonNcvITKqLl3bqxWbDCZIzDWHzjpdAHRFfZe0Dw9HmA0+za13IdyrgJwpkDTDA9fHaxOrt20A==",
       "path": "newtonsoft.json/13.0.1",
       "hashPath": "newtonsoft.json.13.0.1.nupkg.sha512"
+    },
+    "Plugin.FirebasePushNotification/3.4.35": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-utbKf6Lp89dla6/q82BVMejBnIlUsCXCgtVDW2e4+laqHsWv5yQLp1jX7qHI1poRxwbYvjy9lM/Y5cnf6GF/5Q==",
+      "path": "plugin.firebasepushnotification/3.4.35",
+      "hashPath": "plugin.firebasepushnotification.3.4.35.nupkg.sha512"
     },
     "sqlite-net-pcl/1.8.116": {
       "type": "package",
